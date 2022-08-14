@@ -4,15 +4,13 @@
 
 .background {
   display: flex;
-  flex-direction: row;
-  height: 500px;
-  width: 900px;
+  height: 600px;
+  width: 1000px;
   background-color: #b4213a;
 }
 
 .main-container {
-  height: inherit;
-  width: inherit;
+  width: 75%;
   background-color: white;
-  border-radius: 3px;
+  border-radius: 15px;
 }
