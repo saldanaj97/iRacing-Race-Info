@@ -10,11 +10,10 @@ const AppHeader = () => {
     <AppBar position='static' elevation={8} sx={{ flexDirection: "row", backgroundColor: "white", borderRadius: "15px", height: "10%" }}>
       <Container maxWidth='xl' sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
         <Container className='title' sx={{ display: "flex", alignItems: "center", height: "100%" }}>
-          <Typography variant='h6' sx={{ mr: 2, display: { xs: "none", md: "flex" }, fontWeight: 700, color: "black", textDecoration: "none" }}>
-            Race Planner
-          </Typography>
+          <Typography sx={{ mr: 2, display: { xs: "none", md: "flex" }, fontWeight: 700, color: "black" }}>Weekly Races</Typography>
         </Container>
 
+        <Container sx={{ display: "flex", color: "Black", justifyContent: "flex-end" }}>Ricky Bobby</Container>
         <IconButton className='avatar-button' sx={{ display: "flex", alignContent: "flex-end" }}>
           <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
         </IconButton>
