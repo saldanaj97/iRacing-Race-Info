@@ -22,7 +22,7 @@ const Sidebar = () => {
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad, AiOutlineLineChart];
 
   return (
-    <Container disableGutters='true' className='sidebar' sx={{ display: "flex", flexDirection: "column", backgroundColor: "#b4213a", width: "25%", borderRadius: "15px" }}>
+    <Container disableGutters='true' className='sidebar' sx={{ display: "flex", flexDirection: "column", backgroundColor: "#FE1616", width: "25%", borderRadius: "15px" }}>
       <Box className='site-title' sx={{ display: "flex", fontSize: "20px", fontWeight: "700", height: "10%", color: "white", justifyContent: "center", marginTop: "15px", paddingTop: "10px" }}>
         iRacing Season Lineup
       </Box>
