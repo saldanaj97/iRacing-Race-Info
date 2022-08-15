@@ -8,7 +8,7 @@ import Avatar from "@mui/material/Avatar";
 const AppHeader = () => {
   return (
     <AppBar position='static' elevation={8} sx={{ flexDirection: "row", backgroundColor: "white", borderRadius: "15px", height: "10%" }}>
-      <Container maxWidth='xl' sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
+      <Container disableGutters='true' maxWidth='xl' sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
         <Container className='title' sx={{ display: "flex", alignItems: "center", height: "100%" }}>
           <Typography sx={{ mr: 2, display: { xs: "none", md: "flex" }, fontSize: "20px", fontWeight: 600, color: "black" }}>Races</Typography>
         </Container>
