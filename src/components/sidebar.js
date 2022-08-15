@@ -6,7 +6,6 @@ import { GiF1Car } from "react-icons/gi";
 import { FaFlagCheckered } from "react-icons/fa";
 import { BsCardChecklist } from "react-icons/bs";
 import { AiOutlineLineChart } from "react-icons/ai";
-import { MdOutlineSportsMotorsports } from "react-icons/md";
 import { GiRoad } from "react-icons/gi";
 
 const Sidebar = () => {
@@ -19,6 +18,7 @@ const Sidebar = () => {
     results: "Results",
   };
 
+  // These icons will coinside with the sidebar options from above
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad, AiOutlineLineChart];
 
   return (
@@ -33,7 +33,7 @@ const Sidebar = () => {
               <Box className='icon' sx={{ display: "flex", flexDirection: "column", justifyContent: "center", color: "white" }}>
                 <Icon as={sideBarIcons[i]} />
               </Box>
-              <Box key={i} sx={{ display: "flex", margin: "15px", fontSize: "18px", fontWeight: "500", color: "white" }}>
+              <Box className='menu-options' key={i} sx={{ display: "flex", margin: "15px", fontSize: "16px", fontWeight: "500", color: "white" }}>
                 {option}
               </Box>
             </Box>
