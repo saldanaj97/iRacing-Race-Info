@@ -1,16 +1,4 @@
-.App {
-  text-align: center;
-}
-
 .background {
-  display: flex;
   height: 600px;
   width: 1000px;
-  background-color: #b4213a;
-}
-
-.main-container {
-  width: 75%;
-  background-color: white;
-  border-radius: 15px;
 }
