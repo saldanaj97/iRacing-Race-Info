@@ -67,7 +67,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
   width: drawerWidth,
   flexShrink: 0,
   whiteSpace: "nowrap",
-  backgroundColor: "#2b2d42",
   ...(open && {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": openedMixin(theme),
@@ -106,7 +105,7 @@ export default function MiniDrawer() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer className='sidebar' variant='permanent' open={open} sx={{ backgroundColor: "#2b2d42" }}>
+      <Drawer className='sidebar' variant='permanent' open={open} sx={{ backgroundColor: "white" }}>
         <DrawerHeader>
           <Box className='site-title' sx={{ fontSize: "18px", fontWeight: "700", color: "white", justifyContent: "center" }}>
             iRacing Season Lineup

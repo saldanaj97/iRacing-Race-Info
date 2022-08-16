@@ -3,15 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: hsla(235, 56%, 81%, 1);
-
-  background: linear-gradient(0deg, hsla(235, 56%, 81%, 1) 0%, hsla(225, 21%, 74%, 1) 43%, hsla(229, 9%, 55%, 1) 88%);
-
-  background: -moz-linear-gradient(0deg, hsla(235, 56%, 81%, 1) 0%, hsla(225, 21%, 74%, 1) 43%, hsla(229, 9%, 55%, 1) 88%);
-
-  background: -webkit-linear-gradient(0deg, hsla(235, 56%, 81%, 1) 0%, hsla(225, 21%, 74%, 1) 43%, hsla(229, 9%, 55%, 1) 88%);
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#B2B7E9", endColorstr="#AFB6CB", GradientType=1 );
+  background-color: white;
 }
 
 code {
