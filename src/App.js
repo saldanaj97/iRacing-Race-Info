@@ -4,6 +4,7 @@ import SearchAndFilterBar from "./components/searchandfilter";
 
 import "./App.css";
 import MiniDrawer from "./components/minidrawer";
+import Data from "./components/datatable";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Weekly</Typography>
         <Box className='search-bar' sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
           <SearchAndFilterBar />
+        </Box>
+        <Box className='data-table' sx={{ display: "flex", width: "100%", margin: "25px 0px", justifyContent: "center" }}>
+          <Data />
         </Box>
       </Box>
     </Box>
