@@ -56,7 +56,7 @@ export default function CustomizedMenu({ menuItems }) {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
-        sx={{ display: "flex", justifyContent: "space-between", color: "black", borderColor: "grey.400", width: "50%" }}
+        sx={{ display: "flex", justifyContent: "space-between", color: "black", borderColor: "grey.400", width: "80%" }}
       >
         All
       </Button>
