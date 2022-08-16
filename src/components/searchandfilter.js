@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "@mui/system";
 import { Box, FormControl, Paper, TextField, InputAdornment, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import CustomizedMenu from "./dropdownFilterMenu";
+import CustomizedMenu from "./dropdownmenu";
 
 const SearchAndFilterBar = () => {
   return (
