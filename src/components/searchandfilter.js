@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const SearchAndFilterBar = () => {
   return (
-    <Paper elevation={8} sx={{ borderRadius: "15px", height: "15%" }}>
+    <Paper elevation={8} sx={{ borderRadius: "15px", width: "90%", marginTop: "150px" }}>
       <Container className='search-and-filter-container' sx={{ display: "flex", flexDirection: "row" }}>
         <Box className='search-bar' sx={{ display: "flex", flexDirection: "column" }}>
           <Box sx={{ margin: "15px 0 15px 0", color: "black", fontWeight: "500" }}>Looking for a particular series?</Box>
