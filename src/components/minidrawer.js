@@ -97,7 +97,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div' width='100%'>
-            Races
+            Dashboards {">"} Races
           </Typography>
           <Container sx={{ display: "flex", color: "White", justifyContent: "flex-end" }}>Ricky Bobby</Container>
           <IconButton className='avatar-button' sx={{ display: "flex", alignContent: "flex-end" }}>
