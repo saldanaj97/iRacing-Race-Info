@@ -3,6 +3,7 @@ import { Box, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import RaceData from "../data/current-season-schedules.json";
 
+/* Column headers for the table */
 const columns = [
   { field: "license", headerName: "License", width: 70 },
   { field: "category", headerName: "Category", width: 80 },
@@ -73,6 +74,7 @@ const getSeriesData = (weekNum) => {
   return rows;
 };
 
+// Get the data from JSON file and save it to rows for the table
 const rows = getSeriesData(0);
 
 export default function Data() {
