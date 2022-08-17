@@ -1,49 +1,79 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import RaceData from "../data/current-season-schedules.json";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { field: "license", headerName: "License", width: 70 },
+  { field: "category", headerName: "Category", width: 80 },
   {
-    field: "firstName",
-    headerName: "First name",
-    width: 150,
+    field: "seriesName",
+    headerName: "Series",
+    width: 250,
     editable: true,
   },
   {
-    field: "lastName",
-    headerName: "Last name",
-    width: 150,
+    field: "cars",
+    headerName: "Cars",
+    width: 100,
     editable: true,
   },
   {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    width: 110,
+    field: "track",
+    headerName: "Track",
+    width: 250,
     editable: true,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
+    field: "duration",
+    headerName: "Duration",
+    width: 80,
     sortable: false,
-    width: 160,
-    valueGetter: (params) => `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+    editable: true,
+  },
+  {
+    field: "setup",
+    headerName: "Fixed",
+    description: "This column has a value getter and is not sortable.",
+    width: 80,
   },
 ];
 
-const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-];
+/* Function that will take in the number of minutes and convert to hours and min
+  Parameters: min - the number of min
+  Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
+*/
+const timeConvert = (min) => {
+  var num = min;
+  var hours = num / 60;
+  var hoursRounded = Math.floor(hours);
+  var min = Math.round(hours - hoursRounded) * 60;
+  var minRounded = Math.floor(min);
+  return hoursRounded === 0 ? minRounded + " m" : hoursRounded + "h " + minRounded + "m";
+};
+
+/* Function that will gather all the data into an array of objects from the imported JSON file containing season data
+  Parameters: weekNum - this will represent the week number 
+  Returns: an array containing data for all of the series taking place on the weekNum provided 
+*/
+const getSeriesData = (weekNum) => {
+  const rows = [];
+  Object.values(RaceData).map((series) => {
+    let id = series.series_id;
+    let license = series.license_group;
+    let category = series.schedule[weekNum].track.category;
+    let seriesName = series.series_name;
+    let cars = series.car_class_ids;
+    let track = series.schedule[weekNum].track.track_name;
+    let duration = series.schedule[weekNum].race_time_limit !== null ? timeConvert(series.schedule[weekNum].race_time_limit) : series.schedule[weekNum].race_lap_limit + " L";
+    let setup = series.fixed_setup;
+
+    rows.push({ id, license, category, seriesName, cars, track, duration, setup });
+  });
+  return rows;
+};
+
+const rows = getSeriesData(0);
 
 export default function Data() {
   return (
