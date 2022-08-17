@@ -40,6 +40,15 @@ const columns = [
   },
 ];
 
+// This will be used to convert a license number to the actual ingame license
+const licenses = {
+  1: "R",
+  2: "D",
+  3: "C",
+  4: "B",
+  5: "A",
+};
+
 /* Function that will take in the number of minutes and convert to hours and min
   Parameters: min - the number of min
   Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
@@ -61,7 +70,7 @@ const getSeriesData = (weekNum) => {
   const rows = [];
   Object.values(RaceData).map((series) => {
     let id = series.series_id;
-    let license = series.license_group;
+    let license = licenses[series.license_group];
     let category = series.schedule[weekNum].track.category;
     let seriesName = series.series_name;
     let cars = series.car_class_ids;
