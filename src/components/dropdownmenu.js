@@ -37,7 +37,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function CustomizedMenu({ menuItems, selectedValue, setSelectedValue }) {
+export default function CustomizedMenu({ menuItems, setSelectedValue }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
