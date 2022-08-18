@@ -37,7 +37,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function CustomizedMenu({ menuItems }) {
+export default function CustomizedMenu({ menuItems, selectedValue, setSelectedValue }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -58,12 +58,18 @@ export default function CustomizedMenu({ menuItems }) {
         endIcon={<KeyboardArrowDownIcon />}
         sx={{ display: "flex", justifyContent: "space-between", color: "black", borderColor: "grey.400", width: "80%" }}
       >
-        All
+        {menuItems[0]}
       </Button>
       <StyledMenu id='item-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>
         {menuItems.map((category) => {
           return (
-            <MenuItem onClick={handleClose} disableRipple>
+            <MenuItem
+              onClick={(e) => {
+                setSelectedValue(category);
+                handleClose();
+              }}
+              disableRipple
+            >
               {category}
             </MenuItem>
           );
