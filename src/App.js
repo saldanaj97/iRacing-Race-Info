@@ -4,7 +4,7 @@ import SearchAndFilterBar from "./components/searchandfilter";
 
 import "./App.css";
 import MiniDrawer from "./components/minidrawer";
-import Data from "./components/datatable";
+import Data from "./Table/datatable";
 import CustomizedMenu from "./components/dropdownmenu";
 
 function App() {
