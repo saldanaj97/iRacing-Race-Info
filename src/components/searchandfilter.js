@@ -27,15 +27,15 @@ const SearchAndFilterBar = () => {
         </Box>
         <Box className='catergory-dropdown' sx={{ display: "flex", flexDirection: "column", width: "35%" }}>
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>Category</Box>
-          <CustomizedMenu menuItems={["All", "Road", "Oval", "RX", "Dirt"]} />
+          <CustomizedMenu menuItems={["All", "Road", "Oval", "RX", "Dirt"]} dropdownID={"categoryFilter"} />
         </Box>
         <Box className='license-dropdown' sx={{ display: "flex", flexDirection: "column", width: "35%" }}>
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>License</Box>
-          <CustomizedMenu menuItems={["All", "A", "B", "C", "D", "R"]} />
+          <CustomizedMenu menuItems={["All", "A", "B", "C", "D", "R"]} dropdownID={"licenseFilter"} />
         </Box>
         <Box className='license-dropdown' sx={{ display: "flex", flexDirection: "column", width: "35%" }}>
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>Owned</Box>
-          <CustomizedMenu menuItems={["All", "Owned", "Not Owned"]} />
+          <CustomizedMenu menuItems={["Both", "Yes", "No"]} dropdownID={"ownedContentFilter"} />
         </Box>
         <Box className='filter-button' sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <Button variant='contained' sx={{ backgroundColor: "#2b2d42", height: "40%" }}>

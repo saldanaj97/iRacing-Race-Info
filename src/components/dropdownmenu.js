@@ -5,6 +5,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { WeekContext } from "../contexts/WeekContext";
+import { FilterContext } from "../contexts/FilterContext";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -40,7 +41,8 @@ const StyledMenu = styled((props) => (
 
 export default function CustomizedMenu({ menuItems, dropdownID }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const { setWeekNum } = useContext(WeekContext);
+  const { weekNum, setWeekNum } = useContext(WeekContext);
+  const { categoryFilter, licenseFilter, ownedContentFilter, setCategoryFilter, setLicenseFilter, setOwnedContentFilter } = useContext(FilterContext);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -49,7 +51,18 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
 
   const handleClose = (dropdownSelection) => {
     if (dropdownID === "weekNumber") setWeekNum(dropdownSelection);
+    if (dropdownID === "categoryFilter") setCategoryFilter(dropdownSelection);
+    if (dropdownID === "licenseFilter") setLicenseFilter(dropdownSelection);
+    if (dropdownID === "ownedContentFilter") setOwnedContentFilter(dropdownSelection);
     setAnchorEl(null);
+  };
+
+  // Handle updating the value that is displayed on the dropdown menu when a value has been selected
+  const handleDropdownOptionRender = () => {
+    if (dropdownID === "weekNumber") return weekNum;
+    if (dropdownID === "categoryFilter") return categoryFilter;
+    if (dropdownID === "licenseFilter") return licenseFilter;
+    if (dropdownID === "ownedContentFilter") return ownedContentFilter;
   };
 
   return (
@@ -63,7 +76,7 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
         endIcon={<KeyboardArrowDownIcon />}
         sx={{ display: "flex", justifyContent: "space-between", color: "black", borderColor: "grey.400", width: "80%" }}
       >
-        {menuItems[0]}
+        {handleDropdownOptionRender()}
       </Button>
       <StyledMenu id='item-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>
         {menuItems.map((dropdownSelection) => {
