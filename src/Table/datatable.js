@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Box, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { WeekContext } from "../contexts/WeekContext";
@@ -51,8 +51,8 @@ const columns = [
   Parameters: min - the number of min
   Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
 */
-const timeConvert = (min) => {
-  var num = min;
+const timeConvert = (mins) => {
+  var num = mins;
   var hours = num / 60;
   var hoursRounded = Math.floor(hours);
   var min = Math.round(hours - hoursRounded) * 60;
@@ -85,7 +85,7 @@ const fixedSetup = {
 
 export default function Data() {
   // Global state for week number
-  const { weekNum, setWeekNum } = useContext(WeekContext);
+  const { weekNum } = useContext(WeekContext);
 
   /* Function that will gather all the data for the cars 
   Parameters: N/A
@@ -139,7 +139,7 @@ export default function Data() {
       });
 
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there was not a race that week)
-      if (track != "") rows.push({ id, license, seriesName, cars, setup, category, track, duration });
+      if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration });
     });
     return rows;
   };

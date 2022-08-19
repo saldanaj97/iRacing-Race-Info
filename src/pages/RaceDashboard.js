@@ -8,7 +8,7 @@ import Data from "../table/datatable";
 import "../App.css";
 
 const RaceDashboard = () => {
-  const { weekNum, setWeekNum } = useContext(WeekContext);
+  const { weekNum } = useContext(WeekContext);
 
   return (
     <Box className='page-container' sx={{ display: "flex", justifyContent: "center" }}>
@@ -21,7 +21,7 @@ const RaceDashboard = () => {
         <Box className='week-display' sx={{ display: "flex", flexDirection: "row" }}>
           <Typography sx={{ width: "100%", margin: "25px 0px 0px 25px", fontSize: "30px", fontWeight: 500 }}>Week {weekNum}</Typography>
           <Box className='week-picker' sx={{ margin: "25px 15px 5px 0px", width: "15%" }}>
-            <CustomizedMenu menuItems={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]} />
+            <CustomizedMenu menuItems={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]} dropdownID={"weekNumber"} />
           </Box>
         </Box>
         <Box className='data-table' sx={{ display: "flex", width: "100%", margin: "10px 0px", justifyContent: "center" }}>

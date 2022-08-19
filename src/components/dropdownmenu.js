@@ -40,7 +40,7 @@ const StyledMenu = styled((props) => (
 
 export default function CustomizedMenu({ menuItems, dropdownID }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const { weekNum, setWeekNum } = useContext(WeekContext);
+  const { setWeekNum } = useContext(WeekContext);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -48,7 +48,7 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
   };
 
   const handleClose = (dropdownSelection) => {
-    setWeekNum(dropdownSelection);
+    if (dropdownID === "weekNumber") setWeekNum(dropdownSelection);
     setAnchorEl(null);
   };
 
