@@ -1,0 +1,902 @@
+[
+    {
+        "id": 0,
+        "name": "Hosted All Cars Class",
+        "shortName": "Hosted All Cars"
+    },
+    {
+        "id": 1,
+        "name": "Skip Barber Race Series",
+        "shortName": "SBRS"
+    },
+    {
+        "id": 2,
+        "name": "SK Modified",
+        "shortName": "SK Modified"
+    },
+    {
+        "id": 3,
+        "name": "Solstice",
+        "shortName": "Solstice"
+    },
+    {
+        "id": 4,
+        "name": "Pro Mazda",
+        "shortName": "Pro Mazda"
+    },
+    {
+        "id": 5,
+        "name": "Legends",
+        "shortName": "Legends"
+    },
+    {
+        "id": 12,
+        "name": "Rookie Legends",
+        "shortName": "Rookie Legends"
+    },
+    {
+        "id": 13,
+        "name": "Rookie Solstice",
+        "shortName": "Rookie Solstice"
+    },
+    {
+        "id": 14,
+        "name": "Monte Carlo SS",
+        "shortName": "Late Model"
+    },
+    {
+        "id": 15,
+        "name": "Radical SR8",
+        "shortName": "SR8"
+    },
+    {
+        "id": 16,
+        "name": "Silver Crown",
+        "shortName": "Silver Crown"
+    },
+    {
+        "id": 17,
+        "name": "Silverado",
+        "shortName": "Truck"
+    },
+    {
+        "id": 18,
+        "name": "Riley Daytona Prototype",
+        "shortName": "Riley DP"
+    },
+    {
+        "id": 19,
+        "name": "Impala SS Class A",
+        "shortName": "Cup"
+    },
+    {
+        "id": 20,
+        "name": "Spec Racer Ford",
+        "shortName": "SRF"
+    },
+    {
+        "id": 21,
+        "name": "K&N Series",
+        "shortName": "K&N Series"
+    },
+    {
+        "id": 22,
+        "name": "Lotus 79",
+        "shortName": "Lotus 79"
+    },
+    {
+        "id": 23,
+        "name": "Corvette C6R GT1",
+        "shortName": "C6R GT1"
+    },
+    {
+        "id": 24,
+        "name": "VW Jetta TDI Cup",
+        "shortName": "Jetta TDI"
+    },
+    {
+        "id": 25,
+        "name": "FG01 V8 - circa 2012",
+        "shortName": "V8SC"
+    },
+    {
+        "id": 26,
+        "name": "Dallara IndyCar",
+        "shortName": "IndyCar"
+    },
+    {
+        "id": 28,
+        "name": "Ford Mustang FR500S",
+        "shortName": "FR500S"
+    },
+    {
+        "id": 29,
+        "name": "Whelen Modified",
+        "shortName": " Whelen Modified"
+    },
+    {
+        "id": 30,
+        "name": "Williams FW31",
+        "shortName": "Williams FW31"
+    },
+    {
+        "id": 31,
+        "name": "Mazda MX-5",
+        "shortName": "MX-5"
+    },
+    {
+        "id": 32,
+        "name": "Mazda MX-5 Cup",
+        "shortName": "MX-5 Cup"
+    },
+    {
+        "id": 33,
+        "name": "Mazda MX-5 Roadster",
+        "shortName": "MX-5 Roadster"
+    },
+    {
+        "id": 34,
+        "name": "Street Stock",
+        "shortName": "Street Stock"
+    },
+    {
+        "id": 35,
+        "name": "Sprint Car",
+        "shortName": "Sprint Car"
+    },
+    {
+        "id": 36,
+        "name": "Impala Class B",
+        "shortName": "Impala Class B"
+    },
+    {
+        "id": 40,
+        "name": "HPD ARX-01c",
+        "shortName": "HPD ARX-01c"
+    },
+    {
+        "id": 41,
+        "name": "Ford GT",
+        "shortName": "Ford GT"
+    },
+    {
+        "id": 45,
+        "name": "Cadillac CTS-VR",
+        "shortName": "Cadillac CTS-VR"
+    },
+    {
+        "id": 46,
+        "name": "Lotus 49",
+        "shortName": "Lotus 49"
+    },
+    {
+        "id": 47,
+        "name": "McLaren MP4-12C GT3",
+        "shortName": "MP4-12C"
+    },
+    {
+        "id": 48,
+        "name": "Kia Optima",
+        "shortName": "Kia Optima"
+    },
+    {
+        "id": 49,
+        "name": "Chevrolet SS-Gen6",
+        "shortName": "SS-Gen6"
+    },
+    {
+        "id": 50,
+        "name": "NASCAR Cup",
+        "shortName": "NASCAR Cup"
+    },
+    {
+        "id": 51,
+        "name": "Ford Fusion",
+        "shortName": "Ford Fusion"
+    },
+    {
+        "id": 52,
+        "name": "Ruf RT 12R",
+        "shortName": "Ruf RT 12R"
+    },
+    {
+        "id": 54,
+        "name": "Ruf RT 12R RWD",
+        "shortName": "Ruf RT 12R RWD"
+    },
+    {
+        "id": 55,
+        "name": "Ruf RT 12R Track",
+        "shortName": "Ruf RT 12R Track"
+    },
+    {
+        "id": 56,
+        "name": "Mustang Class B",
+        "shortName": "Mustang Class B"
+    },
+    {
+        "id": 57,
+        "name": "[Legacy] Xfinity Series",
+        "shortName": "[L] Xfinity"
+    },
+    {
+        "id": 58,
+        "name": "Ruf RT12R CSpec",
+        "shortName": "Ruf RT12R CSpec"
+    },
+    {
+        "id": 60,
+        "name": "Super Late Model",
+        "shortName": "Super Late Model"
+    },
+    {
+        "id": 61,
+        "name": "[Legacy] BMW Z4 GT3",
+        "shortName": "[L]  BMW Z4"
+    },
+    {
+        "id": 62,
+        "name": "Toyota Camry-Gen6",
+        "shortName": "Camry-Gen6"
+    },
+    {
+        "id": 63,
+        "name": "Dallara DW12",
+        "shortName": "DW12"
+    },
+    {
+        "id": 64,
+        "name": "Chevrolet Camaro Class B",
+        "shortName": "Camaro Class B"
+    },
+    {
+        "id": 65,
+        "name": "Ford GT GT3",
+        "shortName": "Ford GT GT3"
+    },
+    {
+        "id": 66,
+        "name": "[Legacy] Holden VF Commodore V8",
+        "shortName": "[L] Holden V8"
+    },
+    {
+        "id": 67,
+        "name": "[Legacy] V8Supercars",
+        "shortName": "[L] V8Supercars"
+    },
+    {
+        "id": 68,
+        "name": "[Legacy] Ford Falcon FG V8",
+        "shortName": "[L] Ford FG V8"
+    },
+    {
+        "id": 72,
+        "name": "Aston Martin",
+        "shortName": "Aston Martin"
+    },
+    {
+        "id": 73,
+        "name": "GT1 Class",
+        "shortName": "GT1 Class"
+    },
+    {
+        "id": 74,
+        "name": "Mazda MX-5 Cup 2016",
+        "shortName": "MX5 Cup 2016"
+    },
+    {
+        "id": 76,
+        "name": "Toyota Camry 2015",
+        "shortName": "Camry 2015"
+    },
+    {
+        "id": 77,
+        "name": "Corvette C7 Daytona Prototype",
+        "shortName": "C7 DP"
+    },
+    {
+        "id": 78,
+        "name": "McLaren MP4-30",
+        "shortName": "McLaren MP4-30"
+    },
+    {
+        "id": 80,
+        "name": "Audi R8 GT3",
+        "shortName": "Audi R8 GT3"
+    },
+    {
+        "id": 81,
+        "name": "Formula Renault 2.0",
+        "shortName": "Renault 2.0"
+    },
+    {
+        "id": 82,
+        "name": "[Legacy] GT3 German",
+        "shortName": "[L] GT3 German"
+    },
+    {
+        "id": 83,
+        "name": "Audi 90 GTO",
+        "shortName": "Audi 90 GTO"
+    },
+    {
+        "id": 84,
+        "name": "Nissan GTP",
+        "shortName": "Nissan GTP"
+    },
+    {
+        "id": 85,
+        "name": "Dirt Late Model - Limited",
+        "shortName": "DLM Limited"
+    },
+    {
+        "id": 86,
+        "name": "Dirt Street Stock",
+        "shortName": "Dirt StreetStock"
+    },
+    {
+        "id": 87,
+        "name": "Dirt SprintCar - 305",
+        "shortName": "DSC 305"
+    },
+    {
+        "id": 88,
+        "name": "Ford Fiesta RS WRC",
+        "shortName": "Ford RS WRC"
+    },
+    {
+        "id": 89,
+        "name": "Dirt Legends",
+        "shortName": "Dirt Legends"
+    },
+    {
+        "id": 90,
+        "name": "Dirt Late Model - Pro",
+        "shortName": "DLM Pro"
+    },
+    {
+        "id": 91,
+        "name": "Dirt Late Model - Super",
+        "shortName": "DLM Super"
+    },
+    {
+        "id": 92,
+        "name": "Dirt SprintCar - 360",
+        "shortName": "DSC 360"
+    },
+    {
+        "id": 93,
+        "name": "Dirt Sprintcar - 410",
+        "shortName": "DSC 410"
+    },
+    {
+        "id": 94,
+        "name": "Dirt SprintCar - 410wingless",
+        "shortName": "DSC 410W"
+    },
+    {
+        "id": 95,
+        "name": "[Legacy] Porsche 911 GT3 Cup",
+        "shortName": "[L] Porsche 911"
+    },
+    {
+        "id": 96,
+        "name": "Dirt SprintCar - 360wingless",
+        "shortName": "DSC 360W"
+    },
+    {
+        "id": 97,
+        "name": "VW Beetle GRC",
+        "shortName": "VW Beetle GRC"
+    },
+    {
+        "id": 98,
+        "name": "Ford GT - 2017",
+        "shortName": "Ford GT - 2017"
+    },
+    {
+        "id": 99,
+        "name": "Ferrari 488 GTE",
+        "shortName": "Ferrari 488 GTE"
+    },
+    {
+        "id": 100,
+        "name": "GTE Class",
+        "shortName": "GTE Class"
+    },
+    {
+        "id": 101,
+        "name": "IMSA GT3",
+        "shortName": "IMSA GT3"
+    },
+    {
+        "id": 102,
+        "name": "[Legacy] Ferrari 488 GT3",
+        "shortName": "[L]Ferrari488GT3"
+    },
+    {
+        "id": 103,
+        "name": "Dirt UMP Modified",
+        "shortName": "Dirt UMP Mod"
+    },
+    {
+        "id": 104,
+        "name": "Dirt Midget",
+        "shortName": "Dirt Midget"
+    },
+    {
+        "id": 105,
+        "name": "Rallycross",
+        "shortName": "Rallycross"
+    },
+    {
+        "id": 107,
+        "name": "USAC Sprint",
+        "shortName": "USAC Sprint"
+    },
+    {
+        "id": 113,
+        "name": "Audi R18",
+        "shortName": "Audi R18"
+    },
+    {
+        "id": 114,
+        "name": "[Legacy] GT3 Bathurst",
+        "shortName": "[L] GT3 Bathurst"
+    },
+    {
+        "id": 115,
+        "name": "Porsche 919",
+        "shortName": "Porsche 919"
+    },
+    {
+        "id": 116,
+        "name": "LMP1 Class",
+        "shortName": "LMP1 Class"
+    },
+    {
+        "id": 117,
+        "name": "Dallara IR18",
+        "shortName": "Dallara IR18"
+    },
+    {
+        "id": 471,
+        "name": "Subaru WRX STI",
+        "shortName": "Subaru WRX STI"
+    },
+    {
+        "id": 472,
+        "name": "Porsche 911 RSR",
+        "shortName": "Porsche 911 RSR"
+    },
+    {
+        "id": 473,
+        "name": "IMSA2 GT3",
+        "shortName": "IMSA2 GT3"
+    },
+    {
+        "id": 3243,
+        "name": "NASCAR Buick LeSabre 1987",
+        "shortName": "Buick LeSabre 87"
+    },
+    {
+        "id": 696,
+        "name": "Chevrolet Camaro ZL1",
+        "shortName": "Camaro ZL1"
+    },
+    {
+        "id": 3244,
+        "name": "Toyota Tundra TRD Pro",
+        "shortName": "Tundra TRD Pro"
+    },
+    {
+        "id": 870,
+        "name": "Dallara F3",
+        "shortName": "Dallara F3"
+    },
+    {
+        "id": 871,
+        "name": "Formula Renault 3.5",
+        "shortName": "Renault 3.5"
+    },
+    {
+        "id": 53,
+        "name": "Ruf RT 12R AWD",
+        "shortName": "Ruf RT 12R AWD"
+    },
+    {
+        "id": 3188,
+        "name": "iRacing Formula iR-04",
+        "shortName": "Formula iR-04"
+    },
+    {
+        "id": 69,
+        "name": "[Retired] Toyota Tundra",
+        "shortName": "[Retired] Tundra"
+    },
+    {
+        "id": 1105,
+        "name": "BMW M8 GTE",
+        "shortName": "BMW M8 GTE"
+    },
+    {
+        "id": 2266,
+        "name": "USF 2000",
+        "shortName": "USF 2000"
+    },
+    {
+        "id": 1278,
+        "name": "Pro 4 Truck",
+        "shortName": "Pro 4 Truck"
+    },
+    {
+        "id": 1275,
+        "name": "Ford Mustang - 2019",
+        "shortName": "Ford Mustang"
+    },
+    {
+        "id": 1276,
+        "name": "Silverado - 2019",
+        "shortName": "Silverado - 2019"
+    },
+    {
+        "id": 1277,
+        "name": "Pro 2 Truck",
+        "shortName": "Pro 2 Truck"
+    },
+    {
+        "id": 1279,
+        "name": "[Legacy] NASCAR Cup",
+        "shortName": "[L]  NASCAR Cup"
+    },
+    {
+        "id": 4007,
+        "name": "NECTCR Class",
+        "shortName": "NECTCR Class"
+    },
+    {
+        "id": 1450,
+        "name": "Audi RS 3 LMS",
+        "shortName": "Audi RS 3 LMS"
+    },
+    {
+        "id": 1451,
+        "name": "NASCAR XFINITY Chevrolet Camaro 2019",
+        "shortName": "Camaro 2019"
+    },
+    {
+        "id": 1452,
+        "name": "NASCAR XFINITY Ford Mustang 2019",
+        "shortName": "Mustang 2019"
+    },
+    {
+        "id": 1453,
+        "name": "NASCAR XFINITY Toyota Supra 2019",
+        "shortName": "Supra 2019"
+    },
+    {
+        "id": 1454,
+        "name": "Pro 2 Lite Truck",
+        "shortName": "Pro 2 Lite Truck"
+    },
+    {
+        "id": 1455,
+        "name": "XFINITY Series",
+        "shortName": "XFINITY Series"
+    },
+    {
+        "id": 1613,
+        "name": "Holden ZB Commodore V8 - 2019",
+        "shortName": "Holden - 2019"
+    },
+    {
+        "id": 1614,
+        "name": "Supercars Ford Mustang GT - 2019",
+        "shortName": "Ford GT - 2019"
+    },
+    {
+        "id": 1615,
+        "name": "Supercars - 2019",
+        "shortName": "Supercars - 2019"
+    },
+    {
+        "id": 70,
+        "name": "[Retired] Chevrolet Silverado",
+        "shortName": "[R] Chevy Silver"
+    },
+    {
+        "id": 3185,
+        "name": "Mercedes-AMG W12 E Performance",
+        "shortName": "AMG W12 E"
+    },
+    {
+        "id": 3186,
+        "name": "Hyundai Elantra N TC",
+        "shortName": "Elantra N TC"
+    },
+    {
+        "id": 3187,
+        "name": "Honda Civic Type R",
+        "shortName": "Civic Type R"
+    },
+    {
+        "id": 1860,
+        "name": "Porsche 718 Cayman GT4 Clubsport MR",
+        "shortName": "Porsche 718"
+    },
+    {
+        "id": 2040,
+        "name": "GTE Class 2",
+        "shortName": "GTE Class 2"
+    },
+    {
+        "id": 2041,
+        "name": "GT3 Class 2",
+        "shortName": "GT3 Class 2"
+    },
+    {
+        "id": 2267,
+        "name": "Ford F150",
+        "shortName": "Ford F150"
+    },
+    {
+        "id": 2070,
+        "name": "[Legacy] GT3 Nurb",
+        "shortName": "[L] GT3 Nurb"
+    },
+    {
+        "id": 2264,
+        "name": "BMW M4 GT4",
+        "shortName": "BMW M4 GT4"
+    },
+    {
+        "id": 2265,
+        "name": "Indy Pro 2000 PM-18",
+        "shortName": "Pro 2000 PM-18"
+    },
+    {
+        "id": 2270,
+        "name": "NASCAR Chevrolet Monte Carlo - 1987",
+        "shortName": "1987 Monte Carlo"
+    },
+    {
+        "id": 2271,
+        "name": "NASCAR Ford Thunderbird - 1987",
+        "shortName": "1987 Ford T-bird"
+    },
+    {
+        "id": 2522,
+        "name": "Corvette C8.R GTE",
+        "shortName": "Vette C8.R GTE"
+    },
+    {
+        "id": 2523,
+        "name": "Dallara P217",
+        "shortName": "Dallara P217"
+    },
+    {
+        "id": 2524,
+        "name": "GTE IMSA",
+        "shortName": "GTE IMSA"
+    },
+    {
+        "id": 2525,
+        "name": "GTE Class 3",
+        "shortName": "GTE Class 3"
+    },
+    {
+        "id": 2707,
+        "name": "Dirt 358 Modified",
+        "shortName": "Dirt 358 Mod"
+    },
+    {
+        "id": 2704,
+        "name": "Dallara iR-01",
+        "shortName": "Dallara iR-01"
+    },
+    {
+        "id": 2705,
+        "name": "Lamborghini Huracán GT3 EVO",
+        "shortName": "Lambo Huracán"
+    },
+    {
+        "id": 2706,
+        "name": "Dirt Big Block Modified",
+        "shortName": "Dirt BB Modified"
+    },
+    {
+        "id": 2709,
+        "name": "GTD Class",
+        "shortName": "GTD Class"
+    },
+    {
+        "id": 2742,
+        "name": "BMW M4 GT3",
+        "shortName": "BMW M4 GT3"
+    },
+    {
+        "id": 2916,
+        "name": "McLaren 570S GT4",
+        "shortName": "McLaren 570S GT4"
+    },
+    {
+        "id": 2936,
+        "name": "GT3 Nurb 2",
+        "shortName": "GT3 Nurb 2"
+    },
+    {
+        "id": 2937,
+        "name": "GT3 Class 4",
+        "shortName": "GT3 Class 4"
+    },
+    {
+        "id": 4001,
+        "name": "Nurburgring 2022 GT3",
+        "shortName": "Nurb22 GT3"
+    },
+    {
+        "id": 2974,
+        "name": "GT4 Nurb",
+        "shortName": "GT4 Nurb"
+    },
+    {
+        "id": 2975,
+        "name": "Chevrolet Camaro ZL1 - NextGen",
+        "shortName": "Camaro ZL1 NGC"
+    },
+    {
+        "id": 2976,
+        "name": "Ford Mustang - NextGen",
+        "shortName": "Mustang NGC"
+    },
+    {
+        "id": 2977,
+        "name": "Toyota Camry - NextGen",
+        "shortName": "Toyota NGC"
+    },
+    {
+        "id": 2978,
+        "name": "NASCAR 2022 NextGen",
+        "shortName": "NASCAR 2022 NG"
+    },
+    {
+        "id": 3000,
+        "name": "Porsche 911 GT3 R",
+        "shortName": "Porsche 911 GT3R"
+    },
+    {
+        "id": 3001,
+        "name": "VW Beetle Lite",
+        "shortName": "VW Beetle Lite"
+    },
+    {
+        "id": 3002,
+        "name": "Formula Vee",
+        "shortName": "Formula Vee"
+    },
+    {
+        "id": 3022,
+        "name": "GT3 Class 5",
+        "shortName": "GT3 Class 5"
+    },
+    {
+        "id": 4002,
+        "name": "Nurburgring 2022 GT4",
+        "shortName": "Nurb22 GT4"
+    },
+    {
+        "id": 3104,
+        "name": "Porsche 911 GT3 Cup (992)",
+        "shortName": "Porsche 992"
+    },
+    {
+        "id": 3105,
+        "name": "Ferrari 488 GT3 Evo 2020",
+        "shortName": "Ferrari Evo GT3"
+    },
+    {
+        "id": 4003,
+        "name": "Nurburgring 2022 Touring",
+        "shortName": "Nurb22 Touring"
+    },
+    {
+        "id": 71,
+        "name": "Camping World Truck Series",
+        "shortName": "Camping World"
+    },
+    {
+        "id": 3242,
+        "name": "Hyundai Veloster N TC",
+        "shortName": "Veloster N TC"
+    },
+    {
+        "id": 2269,
+        "name": "NASCAR Classic 1987",
+        "shortName": "NASCAR 1987"
+    },
+    {
+        "id": 3239,
+        "name": "Aston Martin Vantage GT4",
+        "shortName": "Aston Martin GT4"
+    },
+    {
+        "id": 3240,
+        "name": "Stock Car Brasil Chevrolet Cruze",
+        "shortName": "Chevrolet Cruze"
+    },
+    {
+        "id": 3241,
+        "name": "Stock Car Brasil Toyota Corolla",
+        "shortName": "Toyota Corolla"
+    },
+    {
+        "id": 3189,
+        "name": "Touring Car",
+        "shortName": "Touring Car"
+    },
+    {
+        "id": 3245,
+        "name": "Stock Car Brasil",
+        "shortName": "Stock Car Brasil"
+    },
+    {
+        "id": 3256,
+        "name": "Crev22",
+        "shortName": "Crev22"
+    },
+    {
+        "id": 4006,
+        "name": "NECGT4 Class",
+        "shortName": "NECGT4 Class"
+    },
+    {
+        "id": 59,
+        "name": "[Legacy] GT3 Class 3",
+        "shortName": "[L] GT3 Class 3"
+    },
+    {
+        "id": 2268,
+        "name": "GT4 Class",
+        "shortName": "GT4 Class"
+    },
+    {
+        "id": 2708,
+        "name": "GT3 Class",
+        "shortName": "GT3 Class"
+    },
+    {
+        "id": 3190,
+        "name": "IMSA22",
+        "shortName": "IMSA22"
+    },
+    {
+        "id": 3283,
+        "name": "Radical SR10",
+        "shortName": "Radical SR10"
+    },
+    {
+        "id": 4000,
+        "name": "Mercedes-AMG GT3 2020",
+        "shortName": "AMG GT3 2020"
+    },
+    {
+        "id": 4004,
+        "name": "Mercedes-AMG GT4",
+        "shortName": "AMG GT4"
+    },
+    {
+        "id": 4005,
+        "name": "NECGT3",
+        "shortName": "NECGT3"
+    },
+    {
+        "id": 4008,
+        "name": "IMPCGT4 Class",
+        "shortName": "IMPCGT4 Class"
+    },
+    {
+        "id": 79,
+        "name": "[Legacy] Mercedes-AMG GT3",
+        "shortName": "[L] AMG GT3"
+    }
+]

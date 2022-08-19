@@ -125,6 +125,31 @@ const getSeasonSeriesData = async () => {
   }
 };
 
+/* Function that will grab all the data for the cars 
+   Params: N/A
+   Returns: A list containing each cars id and the corresponding vehicle in natural language 
+*/
+const getCarData = async () => {
+  const carData = [];
+  try {
+    const URL = "https://members-ng.iracing.com/data/carclass/get";
+    const { link } = await client.get(URL).then((response) => response.data);
+
+    await client.get(link).then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        let carClass = new Object();
+        carClass.id = response.data[i]["car_class_id"];
+        carClass.name = response.data[i]["name"];
+        carClass.shortName = response.data[i]["short_name"];
+        carData.push(carClass);
+      }
+    });
+    return carData;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* Function to write JSON data to specified file.
    Params:
     jsonData(string) - the data that will be written to the file
@@ -132,7 +157,7 @@ const getSeasonSeriesData = async () => {
    Returns: N/A
 */
 const writeDataToFile = (jsonData, fileName) => {
-  fs.writeFile(fileName, jsonData, function(error) {
+  fs.writeFile(fileName, jsonData, function (error) {
     if (error) return console.log(`An error occured while writing data to ${fileName}...`, error);
   });
   console.log(`Data has been successfully written to ${fileName}`);
@@ -149,5 +174,10 @@ writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `series-data-
 const seriesDataForCurrentSeason = await getSeriesData();
 writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "current-season-available-series.json");
 
+// Get the detailed data for the season series
 const seasonData = await getSeasonSeriesData();
 writeDataToFile(JSON.stringify(seasonData, null, 4), "current-season-schedules.json");
+
+// Get the data for each vehicle
+const carData = await getCarData();
+writeDataToFile(JSON.stringify(carData, null, 4), "car-data.json");
