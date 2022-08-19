@@ -7,8 +7,8 @@ import CarData from "./data/car-data.json";
 
 /* Column headers for the table */
 const columns = [
-  { field: "license", headerName: "License", width: 70 },
-  { field: "category", headerName: "Category", width: 80 },
+  { field: "license", headerName: "License", width: 70, align: "center" },
+  { field: "category", headerName: "Category", width: 80, align: "center" },
   {
     field: "seriesName",
     headerName: "Series",
@@ -36,13 +36,22 @@ const columns = [
     width: 80,
     sortable: false,
     editable: false,
+    align: "center",
     headerAlign: "center",
   },
   {
     field: "setup",
     headerName: "Fixed",
-    description: "This column has a value getter and is not sortable.",
     width: 55,
+    align: "center",
+    headerAlign: "center",
+  },
+  {
+    field: "official",
+    headerName: "Official",
+    description: "This column has a value getter and is not sortable.",
+    width: 65,
+    align: "center",
     headerAlign: "center",
   },
 ];
@@ -78,7 +87,7 @@ const categories = {
 };
 
 // This will be used to convert a boolean value to a proper value to be displayed
-const fixedSetup = {
+const trueFalseConvert = {
   true: "Yes",
   false: "No",
 };
@@ -119,7 +128,8 @@ export default function Data() {
       let license = licenses[series.license_group];
       let seriesName = series.series_name;
       let carIds = series.car_class_ids;
-      let setup = fixedSetup[series.fixed_setup];
+      let setup = trueFalseConvert[series.fixed_setup];
+      let official = trueFalseConvert[series.official];
       let category = "";
       let track = "";
       let duration = "";
@@ -139,7 +149,7 @@ export default function Data() {
       });
 
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there was not a race that week)
-      if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration });
+      if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official });
     });
     return rows;
   };
