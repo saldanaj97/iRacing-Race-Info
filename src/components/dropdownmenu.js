@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { WeekContext } from "../contexts/WeekContext";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -37,13 +38,17 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function CustomizedMenu({ menuItems, setSelectedValue }) {
+export default function CustomizedMenu({ menuItems, dropdownID }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { weekNum, setWeekNum } = useContext(WeekContext);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+
+  const handleClose = (dropdownSelection) => {
+    setWeekNum(dropdownSelection);
     setAnchorEl(null);
   };
 
@@ -61,16 +66,15 @@ export default function CustomizedMenu({ menuItems, setSelectedValue }) {
         {menuItems[0]}
       </Button>
       <StyledMenu id='item-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>
-        {menuItems.map((category) => {
+        {menuItems.map((dropdownSelection) => {
           return (
             <MenuItem
-              onClick={(e) => {
-                setSelectedValue(category);
-                handleClose();
+              onClick={() => {
+                handleClose(dropdownSelection);
               }}
               disableRipple
             >
-              {category}
+              {dropdownSelection}
             </MenuItem>
           );
         })}

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Box, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import { WeekContext } from "../contexts/WeekContext";
 import RaceData from "./data/current-season-schedules.json";
 import CarData from "./data/car-data.json";
 
@@ -59,29 +60,32 @@ const timeConvert = (min) => {
   return hoursRounded === 0 ? minRounded + " m" : hoursRounded + "h " + minRounded + "m";
 };
 
-export default function Data({ week }) {
-  // This will be used to convert a license number to the actual ingame license
-  const licenses = {
-    1: "R",
-    2: "D",
-    3: "C",
-    4: "B",
-    5: "A",
-  };
+// This will be used to convert a license number to the actual ingame license
+const licenses = {
+  1: "R",
+  2: "D",
+  3: "C",
+  4: "B",
+  5: "A",
+};
 
-  // This will be used to the code for a category to the real category for display
-  const categories = {
-    road: "Road",
-    oval: "Oval",
-    dirt_oval: "Dirt Oval",
-    dirt_road: "RX",
-  };
+// This will be used to the code for a category to the real category for display
+const categories = {
+  road: "Road",
+  oval: "Oval",
+  dirt_oval: "Dirt Oval",
+  dirt_road: "RX",
+};
 
-  // This will be used to convert a boolean value to a proper value to be displayed
-  const fixedSetup = {
-    true: "Yes",
-    false: "No",
-  };
+// This will be used to convert a boolean value to a proper value to be displayed
+const fixedSetup = {
+  true: "Yes",
+  false: "No",
+};
+
+export default function Data() {
+  // Global state for week number
+  const { weekNum, setWeekNum } = useContext(WeekContext);
 
   /* Function that will gather all the data for the cars 
   Parameters: N/A
@@ -106,18 +110,18 @@ export default function Data({ week }) {
   Parameters: weekNum - this will represent the week number 
   Returns: an array containing data for all of the series taking place on the weekNum provided 
 */
-  const getSeriesData = (week) => {
+  const getSeriesData = () => {
     const rows = [];
 
     // Get the data from the racedata json file
     Object.values(RaceData).map((series) => {
       let id = series.series_id;
       let license = licenses[series.license_group];
-      let category = categories[series.schedule[week].track.category];
+      let category = categories[series.schedule[0].track.category];
       let seriesName = series.series_name;
       let carIds = series.car_class_ids;
-      let track = series.schedule[week].track.track_name;
-      let duration = series.schedule[week].race_time_limit !== null ? timeConvert(series.schedule[week].race_time_limit) : series.schedule[week].race_lap_limit + " L";
+      let track = series.schedule[0].track.track_name;
+      let duration = series.schedule[0].race_time_limit !== null ? timeConvert(series.schedule[0].race_time_limit) : series.schedule[0].race_lap_limit + " L";
       let setup = fixedSetup[series.fixed_setup];
 
       // Get each name for the cars by using the ID to find a match in the carNames object
@@ -135,10 +139,11 @@ export default function Data({ week }) {
 
   // Get the data from JSON file and save it to rows for the table
   const rows = getSeriesData(0);
+
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "95%" }}>
       <Box sx={{ width: "100%" }}>
-        <DataGrid rows={rows} columns={columns} pageSize={15} rowsPerPageOptions={[10]} autoPageSize='true' autoHeight='true' disableSelectionOnClick experimentalFeatures={{ newEditingApi: true }} word />
+        <DataGrid rows={rows} columns={columns} pageSize={15} rowsPerPageOptions={[10]} autoPageSize autoHeight disableSelectionOnClick experimentalFeatures={{ newEditingApi: true }} word />
       </Box>
     </Paper>
   );
