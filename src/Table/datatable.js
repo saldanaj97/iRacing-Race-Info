@@ -117,12 +117,19 @@ export default function Data() {
     Object.values(RaceData).map((series) => {
       let id = series.series_id;
       let license = licenses[series.license_group];
-      let category = categories[series.schedule[0].track.category];
       let seriesName = series.series_name;
       let carIds = series.car_class_ids;
-      let track = series.schedule[0].track.track_name;
-      let duration = series.schedule[0].race_time_limit !== null ? timeConvert(series.schedule[0].race_time_limit) : series.schedule[0].race_lap_limit + " L";
       let setup = fixedSetup[series.fixed_setup];
+      let category = "";
+      let track = "";
+      let duration = "";
+
+      // Verify that the week number is within the schedule otherwise we get an undefined error
+      if (weekNum <= series.schedule.length) {
+        category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
+        track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
+        duration = series.schedule[weekNum - 1].race_time_limit !== null ? timeConvert(series.schedule[weekNum - 1].race_time_limit) : series.schedule[weekNum - 1].race_lap_limit + " L";
+      }
 
       // Get each name for the cars by using the ID to find a match in the carNames object
       let cars = [];
@@ -131,8 +138,8 @@ export default function Data() {
         cars.push(names.carName);
       });
 
-      // Add the data to the rows array
-      rows.push({ id, license, category, seriesName, cars, track, duration, setup });
+      // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there was not a race that week)
+      if (track != "") rows.push({ id, license, seriesName, cars, setup, category, track, duration });
     });
     return rows;
   };
