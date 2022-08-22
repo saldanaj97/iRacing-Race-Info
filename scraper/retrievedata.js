@@ -106,6 +106,7 @@ const getSeasonSeriesData = async () => {
           schedule.race_week_num = response.data[i]["schedules"][j]["race_week_num"];
           schedule.race_lap_limit = response.data[i]["schedules"][j]["race_lap_limit"];
           schedule.race_time_limit = response.data[i]["schedules"][j]["race_time_limit"];
+          schedule.session_start_data = response.data[i]["schedules"][j]["race_time_descriptors"];
           schedule.track = response.data[i]["schedules"][j]["track"];
           seriesSchedule.push(schedule);
         }
@@ -168,16 +169,16 @@ const auth = await fetchAuthCookie();
 
 // Get the series data for a specific year and season and store away in respective file
 const specificSeasonSeriesData = await getCertainSeriesData("2022", "2");
-writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `series-data-2022S2.json`);
+writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/table/data/series-data-2022S2.json`);
 
 // Get the current seasons series data (more generalized data such as series ID, name, licenses etc..)
 const seriesDataForCurrentSeason = await getSeriesData();
-writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "current-season-available-series.json");
+writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/table/data/current-season-available-series.json");
 
 // Get the detailed data for the season series
 const seasonData = await getSeasonSeriesData();
-writeDataToFile(JSON.stringify(seasonData, null, 4), "current-season-schedules.json");
+writeDataToFile(JSON.stringify(seasonData, null, 4), "../src/table/data/current-season-schedules.json");
 
 // Get the data for each vehicle
 const carData = await getCarData();
-writeDataToFile(JSON.stringify(carData, null, 4), "car-data.json");
+writeDataToFile(JSON.stringify(carData, null, 4), "../src/table/data/car-data.json");
