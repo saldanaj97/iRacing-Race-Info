@@ -7,7 +7,7 @@ import CustomizedMenu from "./dropdownmenu";
 const SearchAndFilterBar = () => {
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "95%" }}>
-      <Container className='search-and-filter-container' sx={{ display: "flex", flexDirection: "row" }}>
+      <Box className='search-and-filter-container' sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "0px 15px" }}>
         <Box className='search-bar' sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>Looking for a particular series?</Box>
           <FormControl sx={{ width: "90%", marginBottom: "25px" }}>
@@ -37,12 +37,12 @@ const SearchAndFilterBar = () => {
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>Owned</Box>
           <CustomizedMenu menuItems={["Both", "Yes", "No"]} dropdownID={"ownedContentFilter"} />
         </Box>
-        <Box className='filter-button' sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <Box className='filter-button' sx={{ display: "flex", flexDirection: "column", justifyContent: "center", margin: "20px 0px 0px 0px" }}>
           <Button variant='contained' sx={{ backgroundColor: "#2b2d42", height: "40%" }}>
             Filter
           </Button>
         </Box>
-      </Container>
+      </Box>
     </Paper>
   );
 };
