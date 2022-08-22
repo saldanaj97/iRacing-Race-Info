@@ -42,7 +42,7 @@ const columns = [
   {
     field: "setup",
     headerName: "Fixed",
-    width: 55,
+    width: 65,
     align: "center",
     headerAlign: "center",
   },
@@ -50,7 +50,23 @@ const columns = [
     field: "official",
     headerName: "Official",
     description: "This column has a value getter and is not sortable.",
-    width: 65,
+    width: 70,
+    align: "center",
+    headerAlign: "center",
+  },
+  {
+    field: "startDate",
+    headerName: "Start",
+    description: "This column has a value getter and is not sortable.",
+    width: 100,
+    align: "center",
+    headerAlign: "center",
+  },
+  {
+    field: "nextRace",
+    headerName: "Next Race",
+    description: "This column has a value getter and is not sortable.",
+    width: 100,
     align: "center",
     headerAlign: "center",
   },
@@ -66,7 +82,17 @@ const timeConvert = (mins) => {
   var hoursRounded = Math.floor(hours);
   var min = Math.round(hours - hoursRounded) * 60;
   var minRounded = Math.floor(min);
-  return hoursRounded === 0 ? minRounded + " m" : hoursRounded + "h " + minRounded + "m";
+  return hoursRounded === 0 ? minRounded + "m" : hoursRounded + "h " + minRounded + "m";
+};
+
+/* Function that will take in the time in hh:mm:ss format and return in local hh:mm format
+  Parameters: date - the date in YYYY-MM-DD format; time - in hh:mm:ss format
+  Returns: the time in local format without seconds
+*/
+const timeToLocal = (date, time) => {
+  const formattedDate = new Date(date + "T" + time);
+  let newTime = formattedDate.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+  return newTime;
 };
 
 // This will be used to convert a license number to the actual ingame license
@@ -112,10 +138,45 @@ export default function Data() {
     return carsIdsAndNames;
   };
 
+  /* Function that will take in the start time of a series and add the repeat min to it 
+  Parameters: time - in hh:mm:ss format, repeat_min - the interval in which the races will repeat
+  Returns: the time of the next race 
+  */
+  const nextRaceTime = (series) => {
+    let startDate = "";
+    let nextRace = "";
+
+    // Get the data from the series
+    let date = new Date(series.schedule[weekNum - 1].session_start_data[0].session_times);
+
+    // Set todays date
+    const today = new Date().toISOString();
+
+    // If there are mutiple session times, check which session time is up next and return it
+    if (series.schedule[weekNum - 1].session_start_data[0].repeating === false && series.schedule[weekNum - 1].session_start_data[0].session_times.length > 1) {
+      series.schedule[weekNum - 1].session_start_data[0].session_times.every((session) => {
+        let nextRaceDateAndTime = new Date(session);
+        startDate = nextRaceDateAndTime.toLocaleDateString();
+        nextRace = nextRaceDateAndTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+      });
+      return { startDate: startDate, nextRace: nextRace };
+    }
+
+    // Check if this is a non recurring series, if it is then get the date and time from the session_times arr
+    if (series.schedule[weekNum - 1].session_start_data[0].repeating === false) {
+      startDate = date.toLocaleDateString();
+      nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+    } else {
+      startDate = series.schedule[weekNum - 1].session_start_data[0].start_date;
+      nextRace = timeToLocal(startDate, series.schedule[weekNum - 1].session_start_data[0].first_session_time);
+    }
+    return { startDate: startDate, nextRace: nextRace };
+  };
+
   /* Function that will gather all the data into an array of objects from the imported JSON file containing season data
   Parameters: weekNum - this will represent the week number 
   Returns: an array containing data for all of the series taking place on the weekNum provided 
-*/
+  */
   const getSeriesData = () => {
     const rows = [];
 
@@ -127,12 +188,15 @@ export default function Data() {
       let carIds = series.car_class_ids;
       let setup = trueFalseConvert[series.fixed_setup];
       let official = trueFalseConvert[series.official];
+      let startDate = "";
+      let nextRace = "";
       let category = "";
       let track = "";
       let duration = "";
 
-      // Verify that the week number is within the schedule otherwise we get an undefined error
+      // Verify that the week number is within the schedule otherwise we get an undefined error (use for anything that will be utilizing the weekNum)
       if (weekNum <= series.schedule.length) {
+        ({ startDate, nextRace } = nextRaceTime(series));
         category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
         track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
         duration = series.schedule[weekNum - 1].race_time_limit !== null ? timeConvert(series.schedule[weekNum - 1].race_time_limit) : series.schedule[weekNum - 1].race_lap_limit + " L";
@@ -147,7 +211,7 @@ export default function Data() {
       });
 
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there was not a race that week)
-      if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official });
+      if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
     });
     return rows;
   };
