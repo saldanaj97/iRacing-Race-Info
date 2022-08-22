@@ -112,9 +112,6 @@ export default function Data() {
     return carsIdsAndNames;
   };
 
-  // Get the car ids and names
-  const carNames = getCarData();
-
   /* Function that will gather all the data into an array of objects from the imported JSON file containing season data
   Parameters: weekNum - this will represent the week number 
   Returns: an array containing data for all of the series taking place on the weekNum provided 
@@ -143,6 +140,7 @@ export default function Data() {
 
       // Get each name for the cars by using the ID to find a match in the carNames object
       let cars = [];
+      const carNames = getCarData();
       carIds.map((car) => {
         let names = carNames.find((vehicle) => vehicle.carId === car);
         cars.push(names.carName);
