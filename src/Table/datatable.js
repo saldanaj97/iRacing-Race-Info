@@ -143,7 +143,7 @@ export default function Data() {
 
       // Get each name for the cars by using the ID to find a match in the carNames object
       let cars = [];
-      carIds.forEach((car) => {
+      carIds.map((car) => {
         let names = carNames.find((vehicle) => vehicle.carId === car);
         cars.push(names.carName);
       });
