@@ -237,7 +237,7 @@ export default function Data() {
   };
 
   /* Function that will gather all the data into an array of objects from the imported JSON file containing season data
-  Parameters: weekNum - this will represent the week number 
+      Parameters: weekNum - this will represent the week number 
   Returns: an array containing data for all of the series taking place on the weekNum provided 
   */
   const getSeriesData = () => {
