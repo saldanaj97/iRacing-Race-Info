@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Avatar, Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
@@ -78,8 +78,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
   }),
 }));
 
-export default function MiniDrawer() {
-  const [open, setOpen] = React.useState(false);
+export default function MiniDrawer({ title }) {
+  const [open, setOpen] = useState(false);
+  const [pageTitle, setPageTitle] = useState("");
+
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
   const routes = ["/", "/cars", "/tracks", "/series"];
   const navigate = useNavigate();
@@ -92,6 +94,10 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  useEffect(() => {
+    setPageTitle(title);
+  }, [pageTitle]);
+
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar position='fixed' open={open} sx={{ backgroundColor: "#2b2d42" }}>
@@ -100,7 +106,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div' width='100%'>
-            Dashboards {">"} Races
+            {pageTitle}
           </Typography>
           <Container sx={{ display: "flex", color: "White", justifyContent: "flex-end" }}>Ricky Bobby</Container>
           <IconButton className='avatar-button' sx={{ display: "flex", alignContent: "flex-end" }}>
