@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Avatar, Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
@@ -79,7 +80,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 
 export default function MiniDrawer() {
   const [open, setOpen] = React.useState(false);
-  const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad, AiOutlineLineChart];
+  const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
+  const routes = ["/", "/cars", "/tracks", "/series"];
+  const navigate = useNavigate();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -117,7 +120,7 @@ export default function MiniDrawer() {
         <List className='sidebar-list'>
           {["Races", "Cars", "Series", "Tracks"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block", fontSize: "15px" }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }}>
+              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }} onClick={() => navigate(routes[index])}>
                 <ListItemIcon className='sidebar-icon' sx={{ color: "white", minWidth: 0, mr: open ? 3 : "auto", justifyContent: "center" }}>
                   <Icon as={sideBarIcons[index]} />
                 </ListItemIcon>
