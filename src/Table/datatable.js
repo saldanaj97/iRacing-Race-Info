@@ -72,19 +72,6 @@ const columns = [
   },
 ];
 
-/* Function that will take in the number of minutes and convert to hours and min
-    Parameters: min - the number of min
-    Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
-*/
-const timeConvert = (mins) => {
-  var num = mins;
-  var hours = num / 60;
-  var hoursRounded = Math.floor(hours);
-  var min = Math.round(hours - hoursRounded) * 60;
-  var minRounded = Math.floor(min);
-  return hoursRounded === 0 ? minRounded + "m" : hoursRounded + "h " + minRounded + "m";
-};
-
 // This will be used to convert a license number to the actual ingame license
 const licenses = {
   1: "R",
@@ -114,6 +101,16 @@ export default function Data() {
 
   // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
   const seasonStartDate = new Date("2022-6-14");
+
+  /* Function that will take in the number of minutes and convert to hours and min
+    Parameters: min - the number of min
+    Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
+*/
+  const timeConvert = (mins) => {
+    const minutes = mins % 60;
+    const hours = Math.floor(mins / 60);
+    return hours === 0 ? minutes + "m" : hours + "h " + minutes + "m";
+  };
 
   /* Function that will gather all the data for the cars 
     Parameters: N/A
