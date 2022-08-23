@@ -231,7 +231,7 @@ export default function Data() {
 
       // Get the time of the next race
       startDate = date.toLocaleDateString();
-      nextRace = nextRaceTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+      nextRace = nextRaceTime(date, interval).toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
     }
     return { startDate: startDate, nextRace: nextRace };
   };
