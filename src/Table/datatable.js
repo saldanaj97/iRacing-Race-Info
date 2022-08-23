@@ -266,7 +266,7 @@ export default function Data() {
       }
 
       // This will be used to indicate a special series with more than 12 weeks
-      if (series.schedule.length >= 13) {
+      if (series.schedule.length >= 13 && weekNum <= series.schedule.length) {
         ({ startDate, nextRace } = extendedSeriesRace(series, seasonStartDate));
         category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
         track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
