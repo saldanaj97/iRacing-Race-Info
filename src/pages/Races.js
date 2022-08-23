@@ -8,7 +8,7 @@ import CustomizedMenu from "../components/dropdownmenu";
 import Data from "../table/datatable";
 import "../App.css";
 
-const RaceDashboard = () => {
+const Races = () => {
   const { weekNum } = useContext(WeekContext);
 
   return (
@@ -35,4 +35,4 @@ const RaceDashboard = () => {
   );
 };
 
-export default RaceDashboard;
+export default Races;
