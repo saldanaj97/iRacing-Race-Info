@@ -165,6 +165,32 @@ export default function Data() {
   const nextRaceTime = (series) => {
     let startDate = "";
     let nextRace = "";
+    let extendedSeries = 0;
+
+    // Check if the series is repeating or not, if it is not then check what the starting date is
+    if (series.schedule[0].session_start_data[0].repeating !== false) {
+      // Find the week number that will represent the week that the extended series will continue on
+      extendedSeries = Object.values(series.schedule).find((e) => {
+        // Convert series start date to date object
+        let seriesStartDate = new Date(e.session_start_data[0].start_date);
+
+        // Check if the series start date is after the season start date and if it is return the week number
+        if (seriesStartDate >= seasonStartDate) {
+          return e;
+        }
+      });
+
+      // Save the remaining schedule starting from the season start date
+      let remainingRaceSchedule = series.schedule[extendedSeries.race_week_num + weekNum - 2];
+
+      // Make a new date object and get the repeat interval
+      let date = new Date(remainingRaceSchedule.session_start_data[0].start_date + "T" + remainingRaceSchedule.session_start_data[0].first_session_time);
+      let interval = remainingRaceSchedule.session_start_data[0].repeat_minutes;
+
+      // Get the values for the start date and next race
+      startDate = date.toLocaleDateString();
+      nextRace = nextRaceTime(date, interval).toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+    }
 
     // If there are mutiple session times, check which session time is up next and return it
     if (series.schedule[weekNum - 1].session_start_data[0].repeating === false && series.schedule[weekNum - 1].session_start_data[0].session_times.length > 1) {
