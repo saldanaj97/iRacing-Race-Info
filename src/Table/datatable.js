@@ -259,7 +259,15 @@ export default function Data() {
 
       // Verify that the week number is within the schedule otherwise we get an undefined error (use for anything that will be utilizing the weekNum)
       if (weekNum <= series.schedule.length) {
-        ({ startDate, nextRace } = nextRaceTime(series));
+        ({ startDate, nextRace } = normalSeriesRace(series));
+        category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
+        track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
+        duration = series.schedule[weekNum - 1].race_time_limit !== null ? timeConvert(series.schedule[weekNum - 1].race_time_limit) : series.schedule[weekNum - 1].race_lap_limit + " L";
+      }
+
+      // This will be used to indicate a special series with more than 12 weeks
+      if (series.schedule.length >= 13) {
+        ({ startDate, nextRace } = extendedSeriesRace(series, seasonStartDate));
         category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
         track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
         duration = series.schedule[weekNum - 1].race_time_limit !== null ? timeConvert(series.schedule[weekNum - 1].race_time_limit) : series.schedule[weekNum - 1].race_lap_limit + " L";
