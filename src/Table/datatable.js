@@ -238,19 +238,16 @@ export default function Data() {
     if (series.schedule[weekNum - 1].session_start_data[0].repeating === false) {
       let today = new Date();
       let sessions = [...series.schedule[weekNum - 1].session_start_data[0].session_times];
+
+      // Go through each session and return the next session that will occur
       for (let i = 0; i < sessions.length; i++) {
         let date = new Date(sessions[i]);
         if (date <= today) {
           startDate = date.toLocaleDateString();
           nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
-          console.log(startDate, nextRace);
           return { startDate: startDate, nextRace: nextRace };
         }
       }
-      /*       // Get the data from the series
-      let date = new Date(series.schedule[weekNum - 1].session_start_data[0].session_times);
-      startDate = date.toLocaleDateString();
-      nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" }); */
     } else {
       // Format the date to make a new date object
       let date = new Date(series.schedule[weekNum - 1].session_start_data[0].start_date + "T" + series.schedule[weekNum - 1].session_start_data[0].first_session_time);
