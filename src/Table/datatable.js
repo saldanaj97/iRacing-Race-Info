@@ -146,29 +146,51 @@ export default function Data() {
     let startDate = "";
     let nextRace = "";
 
-    // Get the data from the series
-    let date = new Date(series.schedule[weekNum - 1].session_start_data[0].session_times);
-
-    // Set todays date
-    const today = new Date().toISOString();
-
     // If there are mutiple session times, check which session time is up next and return it
     if (series.schedule[weekNum - 1].session_start_data[0].repeating === false && series.schedule[weekNum - 1].session_start_data[0].session_times.length > 1) {
+      // Set todays date
+      const today = new Date().toISOString();
+
+      // If there are multiple session times for a series, go through each one until we find the next available session
       series.schedule[weekNum - 1].session_start_data[0].session_times.every((session) => {
-        let nextRaceDateAndTime = new Date(session);
-        startDate = nextRaceDateAndTime.toLocaleDateString();
-        nextRace = nextRaceDateAndTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+        // If the session has still not occured, set it as the raceWeekend
+        let raceWeekend = session > today ? session : "passed";
+
+        // If the session has not yet 'passed', return it and break out of the loop
+        if (raceWeekend !== "passed") {
+          let nextRaceDateAndTime = new Date(raceWeekend);
+          startDate = nextRaceDateAndTime.toLocaleDateString();
+          nextRace = nextRaceDateAndTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+          return false;
+        }
+        return { startDate: startDate, nextRace: nextRace };
       });
-      return { startDate: startDate, nextRace: nextRace };
     }
 
     // Check if this is a non recurring series, if it is then get the date and time from the session_times arr
     if (series.schedule[weekNum - 1].session_start_data[0].repeating === false) {
+      // Get the data from the series
+      let date = new Date(series.schedule[weekNum - 1].session_start_data[0].session_times);
       startDate = date.toLocaleDateString();
       nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
     } else {
-      startDate = series.schedule[weekNum - 1].session_start_data[0].start_date;
-      nextRace = timeToLocal(startDate, series.schedule[weekNum - 1].session_start_data[0].first_session_time);
+      // Format the date to make a new date object
+      let date = new Date(series.schedule[weekNum - 1].session_start_data[0].start_date + "T" + series.schedule[weekNum - 1].session_start_data[0].first_session_time);
+
+      // Get the refresh interval of each series
+      let interval = series.schedule[weekNum - 1].session_start_data[0].repeat_minutes;
+
+      // Get the new time the race will start
+      let nextRaceTime = new Date(date.getTime() + interval * 60 * 1000);
+      let currentTime = new Date().getTime();
+
+      // Keep adding the interval to the newDate
+      while (nextRaceTime < currentTime) {
+        nextRaceTime = new Date(nextRaceTime.getTime() + interval * 60 * 1000);
+      }
+
+      startDate = date.toLocaleDateString();
+      nextRace = nextRaceTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
     }
     return { startDate: startDate, nextRace: nextRace };
   };
