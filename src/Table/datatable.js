@@ -142,9 +142,21 @@ export default function Data() {
     return cars;
   };
 
-  /* Function that will take in the start time of a series and add the repeat min to it 
-  Parameters: time - in hh:mm:ss format, repeat_min - the interval in which the races will repeat
-  Returns: the time of the next race 
+  const nextRaceTime = (date, interval) => {
+    // Get the new time the race will start
+    let nextRaceTime = new Date(date.getTime() + interval * 60 * 1000);
+    let currentTime = new Date().getTime();
+
+    // Keep adding the interval to the newDate
+    while (nextRaceTime < currentTime) {
+      nextRaceTime = new Date(nextRaceTime.getTime() + interval * 60 * 1000);
+    }
+    return nextRaceTime;
+  };
+
+  /* Function that will map the start date and times to a series that has more than 13 weeks
+      Parameters: series - the series obj; seasonStartDate - the date that the current season starts at for comaparison
+      Returns: start date and time
   */
   const nextRaceTime = (series) => {
     let startDate = "";
