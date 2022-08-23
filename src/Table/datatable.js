@@ -142,6 +142,10 @@ export default function Data() {
     return cars;
   };
 
+  /* Function that will calculate when the next available race will be 
+      Parameters: date - date obj of the date the race is occuring, interval - the interval in which the races will repeat
+      Returns: the time of the next available race 
+    */
   const nextRaceTime = (date, interval) => {
     // Get the new time the race will start
     let nextRaceTime = new Date(date.getTime() + interval * 60 * 1000);
