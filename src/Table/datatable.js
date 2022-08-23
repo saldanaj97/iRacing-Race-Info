@@ -112,6 +112,9 @@ export default function Data() {
   // Global state for week number
   const { weekNum } = useContext(WeekContext);
 
+  // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
+  const seasonStartDate = new Date("2022-6-14");
+
   /* Function that will gather all the data for the cars 
   Parameters: N/A
   Returns: an object of cars with their ids and the names 
