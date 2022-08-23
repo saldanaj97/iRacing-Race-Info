@@ -230,7 +230,7 @@ export default function Data() {
       // Get each name for the cars by using the ID to find a match in the carNames object
       let cars = getCarsInSeries(carIds);
 
-      // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there was not a race that week)
+      // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there is not a race that week)
       if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
     });
     return rows;
