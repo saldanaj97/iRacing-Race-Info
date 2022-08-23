@@ -85,16 +85,6 @@ const timeConvert = (mins) => {
   return hoursRounded === 0 ? minRounded + "m" : hoursRounded + "h " + minRounded + "m";
 };
 
-/* Function that will take in the time in hh:mm:ss format and return in local hh:mm format
-  Parameters: date - the date in YYYY-MM-DD format; time - in hh:mm:ss format
-  Returns: the time in local format without seconds
-*/
-const timeToLocal = (date, time) => {
-  const formattedDate = new Date(date + "T" + time);
-  let newTime = formattedDate.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
-  return newTime;
-};
-
 // This will be used to convert a license number to the actual ingame license
 const licenses = {
   1: "R",
@@ -136,6 +126,20 @@ export default function Data() {
       carsIdsAndNames.push({ carId, carName });
     });
     return carsIdsAndNames;
+  };
+
+  /* Function that will map all the carIds with the car names
+    Parameters: carIds - the id for each vehicle in a series
+    Returns: a list of car names
+  */
+  const getCarsInSeries = (carIds) => {
+    let cars = [];
+    const carNames = getCarData();
+    carIds.map((car) => {
+      let names = carNames.find((vehicle) => vehicle.carId === car);
+      cars.push(names.carName);
+    });
+    return cars;
   };
 
   /* Function that will take in the start time of a series and add the repeat min to it 
@@ -188,7 +192,6 @@ export default function Data() {
       while (nextRaceTime < currentTime) {
         nextRaceTime = new Date(nextRaceTime.getTime() + interval * 60 * 1000);
       }
-
       startDate = date.toLocaleDateString();
       nextRace = nextRaceTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
     }
@@ -225,12 +228,7 @@ export default function Data() {
       }
 
       // Get each name for the cars by using the ID to find a match in the carNames object
-      let cars = [];
-      const carNames = getCarData();
-      carIds.map((car) => {
-        let names = carNames.find((vehicle) => vehicle.carId === car);
-        cars.push(names.carName);
-      });
+      let cars = getCarsInSeries(carIds);
 
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there was not a race that week)
       if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
