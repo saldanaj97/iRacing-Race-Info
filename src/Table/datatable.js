@@ -196,14 +196,7 @@ export default function Data() {
       // Get the refresh interval of each series
       let interval = series.schedule[weekNum - 1].session_start_data[0].repeat_minutes;
 
-      // Get the new time the race will start
-      let nextRaceTime = new Date(date.getTime() + interval * 60 * 1000);
-      let currentTime = new Date().getTime();
-
-      // Keep adding the interval to the newDate
-      while (nextRaceTime < currentTime) {
-        nextRaceTime = new Date(nextRaceTime.getTime() + interval * 60 * 1000);
-      }
+      // Get the time of the next race
       startDate = date.toLocaleDateString();
       nextRace = nextRaceTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
     }
