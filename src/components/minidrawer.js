@@ -115,7 +115,7 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <List className='sidebar-list'>
-          {["Races", "Cars", "Series", "Tracks", "Results"].map((text, index) => (
+          {["Races", "Cars", "Series", "Tracks"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block", fontSize: "15px" }}>
               <ListItemButton sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }}>
                 <ListItemIcon className='sidebar-icon' sx={{ color: "white", minWidth: 0, mr: open ? 3 : "auto", justifyContent: "center" }}>
