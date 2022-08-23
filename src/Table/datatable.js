@@ -73,8 +73,8 @@ const columns = [
 ];
 
 /* Function that will take in the number of minutes and convert to hours and min
-  Parameters: min - the number of min
-  Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
+    Parameters: min - the number of min
+    Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
 */
 const timeConvert = (mins) => {
   var num = mins;
@@ -116,8 +116,8 @@ export default function Data() {
   const seasonStartDate = new Date("2022-6-14");
 
   /* Function that will gather all the data for the cars 
-  Parameters: N/A
-  Returns: an object of cars with their ids and the names 
+    Parameters: N/A
+    Returns: an object of cars with their ids and the names 
 */
   const getCarData = () => {
     const carsIdsAndNames = [];
@@ -132,8 +132,8 @@ export default function Data() {
   };
 
   /* Function that will map all the carIds with the car names
-    Parameters: carIds - the id for each vehicle in a series
-    Returns: a list of car names
+      Parameters: carIds - the id for each vehicle in a series
+      Returns: a list of car names
   */
   const getCarsInSeries = (carIds) => {
     let cars = [];
@@ -165,13 +165,14 @@ export default function Data() {
       Parameters: series - the series obj; seasonStartDate - the date that the current season starts at for comaparison
       Returns: start date and time
   */
-  const nextRaceTime = (series) => {
+  const extendedSeriesRace = (series, seasonStartDate) => {
     let startDate = "";
     let nextRace = "";
     let extendedSeries = 0;
+    let repeatingSeries = series.schedule[0].session_start_data[0].repeating;
 
     // Check if the series is repeating or not, if it is not then check what the starting date is
-    if (series.schedule[0].session_start_data[0].repeating !== false) {
+    if (repeatingSeries === true) {
       // Find the week number that will represent the week that the extended series will continue on
       extendedSeries = Object.values(series.schedule).find((e) => {
         // Convert series start date to date object
@@ -193,35 +194,63 @@ export default function Data() {
       // Get the values for the start date and next race
       startDate = date.toLocaleDateString();
       nextRace = nextRaceTime(date, interval).toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+      return { weekToResumeFrom: extendedSeries.race_week_num + weekNum - 2, startDate: startDate, nextRace: nextRace };
     }
 
-    // If there are mutiple session times, check which session time is up next and return it
-    if (series.schedule[weekNum - 1].session_start_data[0].repeating === false && series.schedule[weekNum - 1].session_start_data[0].session_times.length > 1) {
-      // Set todays date
-      const today = new Date().toISOString();
+    // If we made it to this check, we know that the repeating var is false so go ahead and go through the session times array
+    if (series.schedule[weekNum - 1].session_start_data[0].session_times.length > 1) {
+      // Loop through the session times array and find the first session that is within this seasons start date
+      extendedSeries = Object.values(series.schedule).find((e) => {
+        // Get the first date the series starts on from the 0 index in the session times array
+        let sessionStartDate = new Date(e.session_start_data[0].session_times[0]);
 
-      // If there are multiple session times for a series, go through each one until we find the next available session
-      series.schedule[weekNum - 1].session_start_data[0].session_times.every((session) => {
-        // If the session has still not occured, set it as the raceWeekend
-        let raceWeekend = session > today ? session : "passed";
-
-        // If the session has not yet 'passed', return it and break out of the loop
-        if (raceWeekend !== "passed") {
-          let nextRaceDateAndTime = new Date(raceWeekend);
-          startDate = nextRaceDateAndTime.toLocaleDateString();
-          nextRace = nextRaceDateAndTime.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
-          return false;
+        // Check if the session start date is within the season start date
+        if (sessionStartDate >= seasonStartDate) {
+          return e;
         }
-        return { startDate: startDate, nextRace: nextRace };
       });
+
+      let remainingRaceSchedule = series.schedule[extendedSeries.race_week_num + weekNum - 2];
+      let sessions = [...remainingRaceSchedule.session_start_data[0].session_times];
+      // Loop through and find the next available race in the array
+      for (let i = 0; i < sessions.length; i++) {
+        let today = new Date();
+        let sessionDate = new Date(sessions[i]);
+
+        if (sessionDate <= today) {
+          startDate = sessionDate.toLocaleDateString();
+          nextRace = sessionDate.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+        }
+      }
     }
+    return { weekToResumeFrom: extendedSeries.race_week_num + weekNum - 2, startDate: startDate, nextRace: nextRace };
+  };
+
+  /* Function that will take in the start time of a series and add the repeat min to it 
+      Parameters: time - in hh:mm:ss format, repeat_min - the interval in which the races will repeat
+      Returns: the time and date of the next race 
+    */
+  const normalSeriesRace = (series) => {
+    let startDate = "";
+    let nextRace = "";
 
     // Check if this is a non recurring series, if it is then get the date and time from the session_times arr
     if (series.schedule[weekNum - 1].session_start_data[0].repeating === false) {
-      // Get the data from the series
+      let today = new Date();
+      let sessions = [...series.schedule[weekNum - 1].session_start_data[0].session_times];
+      for (let i = 0; i < sessions.length; i++) {
+        let date = new Date(sessions[i]);
+        if (date <= today) {
+          startDate = date.toLocaleDateString();
+          nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+          console.log(startDate, nextRace);
+          return { startDate: startDate, nextRace: nextRace };
+        }
+      }
+      /*       // Get the data from the series
       let date = new Date(series.schedule[weekNum - 1].session_start_data[0].session_times);
       startDate = date.toLocaleDateString();
-      nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" });
+      nextRace = date.toLocaleTimeString(navigator.language, { hour: "2-digit", minute: "2-digit" }); */
     } else {
       // Format the date to make a new date object
       let date = new Date(series.schedule[weekNum - 1].session_start_data[0].start_date + "T" + series.schedule[weekNum - 1].session_start_data[0].first_session_time);
@@ -238,7 +267,7 @@ export default function Data() {
 
   /* Function that will gather all the data into an array of objects from the imported JSON file containing season data
       Parameters: weekNum - this will represent the week number 
-  Returns: an array containing data for all of the series taking place on the weekNum provided 
+      Returns: an array containing data for all of the series taking place on the weekNum provided 
   */
   const getSeriesData = () => {
     const rows = [];
@@ -266,18 +295,22 @@ export default function Data() {
       }
 
       // This will be used to indicate a special series with more than 12 weeks
-      if (series.schedule.length >= 13 && weekNum <= series.schedule.length) {
-        ({ startDate, nextRace } = extendedSeriesRace(series, seasonStartDate));
-        category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
-        track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
-        duration = series.schedule[weekNum - 1].race_time_limit !== null ? timeConvert(series.schedule[weekNum - 1].race_time_limit) : series.schedule[weekNum - 1].race_lap_limit + " L";
+      if (series.schedule.length >= 13 && weekNum + 13 <= series.schedule.length) {
+        // Retrieve the week we are going to resume from since these series types could have started prior to this season
+        let weekToResumeFrom = 0;
+        ({ weekToResumeFrom, startDate, nextRace } = extendedSeriesRace(series, seasonStartDate));
+
+        // Get the remaining data
+        category = categories[series.schedule[weekToResumeFrom].track.category] !== null ? categories[series.schedule[weekToResumeFrom].track.category] : "";
+        track = series.schedule[weekToResumeFrom].track.track_name !== null ? series.schedule[weekToResumeFrom].track.track_name : "";
+        duration = series.schedule[weekToResumeFrom].race_time_limit !== null ? timeConvert(series.schedule[weekToResumeFrom].race_time_limit) : series.schedule[weekToResumeFrom].race_lap_limit + " L";
       }
 
       // Get each name for the cars by using the ID to find a match in the carNames object
       let cars = getCarsInSeries(carIds);
 
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there is not a race that week)
-      if (track !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
+      if (track !== "" && startDate !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
     });
     return rows;
   };
