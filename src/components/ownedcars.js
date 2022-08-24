@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
 import CarData from "../data/car-data.json";
 import SeasonData from "../data/current-season-schedules.json";
 
@@ -63,7 +63,7 @@ export default function OwnedCars() {
 
     // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
-      if (car.type === category) return <div>{car.name}</div>;
+      if (car.type === category) return <FormControlLabel control={<Checkbox />} label={car.name} />;
     });
 
     // Return the list of divs with the car names
@@ -77,7 +77,7 @@ export default function OwnedCars() {
           return (
             <Box sx={{ fontWeight: "bold", fontSize: "23px" }}>
               {typesFormatted[category]}
-              <Box sx={{ fontWeight: "normal", fontSize: "18px" }}>{carsUnderCategories(category)}</Box>
+              <FormGroup sx={{ fontWeight: "normal", fontSize: "18px" }}>{carsUnderCategories(category)}</FormGroup>
             </Box>
           );
         })}
