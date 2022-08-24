@@ -6,6 +6,7 @@ import SeasonData from "../data/current-season-schedules.json";
 export default function OwnedCars() {
   // The different types of races cars will be a part of
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
+  const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
 
   /* Function that will find the car name with the car id
       Parameters: ids - list of car ids, type - the race type the car participates in 
@@ -54,7 +55,7 @@ export default function OwnedCars() {
         {types.map((category) => {
           return (
             <Box sx={{ fontWeight: "bold" }}>
-              {category}
+              {typesFormatted[category]}
               <Box sx={{ fontWeight: "normal" }}>{carsUnderCategories(category)}</Box>
             </Box>
           );
