@@ -16,7 +16,7 @@ const Races = () => {
       <MiniDrawer title={"Races"} />
       <FilterProvider>
         <Box className='main-content-area' sx={{ display: "flex", flexDirection: "column", width: "100%", justifyContent: "center", margin: "100px 0 50px 0" }}>
-          <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Weekly</Typography>
+          <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Weekly Races</Typography>
           <Box className='search-bar' sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
             <SearchAndFilterBar />
           </Box>
