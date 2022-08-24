@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Box, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { WeekContext } from "../contexts/WeekContext";
-import RaceData from "./data/current-season-schedules.json";
-import CarData from "./data/car-data.json";
+import RaceData from "../data/current-season-schedules.json";
+import CarData from "../data/car-data.json";
 
 /* Column headers for the table */
 const columns = [

@@ -5,7 +5,7 @@ import { FilterProvider } from "../contexts/FilterContext";
 import SearchAndFilterBar from "../components/searchandfilter";
 import MiniDrawer from "../components/minidrawer";
 import CustomizedMenu from "../components/dropdownmenu";
-import Data from "../table/datatable";
+import Data from "../components/datatable";
 import "../App.css";
 
 const Races = () => {
