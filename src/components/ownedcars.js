@@ -29,6 +29,7 @@ export default function OwnedCars() {
       Parameters: N/A
       Returns: list of car names and their type
     */
+
   const getCarsFromFile = () => {
     let cars = [];
     let seen = [];
@@ -52,6 +53,10 @@ export default function OwnedCars() {
     return cars;
   };
 
+  /* Function that will organize each car with the respective category
+      Parameters: category - the category of car
+      Returns: list of divs with each cars name
+    */
   const carsUnderCategories = (category) => {
     // Get the list of all cars and the types of races they participate in
     let listOfAvailableCars = getCarsFromFile();
