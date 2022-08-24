@@ -7,7 +7,7 @@ export default function Cars() {
     <Box className='page-container' sx={{ display: "flex", justifyContent: "center" }}>
       <MiniDrawer title={"Cars"} />
       <Box className='main-content-area' sx={{ display: "flex", flexDirection: "column", width: "100%", justifyContent: "center", margin: "100px 0 50px 0" }}>
-        <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Weekly</Typography>
+        <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Owned Cars</Typography>
       </Box>
     </Box>
   );
