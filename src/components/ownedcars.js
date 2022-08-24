@@ -71,13 +71,13 @@ export default function OwnedCars() {
   };
 
   return (
-    <Paper elevation={8} sx={{ borderRadius: "15px", width: "95%", display: "flex", direction: "column" }}>
-      <Box className='cars-owned-container'>
+    <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", direction: "column" }}>
+      <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
           return (
-            <Box sx={{ fontWeight: "bold" }}>
+            <Box sx={{ fontWeight: "bold", fontSize: "23px" }}>
               {typesFormatted[category]}
-              <Box sx={{ fontWeight: "normal" }}>{carsUnderCategories(category)}</Box>
+              <Box sx={{ fontWeight: "normal", fontSize: "18px" }}>{carsUnderCategories(category)}</Box>
             </Box>
           );
         })}
