@@ -95,6 +95,7 @@ const getSeasonSeriesData = async () => {
         series.series_id = response.data[i]["schedules"][0]["series_id"];
         series.series_name = response.data[i]["schedules"][0]["series_name"];
         series.car_class_ids = response.data[i]["car_class_ids"];
+        series.track_type = response.data[i]["track_types"][0]["track_type"];
         series.fixed_setup = response.data[i]["fixed_setup"];
         series.official = response.data[i]["official"];
         series.license_group = response.data[i]["license_group"];
@@ -168,17 +169,17 @@ const writeDataToFile = (jsonData, fileName) => {
 const auth = await fetchAuthCookie();
 
 // Get the series data for a specific year and season and store away in respective file
-const specificSeasonSeriesData = await getCertainSeriesData("2022", "2");
-writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/data/series-data-2022S2.json`);
+//const specificSeasonSeriesData = await getCertainSeriesData("2022", "2");
+//writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/data/series-data-2022S2.json`);
 
 // Get the current seasons series data (more generalized data such as series ID, name, licenses etc..)
-const seriesDataForCurrentSeason = await getSeriesData();
-writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/data/current-season-available-series.json");
+//const seriesDataForCurrentSeason = await getSeriesData();
+//writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/data/current-season-available-series.json");
 
 // Get the detailed data for the season series
 const seasonData = await getSeasonSeriesData();
 writeDataToFile(JSON.stringify(seasonData, null, 4), "../src/data/current-season-schedules.json");
 
 // Get the data for each vehicle
-const carData = await getCarData();
-writeDataToFile(JSON.stringify(carData, null, 4), "../src/data/car-data.json");
+//const carData = await getCarData();
+//writeDataToFile(JSON.stringify(carData, null, 4), "../src/data/car-data.json");

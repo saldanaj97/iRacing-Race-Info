@@ -6,6 +6,7 @@
         "car_class_ids": [
             3189
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -388,6 +389,7 @@
         "car_class_ids": [
             3104
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 5,
@@ -488,7 +490,7 @@
                     {
                         "repeating": false,
                         "super_session": false,
-                        "session_minutes": 45,
+                        "session_minutes": 30,
                         "session_times": [
                             "2022-08-20T18:45:00Z"
                         ]
@@ -533,6 +535,7 @@
         "car_class_ids": [
             71
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -1710,6 +1713,7 @@
         "car_class_ids": [
             1455
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -2888,6 +2892,7 @@
         "car_class_ids": [
             2978
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -3825,6 +3830,7 @@
         "car_class_ids": [
             2978
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -4726,6 +4732,7 @@
         "car_class_ids": [
             2742
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -4959,6 +4966,7 @@
         "car_class_ids": [
             117
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -5306,7 +5314,7 @@
                     {
                         "repeating": false,
                         "super_session": false,
-                        "session_minutes": 185,
+                        "session_minutes": 30,
                         "session_times": [
                             "2022-08-18T01:00:00Z",
                             "2022-08-19T18:00:00Z",
@@ -5385,6 +5393,7 @@
         "car_class_ids": [
             93
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -5432,6 +5441,7 @@
         "car_class_ids": [
             3185
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -6107,6 +6117,7 @@
         "car_class_ids": [
             3185
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -6784,6 +6795,7 @@
             3189,
             3256
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -6893,6 +6905,7 @@
             4007,
             74
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -7122,6 +7135,7 @@
         "car_class_ids": [
             12
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -7502,6 +7516,7 @@
         "car_class_ids": [
             34
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -7881,6 +7896,7 @@
         "car_class_ids": [
             74
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -8266,6 +8282,7 @@
         "car_class_ids": [
             3002
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -8651,6 +8668,7 @@
         "car_class_ids": [
             5
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -9031,6 +9049,7 @@
         "car_class_ids": [
             2266
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -9419,6 +9438,7 @@
             74,
             28
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -9804,6 +9824,7 @@
         "car_class_ids": [
             2268
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -10186,6 +10207,7 @@
         "car_class_ids": [
             3189
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -10568,6 +10590,7 @@
         "car_class_ids": [
             3105
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -10952,6 +10975,7 @@
         "car_class_ids": [
             3188
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -11337,6 +11361,7 @@
         "car_class_ids": [
             3188
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -11722,6 +11747,7 @@
         "car_class_ids": [
             2523
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 4,
@@ -12104,6 +12130,7 @@
         "car_class_ids": [
             14
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -12483,6 +12510,7 @@
         "car_class_ids": [
             14
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -12862,6 +12890,7 @@
         "car_class_ids": [
             21
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -13242,6 +13271,7 @@
         "car_class_ids": [
             2
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -13622,6 +13652,7 @@
         "car_class_ids": [
             2
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -14002,6 +14033,7 @@
         "car_class_ids": [
             1
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -14385,6 +14417,7 @@
         "car_class_ids": [
             81
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -14767,6 +14800,7 @@
         "car_class_ids": [
             55
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -15152,6 +15186,7 @@
         "car_class_ids": [
             20
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -15538,6 +15573,7 @@
             48,
             45
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -15921,6 +15957,7 @@
         "car_class_ids": [
             3283
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -16267,13 +16304,13 @@
             },
             {
                 "race_week_num": 11,
-                "race_lap_limit": 5,
+                "race_lap_limit": 4,
                 "race_time_limit": null,
                 "session_start_data": [
                     {
                         "repeating": true,
                         "super_session": false,
-                        "session_minutes": 45,
+                        "session_minutes": 38,
                         "start_date": "2022-08-30",
                         "day_offset": [
                             0,
@@ -16306,6 +16343,7 @@
             83,
             84
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -16688,6 +16726,7 @@
         "car_class_ids": [
             3245
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -17073,6 +17112,7 @@
             3189,
             4008
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -17184,7 +17224,7 @@
                     {
                         "repeating": false,
                         "super_session": false,
-                        "session_minutes": 129,
+                        "session_minutes": 30,
                         "session_times": [
                             "2022-08-20T04:00:00Z",
                             "2022-08-20T15:00:00Z",
@@ -17235,6 +17275,7 @@
         "car_class_ids": [
             34
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -17614,6 +17655,7 @@
         "car_class_ids": [
             29
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -17992,6 +18034,7 @@
         "car_class_ids": [
             29
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -18370,6 +18413,7 @@
         "car_class_ids": [
             60
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -18747,6 +18791,7 @@
         "car_class_ids": [
             60
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -19124,6 +19169,7 @@
         "car_class_ids": [
             71
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -19502,6 +19548,7 @@
         "car_class_ids": [
             2269
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 4,
@@ -19884,6 +19931,7 @@
         "car_class_ids": [
             117
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -20265,6 +20313,7 @@
         "car_class_ids": [
             117
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -20648,6 +20697,7 @@
         "car_class_ids": [
             74
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -21032,6 +21082,7 @@
         "car_class_ids": [
             870
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -21415,6 +21466,7 @@
         "car_class_ids": [
             870
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -21798,6 +21850,7 @@
         "car_class_ids": [
             2265
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -22180,6 +22233,7 @@
         "car_class_ids": [
             1615
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -22623,6 +22677,7 @@
         "car_class_ids": [
             1615
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -23006,6 +23061,7 @@
         "car_class_ids": [
             3104
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -23391,6 +23447,7 @@
         "car_class_ids": [
             3104
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -23777,6 +23834,7 @@
             41,
             73
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -24162,6 +24220,7 @@
         "car_class_ids": [
             46
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -24545,6 +24604,7 @@
         "car_class_ids": [
             1455
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 4,
@@ -24925,6 +24985,7 @@
         "car_class_ids": [
             16
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -25304,6 +25365,7 @@
         "car_class_ids": [
             35
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -25685,6 +25747,7 @@
             3190,
             2523
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -26067,6 +26130,7 @@
         "car_class_ids": [
             22
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -26450,6 +26514,7 @@
         "car_class_ids": [
             2708
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 4,
@@ -26831,6 +26896,7 @@
         "car_class_ids": [
             2708
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -27212,6 +27278,7 @@
         "car_class_ids": [
             2708
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -27511,6 +27578,7 @@
             116,
             2523
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 5,
@@ -27898,6 +27966,7 @@
             116,
             2523
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -28006,7 +28075,7 @@
                     {
                         "repeating": false,
                         "super_session": false,
-                        "session_minutes": 1454,
+                        "session_minutes": 30,
                         "session_times": [
                             "2022-08-20T07:00:00Z",
                             "2022-08-20T18:00:00Z",
@@ -28056,6 +28125,7 @@
             3190,
             2523
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -28217,6 +28287,7 @@
         "car_class_ids": [
             871
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -28601,6 +28672,7 @@
         "car_class_ids": [
             2978
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 5,
@@ -28981,6 +29053,7 @@
         "car_class_ids": [
             2978
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 5,
@@ -29361,6 +29434,7 @@
         "car_class_ids": [
             3185
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 5,
@@ -29744,6 +29818,7 @@
         "car_class_ids": [
             3185
         ],
+        "track_type": "road",
         "fixed_setup": true,
         "official": true,
         "license_group": 5,
@@ -30127,6 +30202,7 @@
         "car_class_ids": [
             2704
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -30557,6 +30633,7 @@
         "car_class_ids": [
             2978
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": false,
         "license_group": 1,
@@ -30965,6 +31042,7 @@
         "car_class_ids": [
             63
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": false,
         "license_group": 1,
@@ -31380,6 +31458,7 @@
         "car_class_ids": [
             17
         ],
+        "track_type": "oval",
         "fixed_setup": true,
         "official": false,
         "license_group": 1,
@@ -31796,6 +31875,7 @@
         "car_class_ids": [
             86
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -32177,6 +32257,7 @@
         "car_class_ids": [
             89
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 1,
@@ -32554,6 +32635,7 @@
         "car_class_ids": [
             87
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -32930,6 +33012,7 @@
         "car_class_ids": [
             85
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -33305,6 +33388,7 @@
         "car_class_ids": [
             2707
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -33679,6 +33763,7 @@
         "car_class_ids": [
             92
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -34055,6 +34140,7 @@
         "car_class_ids": [
             96
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -34429,6 +34515,7 @@
         "car_class_ids": [
             86
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -34804,6 +34891,7 @@
         "car_class_ids": [
             91
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -35177,6 +35265,7 @@
         "car_class_ids": [
             104
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -35551,6 +35640,7 @@
         "car_class_ids": [
             90
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -35927,6 +36017,7 @@
         "car_class_ids": [
             103
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 4,
@@ -36301,6 +36392,7 @@
         "car_class_ids": [
             2706
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
@@ -36675,6 +36767,7 @@
         "car_class_ids": [
             93
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -37050,6 +37143,7 @@
         "car_class_ids": [
             93
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 4,
@@ -37425,6 +37519,7 @@
         "car_class_ids": [
             94
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -37798,6 +37893,7 @@
         "car_class_ids": [
             91
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -38171,6 +38267,7 @@
         "car_class_ids": [
             3001
         ],
+        "track_type": "dirt_road",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -38556,6 +38653,7 @@
         "car_class_ids": [
             3001
         ],
+        "track_type": "dirt_road",
         "fixed_setup": false,
         "official": true,
         "license_group": 2,
@@ -38941,6 +39039,7 @@
         "car_class_ids": [
             105
         ],
+        "track_type": "dirt_road",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -39326,6 +39425,7 @@
         "car_class_ids": [
             105
         ],
+        "track_type": "dirt_road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -39711,6 +39811,7 @@
         "car_class_ids": [
             1454
         ],
+        "track_type": "dirt_road",
         "fixed_setup": true,
         "official": true,
         "license_group": 1,
@@ -40096,6 +40197,7 @@
         "car_class_ids": [
             1278
         ],
+        "track_type": "dirt_road",
         "fixed_setup": true,
         "official": true,
         "license_group": 2,
@@ -40472,6 +40574,7 @@
         "car_class_ids": [
             1277
         ],
+        "track_type": "dirt_road",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -40848,6 +40951,7 @@
         "car_class_ids": [
             1278
         ],
+        "track_type": "dirt_road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -41225,6 +41329,7 @@
         "car_class_ids": [
             1277
         ],
+        "track_type": "dirt_road",
         "fixed_setup": false,
         "official": true,
         "license_group": 4,
@@ -41602,6 +41707,7 @@
         "car_class_ids": [
             71
         ],
+        "track_type": "oval",
         "fixed_setup": false,
         "official": true,
         "license_group": 5,
@@ -41766,6 +41872,7 @@
         "car_class_ids": [
             91
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -42067,6 +42174,7 @@
         "car_class_ids": [
             93
         ],
+        "track_type": "dirt_oval",
         "fixed_setup": true,
         "official": true,
         "license_group": 3,
@@ -42296,7 +42404,7 @@
                     {
                         "repeating": false,
                         "super_session": false,
-                        "session_minutes": 73,
+                        "session_minutes": 58,
                         "session_times": [
                             "2022-08-17T21:00:00Z",
                             "2022-08-17T01:00:00Z",
@@ -42370,6 +42478,7 @@
         "car_class_ids": [
             2268
         ],
+        "track_type": "road",
         "fixed_setup": false,
         "official": true,
         "license_group": 3,
