@@ -169,16 +169,16 @@ const auth = await fetchAuthCookie();
 
 // Get the series data for a specific year and season and store away in respective file
 const specificSeasonSeriesData = await getCertainSeriesData("2022", "2");
-writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/table/data/series-data-2022S2.json`);
+writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/data/series-data-2022S2.json`);
 
 // Get the current seasons series data (more generalized data such as series ID, name, licenses etc..)
 const seriesDataForCurrentSeason = await getSeriesData();
-writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/table/data/current-season-available-series.json");
+writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/data/current-season-available-series.json");
 
 // Get the detailed data for the season series
 const seasonData = await getSeasonSeriesData();
-writeDataToFile(JSON.stringify(seasonData, null, 4), "../src/table/data/current-season-schedules.json");
+writeDataToFile(JSON.stringify(seasonData, null, 4), "../src/data/current-season-schedules.json");
 
 // Get the data for each vehicle
 const carData = await getCarData();
-writeDataToFile(JSON.stringify(carData, null, 4), "../src/table/data/car-data.json");
+writeDataToFile(JSON.stringify(carData, null, 4), "../src/data/car-data.json");
