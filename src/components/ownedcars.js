@@ -10,13 +10,18 @@ export default function OwnedCars() {
 
   /* Function that will find the car name with the car id
       Parameters: ids - list of car ids, type - the race type the car participates in 
-      Returns: list of car names and the type of race it participates in 
+      Returns: car object containing the car anem and track type 
     */
   const getCarNamesFromId = (id, type) => {
-    let car = new Object();
+    // Find car id and get the cars name
     let carInfo = Object.values(CarData).find((car) => car.id === id);
+
+    // Save the car name and type to the car obj to return
+    let car = new Object();
     car.name = carInfo.shortName;
     car.type = type;
+
+    // Return the car name and track type it belongs to
     return car;
   };
 
@@ -27,25 +32,36 @@ export default function OwnedCars() {
   const getCarsFromFile = () => {
     let cars = [];
     let seen = [];
+
+    // Go Through each series adn get the car ids and track type that the car is used for
     Object.values(SeasonData).map((series) => {
       let id = series.car_class_ids;
       let type = series.track_type;
+
+      // Since some series have multiple car ids, go through each one and find the name of the car
       id.forEach((carId) => {
+        // If the car id has not been seen already, add it to the cars list and the seen list
         if (!seen.includes(carId)) {
           seen.push(carId);
           cars.push(getCarNamesFromId(carId, type));
         }
       });
     });
+
+    // Return the list of cars names and the track type they belong to
     return cars;
   };
 
   const carsUnderCategories = (category) => {
     // Get the list of all cars and the types of races they participate in
     let listOfAvailableCars = getCarsFromFile();
+
+    // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
       if (car.type === category) return <div>{car.name}</div>;
     });
+
+    // Return the list of divs with the car names
     return categorizedCarList;
   };
 
