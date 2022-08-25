@@ -1,0 +1,637 @@
+[
+    {
+        "id": 1,
+        "name": "[Legacy] Lime Rock Park - 2008",
+        "category": "road"
+    },
+    {
+        "id": 2,
+        "name": "Virginia International Raceway",
+        "category": "road"
+    },
+    {
+        "id": 8,
+        "name": "Summit Point Raceway",
+        "category": "road"
+    },
+    {
+        "id": 11,
+        "name": "Stafford Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 12,
+        "name": "Oxford Plains Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 14,
+        "name": "South Boston Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 15,
+        "name": "Concord Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 16,
+        "name": "USA International Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 17,
+        "name": "Lanier National Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 18,
+        "name": "Road America",
+        "category": "road"
+    },
+    {
+        "id": 19,
+        "name": "Irwindale Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 20,
+        "name": "Homestead Miami Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 26,
+        "name": "[Legacy] Daytona International Speedway - 2008",
+        "category": "road"
+    },
+    {
+        "id": 31,
+        "name": "Richmond Raceway",
+        "category": "oval"
+    },
+    {
+        "id": 33,
+        "name": "Martinsville Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 37,
+        "name": "[Legacy] Charlotte Motor Speedway - 2008",
+        "category": "road"
+    },
+    {
+        "id": 41,
+        "name": "[Legacy] Silverstone Circuit - 2008",
+        "category": "road"
+    },
+    {
+        "id": 46,
+        "name": "Barber Motorsports Park",
+        "category": "road"
+    },
+    {
+        "id": 47,
+        "name": "WeatherTech Raceway at Laguna Seca",
+        "category": "road"
+    },
+    {
+        "id": 48,
+        "name": "Sonoma Raceway",
+        "category": "road"
+    },
+    {
+        "id": 51,
+        "name": "Atlanta Motor Speedway",
+        "category": "road"
+    },
+    {
+        "id": 94,
+        "name": "The Milwaukee Mile",
+        "category": "oval"
+    },
+    {
+        "id": 95,
+        "name": "Sebring International Raceway",
+        "category": "road"
+    },
+    {
+        "id": 101,
+        "name": "Bristol Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 103,
+        "name": "Las Vegas Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 104,
+        "name": "[Legacy] Phoenix Raceway - 2008",
+        "category": "oval"
+    },
+    {
+        "id": 106,
+        "name": "[Retired] Watkins Glen International",
+        "category": "road"
+    },
+    {
+        "id": 115,
+        "name": "Darlington Raceway",
+        "category": "oval"
+    },
+    {
+        "id": 116,
+        "name": "Talladega Superspeedway",
+        "category": "oval"
+    },
+    {
+        "id": 117,
+        "name": "[Legacy] Texas Motor Speedway - 2009",
+        "category": "road"
+    },
+    {
+        "id": 123,
+        "name": "Chicagoland Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 124,
+        "name": "[Legacy] Michigan International Speedway - 2009",
+        "category": "oval"
+    },
+    {
+        "id": 126,
+        "name": "Road Atlanta",
+        "category": "road"
+    },
+    {
+        "id": 129,
+        "name": "New Hampshire Motor Speedway",
+        "category": "road"
+    },
+    {
+        "id": 133,
+        "name": "Indianapolis Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 136,
+        "name": "[Legacy] Pocono Raceway - 2009",
+        "category": "oval"
+    },
+    {
+        "id": 143,
+        "name": "Centripetal Circuit",
+        "category": "oval"
+    },
+    {
+        "id": 144,
+        "name": "Canadian Tire Motorsports Park",
+        "category": "road"
+    },
+    {
+        "id": 145,
+        "name": "Brands Hatch Circuit",
+        "category": "road"
+    },
+    {
+        "id": 147,
+        "name": "Circuit Park Zandvoort",
+        "category": "road"
+    },
+    {
+        "id": 152,
+        "name": "Phillip Island Circuit",
+        "category": "road"
+    },
+    {
+        "id": 153,
+        "name": "Mid-Ohio Sports Car Course",
+        "category": "road"
+    },
+    {
+        "id": 161,
+        "name": "Thompson Speedway Motorsports Park",
+        "category": "oval"
+    },
+    {
+        "id": 162,
+        "name": "Dover Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 163,
+        "name": "Circuit de Spa-Francorchamps",
+        "category": "road"
+    },
+    {
+        "id": 166,
+        "name": "Okayama International Circuit",
+        "category": "road"
+    },
+    {
+        "id": 168,
+        "name": "Suzuka International Racing Course",
+        "category": "road"
+    },
+    {
+        "id": 169,
+        "name": "Iowa Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 179,
+        "name": "Long Beach Street Circuit",
+        "category": "road"
+    },
+    {
+        "id": 180,
+        "name": "Oulton Park Circuit",
+        "category": "road"
+    },
+    {
+        "id": 188,
+        "name": "[Legacy] Kentucky Speedway - 2011",
+        "category": "oval"
+    },
+    {
+        "id": 190,
+        "name": "New Smyrna Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 191,
+        "name": "Daytona International Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 195,
+        "name": "Twin Ring Motegi",
+        "category": "road"
+    },
+    {
+        "id": 199,
+        "name": "Circuit Zolder",
+        "category": "road"
+    },
+    {
+        "id": 201,
+        "name": "Langley Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 202,
+        "name": "Oran Park Raceway",
+        "category": "road"
+    },
+    {
+        "id": 203,
+        "name": "Rockingham Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 212,
+        "name": "Autódromo José Carlos Pace",
+        "category": "road"
+    },
+    {
+        "id": 214,
+        "name": "Kansas Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 218,
+        "name": "Circuit Gilles Villeneuve",
+        "category": "road"
+    },
+    {
+        "id": 219,
+        "name": "Mount Panorama Circuit",
+        "category": "road"
+    },
+    {
+        "id": 220,
+        "name": "New Jersey Motorsports Park",
+        "category": "road"
+    },
+    {
+        "id": 225,
+        "name": "Auto Club Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 229,
+        "name": "Circuit of the Americas",
+        "category": "road"
+    },
+    {
+        "id": 232,
+        "name": "Lucas Oil Raceway (IRP)",
+        "category": "oval"
+    },
+    {
+        "id": 233,
+        "name": "Donington Park Racing Circuit",
+        "category": "road"
+    },
+    {
+        "id": 235,
+        "name": "[Retired] Phoenix Raceway",
+        "category": "oval"
+    },
+    {
+        "id": 237,
+        "name": "World Wide Technology Raceway (Gateway)",
+        "category": "oval"
+    },
+    {
+        "id": 239,
+        "name": "Autodromo Nazionale Monza",
+        "category": "road"
+    },
+    {
+        "id": 248,
+        "name": "Five Flags Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 249,
+        "name": "Nürburgring Nordschleife",
+        "category": "road"
+    },
+    {
+        "id": 250,
+        "name": "Nürburgring Grand-Prix-Strecke",
+        "category": "road"
+    },
+    {
+        "id": 252,
+        "name": "Nürburgring Combined",
+        "category": "road"
+    },
+    {
+        "id": 256,
+        "name": "Southern National Motorsports Park",
+        "category": "oval"
+    },
+    {
+        "id": 266,
+        "name": "Autodromo Internazionale Enzo e Dino Ferrari",
+        "category": "road"
+    },
+    {
+        "id": 268,
+        "name": "Circuit des 24 Heures du Mans",
+        "category": "road"
+    },
+    {
+        "id": 271,
+        "name": "The Bullring",
+        "category": "oval"
+    },
+    {
+        "id": 273,
+        "name": "Eldora Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 274,
+        "name": "Williams Grove Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 276,
+        "name": "Michigan International Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 277,
+        "name": "Pocono Raceway",
+        "category": "oval"
+    },
+    {
+        "id": 279,
+        "name": "Volusia Speedway Park",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 286,
+        "name": "Myrtle Beach Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 297,
+        "name": "Snetterton Circuit",
+        "category": "road"
+    },
+    {
+        "id": 303,
+        "name": "Limaland Motorsports Park",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 305,
+        "name": "Knoxville Raceway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 314,
+        "name": "The Dirt Track at Charlotte",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 319,
+        "name": "Detroit Grand Prix at Belle Isle",
+        "category": "road"
+    },
+    {
+        "id": 320,
+        "name": "Kokomo Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 324,
+        "name": "Tsukuba Circuit",
+        "category": "road"
+    },
+    {
+        "id": 330,
+        "name": "Charlotte Motor Speedway",
+        "category": "road"
+    },
+    {
+        "id": 331,
+        "name": "Chili Bowl",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 332,
+        "name": "Wild West Motorsports Park",
+        "category": "dirt_road"
+    },
+    {
+        "id": 334,
+        "name": "Wild Horse Pass Motorsports Park",
+        "category": "dirt_road"
+    },
+    {
+        "id": 341,
+        "name": "Silverstone Circuit",
+        "category": "road"
+    },
+    {
+        "id": 344,
+        "name": "Fairbury Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 345,
+        "name": "Circuit de Barcelona Catalunya",
+        "category": "road"
+    },
+    {
+        "id": 351,
+        "name": "Lernerville Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 352,
+        "name": "Lime Rock Park",
+        "category": "road"
+    },
+    {
+        "id": 357,
+        "name": "Texas Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 358,
+        "name": "Lånkebanen (Hell RX)",
+        "category": "dirt_road"
+    },
+    {
+        "id": 366,
+        "name": "North Wilkesboro Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 371,
+        "name": "Kentucky Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 373,
+        "name": "Weedsport Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 374,
+        "name": "Nashville Fairgrounds Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 382,
+        "name": "Crandon International Raceway",
+        "category": "dirt_road"
+    },
+    {
+        "id": 384,
+        "name": "iRacing Superspeedway",
+        "category": "oval"
+    },
+    {
+        "id": 386,
+        "name": "Circuit de Barcelona-Catalunya",
+        "category": "dirt_road"
+    },
+    {
+        "id": 387,
+        "name": "Cedar Lake Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 390,
+        "name": "Hockenheimring Baden-Württemberg",
+        "category": "road"
+    },
+    {
+        "id": 396,
+        "name": "Bark River International Raceway",
+        "category": "dirt_road"
+    },
+    {
+        "id": 398,
+        "name": "Mt. Washington Auto Road",
+        "category": "road"
+    },
+    {
+        "id": 400,
+        "name": "Nashville Superspeedway",
+        "category": "oval"
+    },
+    {
+        "id": 403,
+        "name": "Red Bull Ring",
+        "category": "road"
+    },
+    {
+        "id": 405,
+        "name": "Chicago Street Circuit",
+        "category": "road"
+    },
+    {
+        "id": 413,
+        "name": "Hungaroring",
+        "category": "road"
+    },
+    {
+        "id": 414,
+        "name": "Hickory Motor Speedway",
+        "category": "oval"
+    },
+    {
+        "id": 418,
+        "name": "Phoenix Raceway",
+        "category": "oval"
+    },
+    {
+        "id": 423,
+        "name": "Knockhill Racing Circuit",
+        "category": "road"
+    },
+    {
+        "id": 432,
+        "name": "Watkins Glen International",
+        "category": "road"
+    },
+    {
+        "id": 437,
+        "name": "LA Coliseum Raceway",
+        "category": "oval"
+    },
+    {
+        "id": 438,
+        "name": "Federated Auto Parts Raceway at I-55",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 439,
+        "name": "Winton Motor Raceway",
+        "category": "road"
+    },
+    {
+        "id": 443,
+        "name": "Sandown International Motor Raceway",
+        "category": "road"
+    },
+    {
+        "id": 444,
+        "name": "Fuji International Speedway",
+        "category": "road"
+    },
+    {
+        "id": 446,
+        "name": "Port Royal Speedway",
+        "category": "dirt_oval"
+    }
+]

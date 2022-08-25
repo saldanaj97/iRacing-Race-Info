@@ -152,6 +152,35 @@ const getCarData = async () => {
   }
 };
 
+/* Function that will grab all the tracks available
+   Params: N/A
+   Returns: A list containing each track with its id, name, and category 
+*/
+const getTrackData = async () => {
+  const trackData = [];
+  let seen = [];
+  try {
+    const URL = "https://members-ng.iracing.com/data/track/get";
+    const { link } = await client.get(URL).then((response) => response.data);
+
+    await client.get(link).then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        let trackObj = new Object();
+        if (!seen.includes(response.data[i].track_name)) {
+          seen.push(response.data[i].track_name);
+          trackObj.id = response.data[i].track_id;
+          trackObj.name = response.data[i].track_name;
+          trackObj.category = response.data[i].category;
+          trackData.push(trackObj);
+        }
+      }
+    });
+    return trackData;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* Function to write JSON data to specified file.
    Params:
     jsonData(string) - the data that will be written to the file
@@ -169,17 +198,21 @@ const writeDataToFile = (jsonData, fileName) => {
 const auth = await fetchAuthCookie();
 
 // Get the series data for a specific year and season and store away in respective file
-//const specificSeasonSeriesData = await getCertainSeriesData("2022", "2");
-//writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/data/series-data-2022S2.json`);
+const specificSeasonSeriesData = await getCertainSeriesData("2022", "2");
+writeDataToFile(JSON.stringify(specificSeasonSeriesData, null, 4), `../src/data/series-data-2022S2.json`);
 
 // Get the current seasons series data (more generalized data such as series ID, name, licenses etc..)
-//const seriesDataForCurrentSeason = await getSeriesData();
-//writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/data/current-season-available-series.json");
+const seriesDataForCurrentSeason = await getSeriesData();
+writeDataToFile(JSON.stringify(seriesDataForCurrentSeason, null, 4), "../src/data/current-season-available-series.json");
 
 // Get the detailed data for the season series
 const seasonData = await getSeasonSeriesData();
 writeDataToFile(JSON.stringify(seasonData, null, 4), "../src/data/current-season-schedules.json");
 
 // Get the data for each vehicle
-//const carData = await getCarData();
-//writeDataToFile(JSON.stringify(carData, null, 4), "../src/data/car-data.json");
+const carData = await getCarData();
+writeDataToFile(JSON.stringify(carData, null, 4), "../src/data/car-data.json");
+
+// Get all the tracks offered in the game
+let trackData = await getTrackData();
+writeDataToFile(JSON.stringify(trackData, null, 4), "../src/data/tracks.json");
