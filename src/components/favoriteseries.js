@@ -22,11 +22,7 @@ export default function FavoriteSeries() {
   const getSeriesData = () => {
     let seriesList = [];
     Object.values(SeriesData).forEach((series) => {
-      let seriesData = new Object();
-      seriesData.id = series.series_id;
-      seriesData.name = series.series_name;
-      seriesData.category = series.category;
-      seriesList.push(seriesData);
+      seriesList.push({ id: series.series_id, name: series.series_name, category: series.category });
     });
     return seriesList;
   };
