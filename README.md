@@ -2,7 +2,7 @@
 
 ## Description
 
-This tool will be used for viewing which races are occuring each week of the season and what time the next available race is starting at. The user can select which cars and tracks they own as well as select which series they want to follow. For this they will need to create an account so their preferences can be saved. Since this will only be used for filtering data, they will only need to provide a username and password. The data is pulled from the iRacing API but updated at the beginning of the season (unless there is an update during the season) so if the data is not up to date, this could be due to data files created not being up to date yet. Feel free to use my retieval files for your own application! Info on how to run and what to expect can be found [here](data-retrieval). 
+This tool will be used for viewing which races are occuring each week of the season and what time the next available race is starting at. The user can select which cars and tracks they own as well as select which series they want to follow. For this they will need to create an account so their preferences can be saved. Since this will only be used for filtering data, they will only need to provide a username and password. The data is pulled from the iRacing API but updated at the beginning of the season (unless there is an update during the season) so if the data is not up to date, this could be due to data files created not being up to date yet. Feel free to use my retieval files for your own application! Info on how to run and what to expect can be found [here](#data-retrieval). 
 
 ## Technologies Used
 
