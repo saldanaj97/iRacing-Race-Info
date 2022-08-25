@@ -1,0 +1,12 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "Tool to get data from the iRacing API. ",
+  "main": "retrievedata.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Saldana",
+  "license": "ISC"
+}

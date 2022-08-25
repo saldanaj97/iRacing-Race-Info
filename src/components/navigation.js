@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Avatar, Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
@@ -77,9 +78,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
   }),
 }));
 
-export default function MiniDrawer() {
-  const [open, setOpen] = React.useState(false);
-  const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad, AiOutlineLineChart];
+export default function NavigationBar({ title }) {
+  const [open, setOpen] = useState(false);
+  const [pageTitle, setPageTitle] = useState("");
+
+  const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
+  const routes = ["/", "/cars", "/tracks", "/series"];
+  const navigate = useNavigate();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -89,6 +94,10 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  useEffect(() => {
+    setPageTitle(title);
+  }, [pageTitle]);
+
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar position='fixed' open={open} sx={{ backgroundColor: "#2b2d42" }}>
@@ -97,7 +106,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div' width='100%'>
-            Dashboards {">"} Races
+            {pageTitle}
           </Typography>
           <Container sx={{ display: "flex", color: "White", justifyContent: "flex-end" }}>Ricky Bobby</Container>
           <IconButton className='avatar-button' sx={{ display: "flex", alignContent: "flex-end" }}>
@@ -115,9 +124,9 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <List className='sidebar-list'>
-          {["Races", "Cars", "Series", "Tracks", "Results"].map((text, index) => (
+          {["Races", "Cars", "Series", "Tracks"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block", fontSize: "15px" }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }}>
+              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }} onClick={() => navigate(routes[index])}>
                 <ListItemIcon className='sidebar-icon' sx={{ color: "white", minWidth: 0, mr: open ? 3 : "auto", justifyContent: "center" }}>
                   <Icon as={sideBarIcons[index]} />
                 </ListItemIcon>
