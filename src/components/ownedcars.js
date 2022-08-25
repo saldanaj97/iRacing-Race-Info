@@ -8,6 +8,14 @@ export default function OwnedCars() {
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
 
+  /* Function that will handle when a user selects a checkbox for a car they own
+      Parameters: carSelected - the id of the vehicle the user owns
+      Returns: N/A
+    */
+  const handleCarSelected = (carSelected, selected) => {
+    console.log(carSelected, selected);
+  };
+
   /* Function that will find the car name with the car id
       Parameters: ids - list of car ids, type - the race type the car participates in 
       Returns: car object containing the car anem and track type 
@@ -18,6 +26,7 @@ export default function OwnedCars() {
 
     // Save the car name and type to the car obj to return
     let car = new Object();
+    car.id = carInfo.id;
     car.name = carInfo.shortName;
     car.type = type;
 
@@ -29,7 +38,6 @@ export default function OwnedCars() {
       Parameters: N/A
       Returns: list of car names and their type
     */
-
   const getCarsFromFile = () => {
     let cars = [];
     let seen = [];
@@ -63,7 +71,7 @@ export default function OwnedCars() {
 
     // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
-      if (car.type === category) return <FormControlLabel control={<Checkbox />} label={car.name} />;
+      if (car.type === category) return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
     });
 
     // Return the list of divs with the car names
