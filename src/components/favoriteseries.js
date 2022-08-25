@@ -7,10 +7,18 @@ export default function FavoriteSeries() {
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
 
+  /* Function that will handle when a user selects a checkbox
+      Parameters: series - the series id of the box selected; selected - true or false depending on if box is checked or not
+      Returns: N/A
+    */
   const handleSeriesSelected = (series, selected) => {
     console.log(series, selected);
   };
 
+  /* Function that will gather all the series data including id, name, and category
+      Parameters: N/A
+      Returns: List of all the series
+    */
   const getSeriesData = () => {
     let seriesList = [];
     Object.values(SeriesData).forEach((series) => {
@@ -23,6 +31,10 @@ export default function FavoriteSeries() {
     return seriesList;
   };
 
+  /* Function that will organize the series into checkboxes based on their categories
+      Parameters: category - the category of races/series we are looking for 
+      Returns: List of all the series checkboxes for a particular category 
+    */
   const categorizeSeriesData = (category) => {
     let seriesData = getSeriesData();
     let categorizedSeriesData = seriesData.map((series) => {
