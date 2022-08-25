@@ -24,14 +24,8 @@ export default function OwnedCars() {
     // Find car id and get the cars name
     let carInfo = Object.values(CarData).find((car) => car.id === id);
 
-    // Save the car name and type to the car obj to return
-    let car = new Object();
-    car.id = carInfo.id;
-    car.name = carInfo.shortName;
-    car.type = type;
-
-    // Return the car name and track type it belongs to
-    return car;
+    // Return the car name, id, and track category it belongs to
+    return { id: carInfo.id, name: carInfo.shortName, category: type };
   };
 
   /* Function that will gather all the car ids for each series and the type of races they participate in 
@@ -44,15 +38,12 @@ export default function OwnedCars() {
 
     // Go Through each series adn get the car ids and track type that the car is used for
     Object.values(SeasonData).map((series) => {
-      let id = series.car_class_ids;
-      let type = series.track_type;
-
       // Since some series have multiple car ids, go through each one and find the name of the car
-      id.forEach((carId) => {
+      series.car_class_ids.forEach((id) => {
         // If the car id has not been seen already, add it to the cars list and the seen list
-        if (!seen.includes(carId)) {
-          seen.push(carId);
-          cars.push(getCarNamesFromId(carId, type));
+        if (!seen.includes(id)) {
+          seen.push(id);
+          cars.push(getCarNamesFromId(id, series.track_type));
         }
       });
     });
@@ -71,7 +62,7 @@ export default function OwnedCars() {
 
     // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
-      if (car.type === category) return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
+      if (car.category === category) return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
     });
 
     // Return the list of divs with the car names
