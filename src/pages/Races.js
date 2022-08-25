@@ -3,17 +3,16 @@ import { Box, Typography } from "@mui/material";
 import { WeekContext } from "../contexts/WeekContext";
 import { FilterProvider } from "../contexts/FilterContext";
 import SearchAndFilterBar from "../components/searchandfilter";
-import MiniDrawer from "../components/minidrawer";
+import NavigationBar from "../components/navigation";
 import CustomizedMenu from "../components/dropdownmenu";
-import Data from "../components/datatable";
-import "../App.css";
+import Data from "../components/races";
 
 const Races = () => {
   const { weekNum } = useContext(WeekContext);
 
   return (
     <Box className='page-container' sx={{ display: "flex", justifyContent: "center" }}>
-      <MiniDrawer title={"Races"} />
+      <NavigationBar title={"Races"} />
       <FilterProvider>
         <Box className='main-content-area' sx={{ display: "flex", flexDirection: "column", width: "100%", justifyContent: "center", margin: "100px 0 50px 0" }}>
           <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Weekly Races</Typography>

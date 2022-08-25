@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
-import SeriesData from "../data/current-season-available-series.json";
+import SeriesData from "../data/series.json";
 
 export default function FavoriteSeries() {
   // The different types of races cars will be a part of

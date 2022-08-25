@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
-import CarData from "../data/car-data.json";
-import SeasonData from "../data/current-season-schedules.json";
+import CarData from "../data/cars.json";
+import SeasonData from "../data/schedules.json";
 
 export default function OwnedCars() {
   // The different types of races cars will be a part of

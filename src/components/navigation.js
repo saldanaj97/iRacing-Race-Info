@@ -78,7 +78,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
   }),
 }));
 
-export default function MiniDrawer({ title }) {
+export default function NavigationBar({ title }) {
   const [open, setOpen] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
 
