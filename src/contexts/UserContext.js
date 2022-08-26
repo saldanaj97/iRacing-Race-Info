@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { app } from "../utils/mongo-client";
 
 const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(app.currentUser);
 
-  return <FilterContext.Provider value={{ user, setUser }}>{children}</FilterContext.Provider>;
+  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
 };
 
 export { UserContext, UserProvider };
