@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const { uuid } = require("uuidv4");
+const { uuidv4 } = require("uuid");
 
 // Table schema for a user
 const userSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
-      default: () => uuid().replace(/\-/g, ""),
+      default: () => uuidv4().replace(/\-/g, ""),
     },
     username: {
       type: String,
