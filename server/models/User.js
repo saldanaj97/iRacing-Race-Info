@@ -43,4 +43,14 @@ userSchema.statics.getAllUsers = async function () {
   }
 };
 
+// Function to get a user by username
+userSchema.statics.getUserByUsername = async function (username) {
+  try {
+    const user = await this.findOne({ username: username });
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = mongoose.model("User", userSchema);
