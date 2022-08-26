@@ -11,7 +11,7 @@ function UserDetail({ user, setUser }) {
   };
   return (
     <div>
-      <h1>Logged in with anonymous id: {user.id}</h1>
+      <text>{user.id}</text>
       <button onClick={logoutAnonymous}>Log Out</button>
     </div>
   );
