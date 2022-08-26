@@ -3,7 +3,6 @@ const dotenv = require("dotenv").config({ path: "./.env" });
 
 // Mongo URI
 const url = process.env.MONGODB_URI;
-console.log(url);
 
 mongoose.connect(url, {
   useNewUrlParser: true,
