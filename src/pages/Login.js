@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import * as Realm from "realm-web";
+import React, { useContext } from "react";
+import LoginModal from "../components/loginmodal";
 import { UserContext } from "../contexts/UserContext";
 import { app } from "../utils/mongo-client";
 
@@ -16,23 +16,14 @@ function UserDetail({ user, setUser }) {
     </div>
   );
 }
-// Create a component that lets an anonymous user log in
-function UserLogin({ setUser }) {
-  const loginAnonymous = async () => {
-    const user = await app.logIn(Realm.Credentials.anonymous());
-    setUser(user);
-  };
-  return <button onClick={loginAnonymous}>Log In</button>;
-}
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
 
-  // If a user is logged in, show their details.
-  // Otherwise, show the login screen.
+  // If a user is logged in, show their details. Otherwise, show the login button
   return (
     <div className='login'>
-      <div className='login-button'>{user ? <UserDetail user={user} setUser={setUser} /> : <UserLogin setUser={setUser} />}</div>
+      <div className='login-button'>{user ? <UserDetail user={user} setUser={setUser} /> : <LoginModal setUser={setUser} />}</div>
     </div>
   );
 };

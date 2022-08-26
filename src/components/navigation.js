@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { Avatar, Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
+import { Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import MuiDrawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -9,8 +9,6 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { GiF1Car, GiRoad } from "react-icons/gi";
 import { FaFlagCheckered } from "react-icons/fa";
 import { BsCardChecklist } from "react-icons/bs";
-import { AiOutlineLineChart } from "react-icons/ai";
-import { UserContext } from "../contexts/UserContext";
 import Login from "../pages/Login";
 
 const drawerWidth = 250;
@@ -82,7 +80,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 export default function NavigationBar({ title }) {
   const [open, setOpen] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
-  const { user, setUser } = useContext(UserContext);
 
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
   const routes = ["/", "/cars", "/tracks", "/series"];
