@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const PORT = process.env.PORT || 3001;
 const db = require("./config/mongo");
+
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
