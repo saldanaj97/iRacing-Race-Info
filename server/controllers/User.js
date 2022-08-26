@@ -20,6 +20,7 @@ const createNewUser = async (req, res) => {
   }
 };
 
+// Function to get all users in the db
 const getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.getAllUsers();
@@ -29,4 +30,25 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-module.exports = { createNewUser, getAllUsers };
+// Function to check a users password on login
+const isPasswordCorrect = async (providedPassword, hashedPassword) => {
+  const result = await bcrypt.compare(providedPassword, hashedPassword);
+  return result;
+};
+
+// Function to log a user in
+const userLogin = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await UserModel.getUserByUsername(username);
+    const loginAccepted = await isPasswordCorrect(password, user.password);
+    if (!loginAccepted) {
+      throw error;
+    }
+    return res.status(200).json({ success: true, user });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error });
+  }
+};
+
+module.exports = { createNewUser, getAllUsers, userLogin };
