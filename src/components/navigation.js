@@ -87,7 +87,7 @@ export default function NavigationBar({ title }) {
   const { user } = useContext(UserContext);
 
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
-  const routes = ["/", "/cars", "/tracks", "/series"];
+  const routes = ["/races", "/cars", "/tracks", "/series"];
   const navigate = useNavigate();
 
   const handleDrawerOpen = () => setOpen(true);
