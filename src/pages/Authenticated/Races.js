@@ -1,27 +1,18 @@
 import React, { useContext } from "react";
-import { AppBar, Box, Container, Typography, Toolbar } from "@mui/material";
-import { WeekContext } from "../contexts/WeekContext";
-import { FilterProvider } from "../contexts/FilterContext";
-import SearchAndFilterBar from "../components/searchandfilter";
-import CustomizedMenu from "../components/dropdownmenu";
-import Login from "../pages/Login";
-import Data from "../components/races";
+import { Box, Typography } from "@mui/material";
+import { WeekContext } from "../../contexts/WeekContext";
+import { FilterProvider } from "../../contexts/FilterContext";
+import SearchAndFilterBar from "../../components/searchandfilter";
+import NavigationBar from "../../components/navigation";
+import CustomizedMenu from "../../components/dropdownmenu";
+import Data from "../../components/races";
 
 const Races = () => {
   const { weekNum } = useContext(WeekContext);
 
   return (
     <Box className='page-container' sx={{ display: "flex", justifyContent: "center" }}>
-      <AppBar position='fixed' sx={{ backgroundColor: "#2b2d42" }}>
-        <Toolbar>
-          <Typography variant='h6' noWrap component='div' width='100%'>
-            Races
-          </Typography>
-          <Container className='login-container' sx={{ display: "flex", color: "White", justifyContent: "flex-end" }}>
-            <Login />
-          </Container>
-        </Toolbar>
-      </AppBar>
+      <NavigationBar title={"Races"} />
       <FilterProvider>
         <Box className='main-content-area' sx={{ display: "flex", flexDirection: "column", width: "100%", justifyContent: "center", margin: "100px 0 50px 0" }}>
           <Typography sx={{ width: "100%", margin: "0px 0px 25px 25px", fontSize: "30px", fontWeight: 700 }}>Weekly Races</Typography>
