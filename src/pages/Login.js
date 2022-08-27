@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Box } from "@mui/material";
 import LoginModal from "../components/loginmodal";
 import SignupModal from "../components/signupmodal";
 import { UserContext } from "../contexts/UserContext";
@@ -34,9 +35,14 @@ const Login = () => {
         {user ? (
           <Logout />
         ) : (
-          <box>
-            <LoginModal /> <SignupModal />
-          </box>
+          <Box sx={{ display: "flex", direction: "row", justifyContent: "center", margin: "0px 15px" }}>
+            <Box sx={{ margin: "0px 15px" }}>
+              <LoginModal />
+            </Box>
+            <Box>
+              <SignupModal />
+            </Box>
+          </Box>
         )}
       </div>
     </div>
