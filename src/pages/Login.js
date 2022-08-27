@@ -1,29 +1,44 @@
 import React, { useContext } from "react";
 import LoginModal from "../components/loginmodal";
+import SignupModal from "../components/signupmodal";
 import { UserContext } from "../contexts/UserContext";
-import { app } from "../utils/mongo-client";
 
-// Create a component that displays the given user's details
-function UserDetail({ user, setUser }) {
-  const logoutAnonymous = async () => {
-    app.currentUser.logOut();
-    setUser();
+// Create a component that gives the user the option to logout
+function Logout() {
+  const { logoutUser } = useContext(UserContext);
+  const logUserOut = async () => {
+    try {
+      // Call the logout function from the context
+      const loggedOut = await logoutUser();
+      if (loggedOut) {
+        window.location.reload(true);
+      }
+    } catch (error) {
+      alert(error);
+    }
   };
   return (
     <div>
-      <text>{user.id}</text>
-      <button onClick={logoutAnonymous}>Log Out</button>
+      <button onClick={logUserOut}>Log Out</button>
     </div>
   );
 }
 
 const Login = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   // If a user is logged in, show their details. Otherwise, show the login button
   return (
     <div className='login'>
-      <div className='login-button'>{user ? <UserDetail user={user} setUser={setUser} /> : <LoginModal setUser={setUser} />}</div>
+      <div className='login-button'>
+        {user ? (
+          <Logout />
+        ) : (
+          <box>
+            <LoginModal /> <SignupModal />
+          </box>
+        )}
+      </div>
     </div>
   );
 };

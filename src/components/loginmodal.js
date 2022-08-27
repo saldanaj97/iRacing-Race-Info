@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import * as Realm from "realm-web";
+import React, { useState, useEffect, useContext } from "react";
 import { Backdrop, Box, Button, Modal, Fade, TextField, Typography } from "@mui/material";
-import { app } from "../utils/mongo-client";
+import { useNavigate, useLocation } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext";
 
 const style = {
   position: "absolute",
@@ -16,34 +16,60 @@ const style = {
   borderRadius: "15px",
 };
 
-export default function LoginModal({ setUser }) {
+export default function LoginModal({ showSignup }) {
   const [open, setOpen] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginForm, setLoginForm] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // We are using our user context to get and set user details here
+  const { user, fetchUser, newLogin } = useContext(UserContext);
+
+  // This function will update the forms values on user input
+  const onFormInputChange = (event) => {
+    const { name, value } = event.target;
+    setLoginForm({ ...loginForm, [name]: value });
+  };
+
+  // This function will redirect the user to the correct page once auth is done
+  const redirectNow = () => {
+    const redirectTo = location.search.replace("?redirectTo=", "");
+    navigate(redirectTo ? redirectTo : "/");
+  };
+
+  // Check if the user is already logged in and if so, redirect to the correct page, otherwise just let the user login
+  const loadUser = async () => {
+    if (!user) {
+      const fetchedUser = await fetchUser();
+      if (fetchedUser) {
+        redirectNow();
+      }
+    }
+  };
+
+  // This will only run once the component is mounted and will aid in helping verify if a user is already logged in or not
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+  // This function will handle when a user clicks the submit button
+  const onSubmit = async (event) => {
+    try {
+      // Pass the user details to the login function to validate credentials and log the user in
+      const user = await newLogin(loginForm.email, loginForm.password);
+      if (user) {
+        redirectNow();
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   // Function to handle when a user clicks on the login button
   const handleOpen = () => setOpen(true);
 
   // Function for closing the modal
   const handleClose = () => setOpen(false);
-
-  // Create a component that lets a user login
-  const login = async (payload) => {
-    const credentials = Realm.Credentials.function(payload);
-    try {
-      const user = await app.logIn(credentials).then((response) => {
-        response.functions.verifyLoginCredentials({ username: payload.username, password: payload.password }).then((response) => {
-          console.log(response);
-        });
-      });
-      //console.assert(user.id === app.currentUser.id);
-      console.assert(user.id === app.currentUser.id);
-      setUser(user);
-      return user;
-    } catch (error) {
-      console.log("Failed to log in", error);
-    }
-  };
 
   return (
     <div>
@@ -63,11 +89,11 @@ export default function LoginModal({ setUser }) {
           <Box sx={style}>
             <Typography sx={{ fontWeight: 700, fontSize: "25px", display: "flex", flexDirection: "row", justifyContent: "center" }}>Login</Typography>
             <Box className='login-input-container' sx={{ display: "flex", flexDirection: "column" }}>
-              <TextField id='username' label='Username' variant='filled' size='small' sx={{ margin: "15px 0px" }} onChange={(e) => setUsername(e.target.value)} />
-              <TextField id='password' label='Password' variant='filled' size='small' sx={{ margin: "15px 0px" }} onChange={(e) => setPassword(e.target.value)} />
+              <TextField label='Email' name='email' type='email' variant='filled' size='small' sx={{ margin: "15px 0px" }} value={loginForm.email} onChange={onFormInputChange} />
+              <TextField label='Password' name='password' type='password' variant='filled' size='small' sx={{ margin: "15px 0px" }} value={loginForm.password} onChange={onFormInputChange} />
             </Box>
             <Box className='submit-button' sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-              <Button onClick={(e) => login({ username: username, password: password })}>Sign in</Button>
+              <Button onClick={onSubmit}>Sign in</Button>
             </Box>
           </Box>
         </Fade>
