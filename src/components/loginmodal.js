@@ -21,21 +21,28 @@ export default function LoginModal({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log({ username, password });
-
   // Function to handle when a user clicks on the login button
-  const handleOpen = () => {
-    //login();
-    setOpen(true);
-  };
+  const handleOpen = () => setOpen(true);
 
   // Function for closing the modal
   const handleClose = () => setOpen(false);
 
   // Create a component that lets a user login
-  const login = async () => {
-    const user = await app.logIn(Realm.Credentials.anonymous());
-    setUser(user);
+  const login = async (payload) => {
+    const credentials = Realm.Credentials.function(payload);
+    try {
+      const user = await app.logIn(credentials).then((response) => {
+        response.functions.verifyLoginCredentials({ username: payload.username, password: payload.password }).then((response) => {
+          console.log(response);
+        });
+      });
+      //console.assert(user.id === app.currentUser.id);
+      console.assert(user.id === app.currentUser.id);
+      setUser(user);
+      return user;
+    } catch (error) {
+      console.log("Failed to log in", error);
+    }
   };
 
   return (
@@ -60,7 +67,7 @@ export default function LoginModal({ setUser }) {
               <TextField id='password' label='Password' variant='filled' size='small' sx={{ margin: "15px 0px" }} onChange={(e) => setPassword(e.target.value)} />
             </Box>
             <Box className='submit-button' sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-              <Button>Sign in</Button>
+              <Button onClick={(e) => login({ username: username, password: password })}>Sign in</Button>
             </Box>
           </Box>
         </Fade>
