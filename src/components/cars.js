@@ -1,19 +1,23 @@
-import React from "react";
-import { Box, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
+import React, { useContext } from "react";
+import Axios from "axios";
+import { Box, Button, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
 import CarData from "../data/cars.json";
 import SeasonData from "../data/schedules.json";
+import { UserContext } from "../contexts/UserContext";
 
 export default function OwnedCars() {
   // The different types of races cars will be a part of
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
+  const userOwnedCars = new Map();
+  const { user } = useContext(UserContext);
 
   /* Function that will handle when a user selects a checkbox for a car they own
       Parameters: carSelected - the id of the vehicle the user owns
       Returns: N/A
     */
   const handleCarSelected = (carSelected, selected) => {
-    console.log(carSelected, selected);
+    userOwnedCars.set(parseInt(carSelected), selected);
   };
 
   /* Function that will find the car name with the car id
@@ -48,6 +52,11 @@ export default function OwnedCars() {
       });
     });
 
+    // Map the each car and a false value to the
+    Object.values(cars).forEach((car) => {
+      userOwnedCars.set(car.id, false);
+    });
+
     // Return the list of cars names and the track type they belong to
     return cars;
   };
@@ -69,8 +78,17 @@ export default function OwnedCars() {
     return categorizedCarList;
   };
 
+  /* Function that will send a request to the DB notifying them of filter updates
+      Parameters: N/A
+      Returns: N/A
+    */
+  const onFilterUpdate = async (event) => {};
+
   return (
-    <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", direction: "column" }}>
+    <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", flexDirection: "column" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button onClick={onFilterUpdate}>Update</Button>
+      </Box>
       <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
           return (
