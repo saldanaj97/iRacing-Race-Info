@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Axios from "axios";
 import { Box, Button, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
 import CarData from "../data/cars.json";
@@ -6,10 +6,12 @@ import SeasonData from "../data/schedules.json";
 import { UserContext } from "../contexts/UserContext";
 
 export default function OwnedCars() {
+  // This will be used to hold the car filter
+  const [userOwnedCars, setUserOwnedCars] = useState(new Map());
+
   // The different types of races cars will be a part of
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
-  const userOwnedCars = new Map();
   const { user } = useContext(UserContext);
 
   /* Function that will handle when a user selects a checkbox for a car they own
@@ -84,8 +86,8 @@ export default function OwnedCars() {
     */
   const onFilterUpdate = async (event) => {
     try {
-      const body = { cars: userOwnedCars };
-      const response = Axios.post("http://localhost:3001/users-content/owned-cars", body, {withCredentials: true}).then((response) => console.log(response));
+      const body = { user: user, cars: Object.fromEntries(userOwnedCars) };
+      const response = Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true }).then((response) => console.log(response));
     } catch (error) {
       console.log(error);
     }

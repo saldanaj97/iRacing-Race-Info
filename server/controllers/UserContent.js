@@ -2,7 +2,10 @@ const UserModel = require("../models/User");
 
 const getOwnedCars = async (req, res) => {
   try {
-    console.log(req.body);
+    const { user, cars } = req.body;
+    const { email } = user.profile.data;
+    const updatedOwnedCars = UserModel.updateOwnedCars(email, cars);
+    return res.status(200).json({ success: true, message: "Users owned cars updated. ", updatedOwnedCars });
   } catch (error) {
     return res.status(500).json({ success: false, error: error });
   }
