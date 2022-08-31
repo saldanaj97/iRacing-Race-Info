@@ -82,7 +82,14 @@ export default function OwnedCars() {
       Parameters: N/A
       Returns: N/A
     */
-  const onFilterUpdate = async (event) => {};
+  const onFilterUpdate = async (event) => {
+    try {
+      const body = { cars: userOwnedCars };
+      const response = Axios.post("http://localhost:3001/users-content/owned-cars", body, {withCredentials: true}).then((response) => console.log(response));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", flexDirection: "column" }}>
