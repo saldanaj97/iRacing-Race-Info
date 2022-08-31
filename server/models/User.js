@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { uuidv4 } = require("uuid");
+const ObjectId = require("mongodb").ObjectId;
 
 // Table schema for a user
 const userSchema = new mongoose.Schema(
@@ -19,6 +20,8 @@ const userSchema = new mongoose.Schema(
   },
   { collection: "users" }
 );
+
+const db = mongoose.connection.useDb("iRacingWeeklyDB");
 
 // Function to create a user in the users collection
 userSchema.statics.createUser = async function (username, password) {
@@ -53,4 +56,15 @@ userSchema.statics.getUserByUsername = async function (username) {
   }
 };
 
-module.exports = mongoose.model("User", userSchema);
+userSchema.statics.updateOwnedCars = async function (email, cars) {
+  try {
+    const user = this.findOne({ email: email });
+    const updated = await this.updateOne(user, { $set: { cars: cars } });
+    console.log(updated);
+    return updated;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = db.model("users", userSchema);
