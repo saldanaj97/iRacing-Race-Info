@@ -5,6 +5,7 @@ const router = express.Router();
 
 //prettier-ignore
 router
-.post('/owned-cars', UserContent.getOwnedCars)
+.post('/owned-cars', UserContent.getUsersOwnedCars)
+.post('/update-owned-cars', UserContent.updateOwnedCars)
 
 module.exports = router;

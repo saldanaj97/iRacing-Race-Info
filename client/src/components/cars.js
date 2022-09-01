@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Axios from "axios";
 import { Box, Button, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
 import CarData from "../data/cars.json";
@@ -13,6 +13,21 @@ export default function OwnedCars() {
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
   const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    getUserOwnedCars();
+  });
+
+  const getUserOwnedCars = async () => {
+    try {
+      const body = { user: user };
+      const response = await Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true }).then((response) => {
+        console.log(response);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   /* Function that will handle when a user selects a checkbox for a car they own
       Parameters: carSelected - the id of the vehicle the user owns
@@ -87,7 +102,9 @@ export default function OwnedCars() {
   const onFilterUpdate = async (event) => {
     try {
       const body = { user: user, cars: Object.fromEntries(userOwnedCars) };
-      const response = Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true }).then((response) => console.log(response));
+      const response = await Axios.post("http://localhost:3001/users-content/update-owned-cars", body, { withCredentials: true }).then((response) => {
+        if (response.status == 200) alert(response.data.message); // TODO: Make notification look nicer
+      });
     } catch (error) {
       console.log(error);
     }
