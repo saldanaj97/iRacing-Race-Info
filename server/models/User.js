@@ -33,6 +33,7 @@ userSchema.statics.getOwnedCars = async function (userObj) {
   }
 };
 
+// Function to update the users owned cars
 userSchema.statics.updateOwnedCars = async function (userObj, cars) {
   try {
     const user = this.findOne({ "username.user.id": userObj.id });
