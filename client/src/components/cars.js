@@ -14,20 +14,20 @@ export default function OwnedCars() {
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
   const { user } = useContext(UserContext);
 
-  useEffect(() => {
-    getUserOwnedCars();
-  });
-
   const getUserOwnedCars = async () => {
     try {
       const body = { user: user };
-      const response = await Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true }).then((response) => {
-        console.log(response);
+      const response = await Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true });
+      const { ownedCars } = response.data;
+      Object.keys(ownedCars).forEach((car) => {
+        userOwnedCars.set(parseInt(car), ownedCars[car]);
       });
     } catch (error) {
       console.log(error);
     }
   };
+
+  getUserOwnedCars();
 
   /* Function that will handle when a user selects a checkbox for a car they own
       Parameters: carSelected - the id of the vehicle the user owns
