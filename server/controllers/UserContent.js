@@ -1,5 +1,6 @@
 const UserModel = require("../models/User");
 
+// Function to retrieve the users owned cars
 const getUsersOwnedCars = async (req, res) => {
   try {
     const { user } = req.body;
@@ -10,6 +11,7 @@ const getUsersOwnedCars = async (req, res) => {
   }
 };
 
+// Function to update the users owned cars
 const updateOwnedCars = async (req, res) => {
   try {
     const { user, cars } = req.body;
