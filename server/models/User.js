@@ -23,6 +23,16 @@ const userSchema = new mongoose.Schema(
 
 const db = mongoose.connection.useDb("iRacingWeeklyDB");
 
+// Function to get the provided users owned cars
+userSchema.statics.getOwnedCars = async function (userObj) {
+  try {
+    const cars = await this.findOne({ "username.user.id": userObj.id }).then((response) => response.cars[0]);
+    return cars;
+  } catch (error) {
+    throw error;
+  }
+};
+
 userSchema.statics.updateOwnedCars = async function (userObj, cars) {
   try {
     const user = this.findOne({ "username.user.id": userObj.id });
