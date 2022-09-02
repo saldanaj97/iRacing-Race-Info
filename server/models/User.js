@@ -36,7 +36,7 @@ userSchema.statics.getOwnedCars = async function (userObj) {
 // Function to update the users owned cars
 userSchema.statics.updateOwnedCars = async function (userObj, cars) {
   try {
-    const user = await this.findOne({ "username.user.id": userObj.id });
+    const user = this.findOne({ "username.user.id": userObj.id });
     const updated = await this.updateOne(user, { $set: { cars: cars } });
     return updated;
   } catch (error) {
@@ -57,8 +57,9 @@ userSchema.statics.getOwnedTracks = async function (userObj) {
 // Function to update the users owned tracks
 userSchema.statics.updateOwnedTracks = async function (userObj, updatedTrackList) {
   try {
-    const user = await this.findOne({ "username.user.id": userObj.id });
-    const updatedTracks = await this.updateOne(user, { $set: { tracks: tracks } });
+    const user = this.findOne({ "username.user.id": userObj.id });
+    const updatedTracks = await this.updateOne(user, { $set: { tracks: updatedTrackList } });
+    console.log(updatedTrackList, user.toString());
     return updatedTracks;
   } catch (error) {
     throw error;
@@ -78,8 +79,8 @@ userSchema.statics.getFavoriteSeries = async function (userObj) {
 // Function to update the users favorite series
 userSchema.statics.updateFavoriteSeries = async function (userObj, updatedSeriesList) {
   try {
-    const user = await this.findOne({ "username.user.id": userObj.id });
-    const updatedSeries = await this.updateOne(user, { $set: { series: series } });
+    const user = this.findOne({ "username.user.id": userObj.id });
+    const updatedSeries = await this.updateOne(user, { $set: { series: updatedSeriesList } });
     return updatedSeries;
   } catch (error) {
     throw error;

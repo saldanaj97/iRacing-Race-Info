@@ -54,6 +54,7 @@ const getFavoriteSeries = async (req, res) => {
     return res.status(500).json({ success: false, error: error });
   }
 };
+
 // Function to update the users favorited series
 const updateFavoriteSeries = async (req, res) => {
   try {
