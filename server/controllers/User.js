@@ -43,4 +43,25 @@ const updateOwnedTracks = async (req, res) => {
   }
 };
 
-module.exports = { getUsersOwnedCars, updateOwnedCars };
+// Function that will gather the users favorited tracks
+const getFavoriteSeries = async (req, res) => {
+  try {
+    const { user } = req.body;
+    const favoriteSeries = await UserModel.getFavoriteSeries(user);
+    return res.status(200).json({ success: true, favoriteSeries });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error });
+  }
+};
+// Function to update the users favorited series
+const updateFavoriteSeries = async (req, res) => {
+  try {
+    const { user, series } = req.body;
+    const favoriteSeries = UserModel.updateFavoriteSeries(user, series);
+    return res.status(200).json({ success: true, message: "Favorite series updated. ", favoriteSeries });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error });
+  }
+};
+
+module.exports = { getUsersOwnedCars, updateOwnedCars, getOwnedTracks, updateOwnedTracks, getFavoriteSeries, updateFavoriteSeries };
