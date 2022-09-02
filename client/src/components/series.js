@@ -1,29 +1,55 @@
-import React from "react";
-import { Box, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
+import React, { useContext, useEffect } from "react";
+import Axios from "axios";
+import { Box, Button, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
 import SeriesData from "../data/series.json";
+import { UserContext } from "../contexts/UserContext";
+import { getUserFavoritedSeries } from "../services/Services";
 
 export default function FavoriteSeries() {
+  // Global user data
+  const { user } = useContext(UserContext);
+
+  // Favorite series map which maps a track to a bool whether the user owns the track or not
+  const favoriteSeries = new Map();
+
   // The different types of races cars will be a part of
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
+
+  useEffect(() => {
+    retrieveFavoriteSeries();
+  });
+
+  /*  Function that will handle calling the backend to get the users favorite series
+      Parameters: N/A
+      Returns: N/A
+  */
+  const retrieveFavoriteSeries = async () => {
+    getUserFavoritedSeries(user, favoriteSeries);
+  };
 
   /* Function that will handle when a user selects a checkbox
       Parameters: series - the series id of the box selected; selected - true or false depending on if box is checked or not
       Returns: N/A
     */
   const handleSeriesSelected = (series, selected) => {
-    console.log(series, selected);
+    favoriteSeries.set(parseInt(series), selected);
   };
 
   /* Function that will gather all the series data including id, name, and category
       Parameters: N/A
       Returns: List of all the series
     */
-  const getSeriesData = () => {
+  const getSeriesData = (user) => {
     let seriesList = [];
     Object.values(SeriesData).forEach((series) => {
+      // Set the favorite series map to false
+      favoriteSeries.set(series.series_id, false);
+
+      // Add the series data to the series list
       seriesList.push({ id: series.series_id, name: series.series_name, category: series.category });
     });
+
     return seriesList;
   };
 
@@ -41,8 +67,26 @@ export default function FavoriteSeries() {
     return categorizedSeriesData;
   };
 
+  /* Function that will send a request to the DB notifying them of filter updates
+      Parameters: N/A
+      Returns: N/A
+    */
+  const onFilterUpdate = async (event) => {
+    try {
+      const body = { user: user, series: Object.fromEntries(favoriteSeries) };
+      const response = await Axios.post("http://localhost:3001/users-content/update-favorite-series", body, { withCredentials: true }).then((response) => {
+        if (response.status == 200) alert(response.data.message); // TODO: Make notification look nicer
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", direction: "column" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button onClick={onFilterUpdate}>Update</Button>
+      </Box>
       <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
           return (
