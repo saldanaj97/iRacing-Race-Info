@@ -15,7 +15,7 @@ const getUsersOwnedCars = async (req, res) => {
 const updateOwnedCars = async (req, res) => {
   try {
     const { user, cars } = req.body;
-    const ownedCars = UserModel.updateOwnedCars(user, cars);
+    const ownedCars = await UserModel.updateOwnedCars(user, cars);
     return res.status(200).json({ success: true, message: "Owned cars updated. ", ownedCars });
   } catch (error) {
     return res.status(500).json({ success: false, error: error });
@@ -32,11 +32,12 @@ const getOwnedTracks = async (req, res) => {
     return res.status(500).json({ success: false, error: error });
   }
 };
+
 // Function to update the users owned tracks
 const updateOwnedTracks = async (req, res) => {
   try {
     const { user, tracks } = req.body;
-    const ownedTracks = UserModel.updateOwnedTracks(user, tracks);
+    const ownedTracks = await UserModel.updateOwnedTracks(user, tracks);
     return res.status(200).json({ success: true, message: "Owned tracks updated. ", ownedTracks });
   } catch (error) {
     return res.status(500).json({ success: false, error: error });
@@ -57,7 +58,7 @@ const getFavoriteSeries = async (req, res) => {
 const updateFavoriteSeries = async (req, res) => {
   try {
     const { user, series } = req.body;
-    const favoriteSeries = UserModel.updateFavoriteSeries(user, series);
+    const favoriteSeries = await UserModel.updateFavoriteSeries(user, series);
     return res.status(200).json({ success: true, message: "Favorite series updated. ", favoriteSeries });
   } catch (error) {
     return res.status(500).json({ success: false, error: error });

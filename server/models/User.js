@@ -36,7 +36,7 @@ userSchema.statics.getOwnedCars = async function (userObj) {
 // Function to update the users owned cars
 userSchema.statics.updateOwnedCars = async function (userObj, cars) {
   try {
-    const user = this.findOne({ "username.user.id": userObj.id });
+    const user = await this.findOne({ "username.user.id": userObj.id });
     const updated = await this.updateOne(user, { $set: { cars: cars } });
     return updated;
   } catch (error) {
@@ -47,7 +47,7 @@ userSchema.statics.updateOwnedCars = async function (userObj, cars) {
 // Function to get the users owned tracks
 userSchema.statics.getOwnedTracks = async function (userObj) {
   try {
-    const tracks = this.findOne({ "username.user.id": userObj.id }).then((response) => response.tracks[0]);
+    const tracks = await this.findOne({ "username.user.id": userObj.id }).then((response) => response.tracks[0]);
     return tracks;
   } catch (error) {
     throw error;
@@ -57,7 +57,7 @@ userSchema.statics.getOwnedTracks = async function (userObj) {
 // Function to update the users owned tracks
 userSchema.statics.updateOwnedTracks = async function (userObj, updatedTrackList) {
   try {
-    const user = this.findOne({ "username.user.id": userObj.id });
+    const user = await this.findOne({ "username.user.id": userObj.id });
     const updatedTracks = await this.updateOne(user, { $set: { tracks: tracks } });
     return updatedTracks;
   } catch (error) {
@@ -68,7 +68,7 @@ userSchema.statics.updateOwnedTracks = async function (userObj, updatedTrackList
 // Function to get the users favorited tracks
 userSchema.statics.getFavoriteSeries = async function (userObj) {
   try {
-    const series = this.findOne({ "username.user.id": userObj.id }).then((response) => response.series[0]);
+    const series = await this.findOne({ "username.user.id": userObj.id }).then((response) => response.series[0]);
     return series;
   } catch (error) {
     throw error;
@@ -78,7 +78,7 @@ userSchema.statics.getFavoriteSeries = async function (userObj) {
 // Function to update the users favorite series
 userSchema.statics.updateFavoriteSeries = async function (userObj, updatedSeriesList) {
   try {
-    const user = this.findOne({ "username.user.id": userObj.id });
+    const user = await this.findOne({ "username.user.id": userObj.id });
     const updatedSeries = await this.updateOne(user, { $set: { series: series } });
     return updatedSeries;
   } catch (error) {
