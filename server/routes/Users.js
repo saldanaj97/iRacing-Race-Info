@@ -1,12 +1,11 @@
 const express = require("express");
-const user = require("../controllers/User");
+const User = require("../controllers/User");
 
 const router = express.Router();
 
 //prettier-ignore
 router
-.get('/', user.getAllUsers)
-.post('/', user.createNewUser)
-.post("/login", user.userLogin)
+.post('/owned-cars', User.getUsersOwnedCars)
+.post('/update-owned-cars', User.updateOwnedCars)
 
 module.exports = router;

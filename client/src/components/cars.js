@@ -85,10 +85,10 @@ export default function OwnedCars() {
   const carsUnderCategories = (category) => {
     // Get the list of all cars and the types of races they participate in
     let listOfAvailableCars = getCarsFromFile();
-
     // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
-      if (car.category === category) return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
+      console.log(userOwnedCars.get(car.id));
+      if (car.category === category) return <FormControlLabel key={car.id} value={car.id} control={<Checkbox checked={userOwnedCars.get(car.id)} />} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
     });
 
     // Return the list of divs with the car names
