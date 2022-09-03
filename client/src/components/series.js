@@ -8,6 +8,8 @@ import { getUserFavoritedSeries } from "../services/Services";
 export default function FavoriteSeries() {
   // Global user data
   const { user } = useContext(UserContext);
+
+  // State for user favorited series
   const [usersFavoriteSeries, setUsersFavoriteSeries] = useState(new Map());
 
   // The different types of races cars will be a part of
@@ -32,8 +34,8 @@ export default function FavoriteSeries() {
       Returns: N/A
     */
   const handleSeriesSelected = (series, selected) => {
-    let favorites = usersFavoriteSeries.set(parseInt(series), selected);
-    setUsersFavoriteSeries(new Map(favorites));
+    let updatedFavorites = usersFavoriteSeries.set(parseInt(series), selected);
+    setUsersFavoriteSeries(new Map(updatedFavorites));
   };
 
   /* Function that will gather all the series data including id, name, and category
