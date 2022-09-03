@@ -6,14 +6,16 @@ import SeasonData from "../data/schedules.json";
 import { UserContext } from "../contexts/UserContext";
 import { getUserOwnedCars } from "../services/Services";
 
-export default function OwnedCars() {
+export default function FavoriteCars() {
+  // Global User context
+  const { user } = useContext(UserContext);
+
   // This will be used to hold the car filter
-  const [userOwnedCars, setUserOwnedCars] = useState(new Map());
+  const [ownedCars, setOwnedCars] = useState(new Map());
 
   // The different types of races cars will be a part of
   const types = ["road", "oval", "dirt_oval", "dirt_road"];
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
-  const { user } = useContext(UserContext);
 
   useEffect(() => {
     loadOwnedCars();
@@ -25,7 +27,7 @@ export default function OwnedCars() {
   */
   const loadOwnedCars = async () => {
     let cars = await getUserOwnedCars(user);
-    setUserOwnedCars(new Map(cars));
+    setOwnedCars(new Map(cars));
   };
 
   /*  Function that will handle when a user selects or deselects a car from the filter list
@@ -33,8 +35,8 @@ export default function OwnedCars() {
       Returns: N/A
   */
   const handleCarSelected = (carSelected, selected) => {
-    let updated = userOwnedCars.set(parseInt(carSelected), selected);
-    setUserOwnedCars(new Map(updated));
+    let updated = ownedCars.set(parseInt(carSelected), selected);
+    setOwnedCars(new Map(updated));
   };
 
   /*  Function that will find the car name with the car id
@@ -83,7 +85,7 @@ export default function OwnedCars() {
     // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
       if (car.category === category) {
-        return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} checked={userOwnedCars.get(car.id) || false} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
+        return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} checked={ownedCars.get(car.id) || false} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
       }
     });
 
@@ -97,7 +99,7 @@ export default function OwnedCars() {
   */
   const onFilterUpdate = async (event) => {
     try {
-      const body = { user: user, cars: Object.fromEntries(userOwnedCars) };
+      const body = { user: user, cars: Object.fromEntries(ownedCars) };
       const response = await Axios.post("http://localhost:3001/users-content/update-owned-cars", body, { withCredentials: true }).then((response) => {
         if (response.status == 200) alert(response.data.message); // TODO: Make notification look nicer
       });
