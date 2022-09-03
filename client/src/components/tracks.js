@@ -68,7 +68,7 @@ export default function FavoriteTracks() {
   /*  Function that will send a request to the DB notifying them of filter updates
       Parameters: N/A
       Returns: N/A
-    */
+  */
   const onFilterUpdate = async (event) => {
     try {
       const body = { user: user, tracks: Object.fromEntries(ownedTracks) };
