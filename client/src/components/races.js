@@ -103,9 +103,9 @@ export default function Data() {
   const seasonStartDate = new Date("2022-6-14");
 
   /* Function that will take in the number of minutes and convert to hours and min
-    Parameters: min - the number of min
-    Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
-*/
+     Parameters: min - the number of min
+     Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
+  */
   const timeConvert = (mins) => {
     const minutes = mins % 60;
     const hours = Math.floor(mins / 60);
@@ -113,9 +113,9 @@ export default function Data() {
   };
 
   /* Function that will gather all the data for the cars 
-    Parameters: N/A
-    Returns: an object of cars with their ids and the names 
-*/
+     Parameters: N/A
+     Returns: an object of cars with their ids and the names 
+  */
   const getCarData = () => {
     const carsIdsAndNames = [];
 
@@ -128,7 +128,7 @@ export default function Data() {
     return carsIdsAndNames;
   };
 
-  /* Function that will map all the carIds with the car names
+  /*  Function that will map all the carIds with the car names
       Parameters: carIds - the id for each vehicle in a series
       Returns: a list of car names
   */
@@ -142,10 +142,10 @@ export default function Data() {
     return cars;
   };
 
-  /* Function that will calculate when the next available race will be 
+  /*  Function that will calculate when the next available race will be 
       Parameters: date - date obj of the date the race is occuring, interval - the interval in which the races will repeat
       Returns: the time of the next available race 
-    */
+  */
   const nextRaceTime = (date, interval) => {
     // Get the new time the race will start
     let nextRaceTime = new Date(date.getTime() + interval * 60 * 1000);
@@ -158,7 +158,7 @@ export default function Data() {
     return nextRaceTime;
   };
 
-  /* Function that will map the start date and times to a series that has more than 13 weeks
+  /*  Function that will map the start date and times to a series that has more than 13 weeks
       Parameters: series - the series obj; seasonStartDate - the date that the current season starts at for comaparison
       Returns: start date and time
   */
@@ -223,10 +223,10 @@ export default function Data() {
     return { weekToResumeFrom: extendedSeries.race_week_num + weekNum - 2, startDate: startDate, nextRace: nextRace };
   };
 
-  /* Function that will take in the start time of a series and add the repeat min to it 
+  /*  Function that will take in the start time of a series and add the repeat min to it 
       Parameters: time - in hh:mm:ss format, repeat_min - the interval in which the races will repeat
       Returns: the time and date of the next race 
-    */
+  */
   const normalSeriesRace = (series) => {
     let startDate = "";
     let nextRace = "";
@@ -259,7 +259,7 @@ export default function Data() {
     return { startDate: startDate, nextRace: nextRace };
   };
 
-  /* Function that will gather all the data into an array of objects from the imported JSON file containing season data
+  /*  Function that will gather all the data into an array of objects from the imported JSON file containing season data
       Parameters: weekNum - this will represent the week number 
       Returns: an array containing data for all of the series taking place on the weekNum provided 
   */
