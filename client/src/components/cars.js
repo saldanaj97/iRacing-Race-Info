@@ -4,6 +4,7 @@ import { Box, Button, Checkbox, Paper, Typography, FormGroup, FormControlLabel }
 import CarData from "../data/cars.json";
 import SeasonData from "../data/schedules.json";
 import { UserContext } from "../contexts/UserContext";
+import { getUserOwnedCars } from "../services/Services";
 
 export default function OwnedCars() {
   // This will be used to hold the car filter
@@ -14,27 +15,27 @@ export default function OwnedCars() {
   const typesFormatted = { road: "Road", oval: "Oval", dirt_oval: "Dirt Oval", dirt_road: "Dirt Road" };
   const { user } = useContext(UserContext);
 
-  const getUserOwnedCars = async () => {
-    try {
-      const body = { user: user };
-      const response = await Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true });
-      const { ownedCars } = response.data;
-      Object.keys(ownedCars).forEach((car) => {
-        userOwnedCars.set(parseInt(car), ownedCars[car]);
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  useEffect(() => {
+    loadOwnedCars();
+  }, []);
+
+  const loadOwnedCars = async () => {
+    let cars = await getUserOwnedCars(user);
+    setUserOwnedCars(new Map(cars));
+
+    // If the user is new, there will be no cars, so set the map to an all false for each car
+    // Map the each car and a false value to the
+    /*     Object.values(cars).forEach((car) => {
+      userOwnedCars.set(car.id, false);
+    }); */
   };
-
-  getUserOwnedCars();
-
   /* Function that will handle when a user selects a checkbox for a car they own
       Parameters: carSelected - the id of the vehicle the user owns
       Returns: N/A
     */
   const handleCarSelected = (carSelected, selected) => {
-    userOwnedCars.set(parseInt(carSelected), selected);
+    let updated = userOwnedCars.set(parseInt(carSelected), selected);
+    setUserOwnedCars(new Map(updated));
   };
 
   /* Function that will find the car name with the car id
@@ -69,11 +70,6 @@ export default function OwnedCars() {
       });
     });
 
-    // Map the each car and a false value to the
-    Object.values(cars).forEach((car) => {
-      userOwnedCars.set(car.id, false);
-    });
-
     // Return the list of cars names and the track type they belong to
     return cars;
   };
@@ -87,8 +83,9 @@ export default function OwnedCars() {
     let listOfAvailableCars = getCarsFromFile();
     // Map Each car to a div
     let categorizedCarList = listOfAvailableCars.map((car) => {
-      console.log(userOwnedCars.get(car.id));
-      if (car.category === category) return <FormControlLabel key={car.id} value={car.id} control={<Checkbox checked={userOwnedCars.get(car.id)} />} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
+      if (car.category === category) {
+        return <FormControlLabel key={car.id} value={car.id} control={<Checkbox />} checked={userOwnedCars.get(car.id) || false} label={car.name} onChange={(e) => handleCarSelected(e.target.value, e.target.checked)} />;
+      }
     });
 
     // Return the list of divs with the car names

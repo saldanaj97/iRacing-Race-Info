@@ -6,14 +6,16 @@ import { UserContext } from "../contexts/UserContext";
     Parameters:user - global user obj containing info needed for reqs; userOwnedCars - map containing all of the cars and if the user owns them or not
     Returns: N/A
 */
-export const getUserOwnedCars = async (user, userOwnedCars) => {
+export const getUserOwnedCars = async (user) => {
+  let ownedCarMap = new Map();
   try {
     const body = { user: user };
     const response = await Axios.post("http://localhost:3001/users-content/owned-cars", body, { withCredentials: true });
     const { ownedCars } = response.data;
     Object.keys(ownedCars).forEach((car) => {
-      userOwnedCars.set(parseInt(car), ownedCars[car]);
+      ownedCarMap.set(parseInt(car), ownedCars[car]);
     });
+    return ownedCarMap;
   } catch (error) {
     console.log(error);
   }
