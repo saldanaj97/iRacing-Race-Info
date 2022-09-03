@@ -44,11 +44,15 @@ export const getUserOwnedTracks = async (user) => {
     Returns: N/A
 */
 export const getUserFavoritedSeries = async (user) => {
+  let favorites = new Map();
   try {
     const body = { user: user };
     const response = await Axios.post("http://localhost:3001/users-content/favorite-series", body, { withCredentials: true });
     const { favoriteSeries } = response.data;
-    return favoriteSeries;
+    Object.keys(favoriteSeries).forEach((series) => {
+      favorites.set(parseInt(series), favoriteSeries[series]);
+    });
+    return favorites;
   } catch (error) {
     console.log(error);
   }
