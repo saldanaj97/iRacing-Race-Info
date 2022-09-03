@@ -26,14 +26,15 @@ export const getUserOwnedCars = async (user) => {
     Returns: N/A
 */
 export const getUserOwnedTracks = async (user) => {
+  let tracks = new Map();
   try {
     const body = { user: user };
     const response = await Axios.post("http://localhost:3001/users-content/owned-tracks", body, { withCredentials: true });
     const { ownedTracks } = response.data;
-    /*     Object.keys(ownedCars).forEach((car) => {
-      userOwnedCars.set(parseInt(car), ownedCars[car]);
-    }); */
-    return ownedTracks;
+    Object.keys(ownedTracks).forEach((track) => {
+      tracks.set(parseInt(track), ownedTracks[track]);
+    });
+    return tracks;
   } catch (error) {
     console.log(error);
   }
