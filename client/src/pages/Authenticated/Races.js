@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Box, Typography } from "@mui/material";
-import { WeekContext } from "../contexts/WeekContext";
-import { FilterProvider } from "../contexts/FilterContext";
-import SearchAndFilterBar from "../components/searchandfilter";
-import NavigationBar from "../components/navigation";
-import CustomizedMenu from "../components/dropdownmenu";
-import Data from "../components/races";
+import { WeekContext } from "../../contexts/WeekContext";
+import { FilterProvider } from "../../contexts/FilterContext";
+import SearchAndFilterBar from "../../components/searchandfilter";
+import NavigationBar from "../../components/navigation";
+import CustomizedMenu from "../../components/dropdownmenu";
+import Data from "../../components/races";
 
 const Races = () => {
   const { weekNum } = useContext(WeekContext);

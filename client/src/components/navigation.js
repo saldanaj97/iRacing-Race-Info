@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { styled } from "@mui/material/styles";
-import { Avatar, Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
+import { Container, Box, Icon, List, Typography, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import MuiDrawer from "@mui/material/Drawer";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { GiF1Car } from "react-icons/gi";
+import { GiF1Car, GiRoad } from "react-icons/gi";
 import { FaFlagCheckered } from "react-icons/fa";
 import { BsCardChecklist } from "react-icons/bs";
-import { AiOutlineLineChart } from "react-icons/ai";
-import { GiRoad } from "react-icons/gi";
+
+import Login from "../pages/Login";
+import { UserContext } from "../contexts/UserContext";
 
 const drawerWidth = 250;
 
@@ -81,18 +84,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 export default function NavigationBar({ title }) {
   const [open, setOpen] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
+  const { user } = useContext(UserContext);
 
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
-  const routes = ["/", "/cars", "/tracks", "/series"];
+  const routes = ["/races", "/cars", "/tracks", "/series"];
   const navigate = useNavigate();
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  const handleDrawerOpen = () => setOpen(true);
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const handleDrawerClose = () => setOpen(false);
 
   useEffect(() => {
     setPageTitle(title);
@@ -108,10 +108,9 @@ export default function NavigationBar({ title }) {
           <Typography variant='h6' noWrap component='div' width='100%'>
             {pageTitle}
           </Typography>
-          <Container sx={{ display: "flex", color: "White", justifyContent: "flex-end" }}>Ricky Bobby</Container>
-          <IconButton className='avatar-button' sx={{ display: "flex", alignContent: "flex-end" }}>
-            <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-          </IconButton>
+          <Container className='login-container' sx={{ display: "flex", color: "White", justifyContent: "flex-end" }}>
+            <Login />
+          </Container>
         </Toolbar>
       </AppBar>
       <Drawer className='sidebar' variant='permanent' open={open} sx={{ backgroundColor: "white" }}>
