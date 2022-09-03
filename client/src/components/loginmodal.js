@@ -34,7 +34,7 @@ export default function LoginModal({ showSignup }) {
   // This function will redirect the user to the correct page once auth is done
   const redirectNow = () => {
     const redirectTo = location.search.replace("?redirectTo=", "");
-    navigate(redirectTo ? redirectTo : "/");
+    navigate(redirectTo ? redirectTo : "/races");
   };
 
   // Check if the user is already logged in and if so, redirect to the correct page, otherwise just let the user login
