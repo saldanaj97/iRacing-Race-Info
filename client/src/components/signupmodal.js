@@ -34,7 +34,7 @@ export default function SignupModal() {
   // Explained in the login page
   const redirectNow = () => {
     const redirectTo = location.search.replace("?redirectTo=", "");
-    navigate(redirectTo ? redirectTo : "/");
+    navigate(redirectTo ? redirectTo : "/races");
   };
 
   // Explained in the login page
