@@ -19,29 +19,28 @@ export default function OwnedCars() {
     loadOwnedCars();
   }, []);
 
+  /*  Function that will handle load the user owned cars from the API 
+      Parameters: N/A
+      Returns: N/A
+  */
   const loadOwnedCars = async () => {
     let cars = await getUserOwnedCars(user);
     setUserOwnedCars(new Map(cars));
-
-    // If the user is new, there will be no cars, so set the map to an all false for each car
-    // Map the each car and a false value to the
-    /*     Object.values(cars).forEach((car) => {
-      userOwnedCars.set(car.id, false);
-    }); */
   };
-  /* Function that will handle when a user selects a checkbox for a car they own
-      Parameters: carSelected - the id of the vehicle the user owns
+
+  /*  Function that will handle when a user selects or deselects a car from the filter list
+      Parameters: carSelected - the id of the car; selected - boolean represented whether box is checked or unchecked
       Returns: N/A
-    */
+  */
   const handleCarSelected = (carSelected, selected) => {
     let updated = userOwnedCars.set(parseInt(carSelected), selected);
     setUserOwnedCars(new Map(updated));
   };
 
-  /* Function that will find the car name with the car id
+  /*  Function that will find the car name with the car id
       Parameters: ids - list of car ids, type - the race type the car participates in 
       Returns: car object containing the car anem and track type 
-    */
+  */
   const getCarNamesFromId = (id, type) => {
     // Find car id and get the cars name
     let carInfo = Object.values(CarData).find((car) => car.id === id);
@@ -50,10 +49,10 @@ export default function OwnedCars() {
     return { id: carInfo.id, name: carInfo.shortName, category: type };
   };
 
-  /* Function that will gather all the car ids for each series and the type of races they participate in 
+  /*  Function that will gather all the car ids for each series and the type of races they participate in 
       Parameters: N/A
       Returns: list of car names and their type
-    */
+  */
   const getCarsFromFile = () => {
     let cars = [];
     let seen = [];
@@ -74,10 +73,10 @@ export default function OwnedCars() {
     return cars;
   };
 
-  /* Function that will organize each car with the respective category
+  /*  Function that will organize each car with the respective category
       Parameters: category - the category of car
       Returns: list of divs with each cars name
-    */
+  */
   const carsUnderCategories = (category) => {
     // Get the list of all cars and the types of races they participate in
     let listOfAvailableCars = getCarsFromFile();
@@ -92,10 +91,10 @@ export default function OwnedCars() {
     return categorizedCarList;
   };
 
-  /* Function that will send a request to the DB notifying them of filter updates
+  /*  Function that will send a request to the DB notifying them of filter updates
       Parameters: N/A
       Returns: N/A
-    */
+  */
   const onFilterUpdate = async (event) => {
     try {
       const body = { user: user, cars: Object.fromEntries(userOwnedCars) };
