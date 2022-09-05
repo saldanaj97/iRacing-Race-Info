@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "@mui/system";
 import { Box, FormControl, Paper, TextField, InputAdornment, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CustomizedMenu from "./dropdownmenu";
+import { FilterContext } from "../contexts/FilterContext";
 
 const SearchAndFilterBar = () => {
+  // Import the filter contexts needed
+  const { searchBarText, setSearchBarText } = useContext(FilterContext);
+
+  /* Function that will handle setting the search text context on change
+     Parameters: searchQuery - the text entered in the search box
+     Returns: N/A
+  */
+  const handleSearchBarText = (searchQuery) => {
+    setSearchBarText(searchQuery);
+  };
+
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "95%" }}>
       <Box className='search-and-filter-container' sx={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "0px 15px" }}>
@@ -22,6 +34,7 @@ const SearchAndFilterBar = () => {
               }}
               label='Series'
               size='small'
+              onChange={(e) => handleSearchBarText(e.target.value)}
             />
           </FormControl>
         </Box>
