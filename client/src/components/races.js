@@ -261,24 +261,29 @@ export default function Data() {
     return { startDate: startDate, nextRace: nextRace };
   };
 
+  /*  Function that will handle filtering the data when filters are present
+      Parameters: data - the original data before any filtering
+      Returns: the filtered data based on search bar text, category/license/owned filters
+  */
   const filterSearchQuery = (data) => {
     // If the search bar is empty, do nothing and return original unfiltered data
     if (searchBarText === "" && categoryFilter === "All" && licenseFilter === "All" && ownedContentFilter === "All") return data;
 
     // Otherwise, return any entries matching the query in the search bar
     let filteredData = data.filter((race) => {
+      // Match the search bar text
       let entry = race.seriesName.toLowerCase().includes(searchBarText);
+
+      // If there are any matches for the category update the entry var
       if (entry === true && categoryFilter !== "All") entry = race.category.toLowerCase().includes(categoryFilter.toLowerCase());
+
+      // If there are any matches for the license update the entry var
       if (entry === true && licenseFilter !== "All") entry = race.license.toLowerCase().includes(licenseFilter.toLowerCase());
+
+      // Return the filtered data entry
       return entry;
     });
 
-    /*     filteredData.filter((race) => {
-      let filter = categoryFilter.toLowerCase()
-      console.log(race.category.toLowerCase(filter))
-    }); */
-
-    //console.log(test);
     return filteredData;
   };
 
