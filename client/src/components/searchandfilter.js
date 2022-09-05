@@ -54,11 +54,6 @@ const SearchAndFilterBar = () => {
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>Owned</Box>
           <CustomizedMenu menuItems={["Both", "Yes", "No"]} dropdownID={"ownedContentFilter"} />
         </Box>
-        <Box className='filter-button' sx={{ display: "flex", flexDirection: "column", justifyContent: "center", margin: "20px 0px 0px 0px" }}>
-          <Button variant='contained' sx={{ backgroundColor: "#2b2d42", height: "40%" }}>
-            Filter
-          </Button>
-        </Box>
       </Box>
     </Paper>
   );
