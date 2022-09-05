@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { WeekContext } from "../contexts/WeekContext";
 import RaceData from "../data/schedules.json";
 import CarData from "../data/cars.json";
+import { FilterContext } from "../contexts/FilterContext";
 
 /* Column headers for the table */
 const columns = [
@@ -96,8 +97,9 @@ const trueFalseConvert = {
 };
 
 export default function Data() {
-  // Global state for week number
+  // Global state for week number and search bar filter
   const { weekNum } = useContext(WeekContext);
+  const { searchBarText } = useContext(FilterContext);
 
   // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
   const seasonStartDate = new Date("2022-6-14");
@@ -259,6 +261,17 @@ export default function Data() {
     return { startDate: startDate, nextRace: nextRace };
   };
 
+  const filterSearchQuery = (data) => {
+    // If the search bar is empty, do nothing and return original data
+    if (searchBarText === "") return data;
+
+    // Otherwise, return any entries matching the query in the search bar
+    let filteredData = data.filter((race) => {
+      return race.seriesName.toLowerCase().includes(searchBarText);
+    });
+    return filteredData;
+  };
+
   /*  Function that will gather all the data into an array of objects from the imported JSON file containing season data
       Parameters: weekNum - this will represent the week number 
       Returns: an array containing data for all of the series taking place on the weekNum provided 
@@ -306,11 +319,16 @@ export default function Data() {
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there is not a race that week)
       if (track !== "" && startDate !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
     });
-    return rows;
+
+    // If there is a search query present in the search bar, filter the data before returning
+    let filteredData = filterSearchQuery(rows);
+
+    // Return the data
+    return filteredData;
   };
 
   // Get the data from JSON file and save it to rows for the table
-  const rows = getSeriesData(0);
+  const rows = getSeriesData();
 
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "95%" }}>

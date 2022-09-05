@@ -7,14 +7,18 @@ import { FilterContext } from "../contexts/FilterContext";
 
 const SearchAndFilterBar = () => {
   // Import the filter contexts needed
-  const { searchBarText, setSearchBarText } = useContext(FilterContext);
+  const { setSearchBarText } = useContext(FilterContext);
 
   /* Function that will handle setting the search text context on change
      Parameters: searchQuery - the text entered in the search box
      Returns: N/A
   */
-  const handleSearchBarText = (searchQuery) => {
-    setSearchBarText(searchQuery);
+  const handleSearchBarText = (event) => {
+    // First convert the text to lowercase
+    let lowerCaseQuery = event.target.value.toLowerCase();
+
+    // Update the global state
+    setSearchBarText(lowerCaseQuery);
   };
 
   return (
@@ -34,7 +38,7 @@ const SearchAndFilterBar = () => {
               }}
               label='Series'
               size='small'
-              onChange={(e) => handleSearchBarText(e.target.value)}
+              onChange={handleSearchBarText}
             />
           </FormControl>
         </Box>
