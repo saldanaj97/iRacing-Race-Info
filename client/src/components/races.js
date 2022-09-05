@@ -99,7 +99,7 @@ const trueFalseConvert = {
 export default function Data() {
   // Global state for week number and search bar filter
   const { weekNum } = useContext(WeekContext);
-  const { searchBarText } = useContext(FilterContext);
+  const { searchBarText, categoryFilter, licenseFilter, ownedContentFilter } = useContext(FilterContext);
 
   // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
   const seasonStartDate = new Date("2022-6-14");
@@ -262,13 +262,23 @@ export default function Data() {
   };
 
   const filterSearchQuery = (data) => {
-    // If the search bar is empty, do nothing and return original data
-    if (searchBarText === "") return data;
+    // If the search bar is empty, do nothing and return original unfiltered data
+    if (searchBarText === "" && categoryFilter === "All" && licenseFilter === "All" && ownedContentFilter === "All") return data;
 
     // Otherwise, return any entries matching the query in the search bar
     let filteredData = data.filter((race) => {
-      return race.seriesName.toLowerCase().includes(searchBarText);
+      let entry = race.seriesName.toLowerCase().includes(searchBarText);
+      if (entry === true && categoryFilter !== "All") entry = race.category.toLowerCase().includes(categoryFilter.toLowerCase());
+      if (entry === true && licenseFilter !== "All") entry = race.license.toLowerCase().includes(licenseFilter.toLowerCase());
+      return entry;
     });
+
+    /*     filteredData.filter((race) => {
+      let filter = categoryFilter.toLowerCase()
+      console.log(race.category.toLowerCase(filter))
+    }); */
+
+    //console.log(test);
     return filteredData;
   };
 
@@ -320,7 +330,7 @@ export default function Data() {
       if (track !== "" && startDate !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
     });
 
-    // If there is a search query present in the search bar, filter the data before returning
+    // If there is a search query present in the search bar, filter the data before returning, if not just return all the data
     let filteredData = filterSearchQuery(rows);
 
     // Return the data
