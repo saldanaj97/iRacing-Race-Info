@@ -129,6 +129,10 @@ export default function Data() {
     },
   ];
 
+  /* Function that will render a check or an x based on whether a user has the series favorited or not
+     Parameters: seriesID: the id of the series 
+     Returns: a check icon or x icon based on user having series favorited or not
+  */
   const FavoritedSeriesIcon = ({ seriesId }) => {
     if (favoriteSeries.has(seriesId) && favoriteSeries.get(seriesId)) return <Icon as={FcCheckmark} />;
     return <Icon as={HiX} />;
