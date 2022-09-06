@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Box, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { WeekContext } from "../contexts/WeekContext";
+import { FilterContext } from "../contexts/FilterContext";
+import { UserContext } from "../contexts/UserContext";
+import { getUserOwnedCars, getUserOwnedTracks, getUserFavoritedSeries } from "../services/Services";
 import RaceData from "../data/schedules.json";
 import CarData from "../data/cars.json";
-import { FilterContext } from "../contexts/FilterContext";
 
 /* Column headers for the table */
 const columns = [
@@ -96,22 +98,50 @@ const trueFalseConvert = {
   false: "No",
 };
 
-export default function Data() {
-  // Global state for week number and search bar filter
-  const { weekNum } = useContext(WeekContext);
-  const { searchBarText, categoryFilter, licenseFilter, ownedContentFilter } = useContext(FilterContext);
-
-  // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
-  const seasonStartDate = new Date("2022-6-14");
-
-  /* Function that will take in the number of minutes and convert to hours and min
+/* Function that will take in the number of minutes and convert to hours and min
      Parameters: min - the number of min
      Returns: the time in hour and min format (ex. 90 min -> 1h 30min)
   */
-  const timeConvert = (mins) => {
-    const minutes = mins % 60;
-    const hours = Math.floor(mins / 60);
-    return hours === 0 ? minutes + "m" : hours + "h " + minutes + "m";
+const timeConvert = (mins) => {
+  const minutes = mins % 60;
+  const hours = Math.floor(mins / 60);
+  return hours === 0 ? minutes + "m" : hours + "h " + minutes + "m";
+};
+
+export default function Data() {
+  // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
+  const seasonStartDate = new Date("2022-6-14");
+
+  // Global state for week number, filter bar, and user
+  const { weekNum } = useContext(WeekContext);
+  const { searchBarText, categoryFilter, licenseFilter, ownedContentFilter } = useContext(FilterContext);
+  const { user } = useContext(UserContext);
+
+  // User owned content
+  const [ownedCars, setOwnedCars] = useState(new Map());
+  const [ownedTracks, setOwnedTracks] = useState(new Map());
+  const [favoriteSeries, setFavoriteSeries] = useState(new Map());
+
+  useEffect(() => {
+    fetchUserOwnedContent();
+  }, []);
+
+  /* Function that will gather all the user owned content from the DB
+     Parameters: N/A
+     Returns: N/A
+  */
+  const fetchUserOwnedContent = async () => {
+    // Cars
+    let cars = await getUserOwnedCars(user);
+    setOwnedCars(new Map(cars));
+
+    // Tracks
+    let tracks = await getUserOwnedTracks(user);
+    setOwnedTracks(new Map(tracks));
+
+    // Series
+    const series = await getUserFavoritedSeries(user);
+    setFavoriteSeries(new Map(series));
   };
 
   /* Function that will gather all the data for the cars 
@@ -266,29 +296,63 @@ export default function Data() {
       Returns: the filtered data based on search bar text, category/license/owned filters
   */
   const filterSearchQuery = (data) => {
+    let convertedOwnedContentFilter = { Yes: true, No: false };
+
     // If the search bar is empty, do nothing and return original unfiltered data
     if (searchBarText === "" && categoryFilter === "All" && licenseFilter === "All" && ownedContentFilter === "All") return data;
 
     // Otherwise, return any entries matching the query in the search bar
     let filteredData = data.filter((race) => {
       // Match the search bar text
-      let entry = race.seriesName.toLowerCase().includes(searchBarText);
+      let searchResult = race.seriesName.toLowerCase().includes(searchBarText);
 
       // If there are any matches for the category update the entry var
-      if (entry === true && categoryFilter !== "All") entry = race.category.toLowerCase().includes(categoryFilter.toLowerCase());
+      if (searchResult === true && categoryFilter !== "All") searchResult = race.category.toLowerCase().includes(categoryFilter.toLowerCase());
 
       // If there are any matches for the license update the entry var
-      if (entry === true && licenseFilter !== "All") entry = race.license.toLowerCase().includes(licenseFilter.toLowerCase());
+      if (searchResult === true && licenseFilter !== "All") searchResult = race.license.toLowerCase().includes(licenseFilter.toLowerCase());
+
+      // If the user wants only owned/favorited content
+      if (searchResult === true && ownedContentFilter !== "Both") {
+        searchResult = race.contentOwned === convertedOwnedContentFilter[ownedContentFilter];
+      }
 
       // Return the filtered data entry
-      return entry;
+      return searchResult;
     });
-
+    console.log(filteredData);
     return filteredData;
   };
 
+  /*  Function that will determine whether a user is eligible for a race or not based on their content
+      Parameters: carIds - list of car ids required to be eligible; trackId - the id of the track; seriesId - the id of the series
+      Returns: boolean representing whether the user is eligible or not
+  */
+  const userOwnsContent = (carIds, trackId) => {
+    let carOwned = false;
+    let trackOwned = false;
+
+    // Check if the user owns any of the cars required to participate in series
+    carIds.every((id) => {
+      if (ownedCars.has(id) && ownedCars.get(id)) {
+        // Since we only need to own one of the cars to participate in the series, set owned to true when we find one car that user owns
+        carOwned = true;
+        return false;
+        // Break out of the loop
+      } else {
+        return true;
+      }
+    });
+
+    // Check if the user owns the track
+    if (ownedTracks.has(trackId) && ownedTracks.get(trackId)) {
+      trackOwned = true;
+    }
+    return carOwned && trackOwned;
+  };
+
   /*  Function that will gather all the data into an array of objects from the imported JSON file containing season data
-      Parameters: weekNum - this will represent the week number 
+      Parameters: weekNum - this will represent the week number import { getUserOwnedCars } from '../services/Services';
       Returns: an array containing data for all of the series taking place on the weekNum provided 
   */
   const getSeriesData = () => {
@@ -306,13 +370,16 @@ export default function Data() {
       let nextRace = "";
       let category = "";
       let track = "";
+      let trackId = "";
       let duration = "";
+      let contentOwned = false;
 
       // Verify that the week number is within the schedule otherwise we get an undefined error (use for anything that will be utilizing the weekNum)
       if (weekNum <= series.schedule.length) {
         ({ startDate, nextRace } = normalSeriesRace(series));
         category = categories[series.schedule[weekNum - 1].track.category] !== null ? categories[series.schedule[weekNum - 1].track.category] : "";
         track = series.schedule[weekNum - 1].track.track_name !== null ? series.schedule[weekNum - 1].track.track_name : "";
+        trackId = series.schedule[weekNum - 1].track.track_id !== null ? series.schedule[weekNum - 1].track.track_id : "";
         duration = series.schedule[weekNum - 1].race_time_limit !== null ? timeConvert(series.schedule[weekNum - 1].race_time_limit) : series.schedule[weekNum - 1].race_lap_limit + " L";
       }
 
@@ -325,14 +392,17 @@ export default function Data() {
         // Get the remaining data
         category = categories[series.schedule[weekToResumeFrom].track.category] !== null ? categories[series.schedule[weekToResumeFrom].track.category] : "";
         track = series.schedule[weekToResumeFrom].track.track_name !== null ? series.schedule[weekToResumeFrom].track.track_name : "";
+        trackId = series.schedule[weekToResumeFrom].track.track_id !== null ? series.schedule[weekToResumeFrom].track.track_id : "";
         duration = series.schedule[weekToResumeFrom].race_time_limit !== null ? timeConvert(series.schedule[weekToResumeFrom].race_time_limit) : series.schedule[weekToResumeFrom].race_lap_limit + " L";
       }
+
+      contentOwned = userOwnsContent(carIds, trackId, seriesName);
 
       // Get each name for the cars by using the ID to find a match in the carNames object
       let cars = getCarsInSeries(carIds);
 
       // Add the data to the rows array ONLY IF there is a race that week (check if the track, is still set empty, if it is this indicates there is not a race that week)
-      if (track !== "" && startDate !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace });
+      if (track !== "" && startDate !== "") rows.push({ id, license, seriesName, cars, setup, category, track, duration, official, startDate, nextRace, contentOwned });
     });
 
     // If there is a search query present in the search bar, filter the data before returning, if not just return all the data
