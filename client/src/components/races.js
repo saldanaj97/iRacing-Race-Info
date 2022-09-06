@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Box, Paper } from "@mui/material";
+import { Box, Icon, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { WeekContext } from "../contexts/WeekContext";
 import { FilterContext } from "../contexts/FilterContext";
@@ -7,73 +7,8 @@ import { UserContext } from "../contexts/UserContext";
 import { getUserOwnedCars, getUserOwnedTracks, getUserFavoritedSeries } from "../services/Services";
 import RaceData from "../data/schedules.json";
 import CarData from "../data/cars.json";
-
-/* Column headers for the table */
-const columns = [
-  { field: "license", headerName: "License", width: 70, align: "center" },
-  { field: "category", headerName: "Category", width: 80, align: "center" },
-  {
-    field: "seriesName",
-    headerName: "Series",
-    width: 250,
-    editable: false,
-    headerAlign: "center",
-  },
-  {
-    field: "cars",
-    headerName: "Cars",
-    width: 250,
-    editable: false,
-    headerAlign: "center",
-  },
-  {
-    field: "track",
-    headerName: "Track",
-    width: 275,
-    editable: false,
-    headerAlign: "center",
-  },
-  {
-    field: "duration",
-    headerName: "Duration",
-    width: 80,
-    sortable: false,
-    editable: false,
-    align: "center",
-    headerAlign: "center",
-  },
-  {
-    field: "setup",
-    headerName: "Fixed",
-    width: 65,
-    align: "center",
-    headerAlign: "center",
-  },
-  {
-    field: "official",
-    headerName: "Official",
-    description: "This column has a value getter and is not sortable.",
-    width: 70,
-    align: "center",
-    headerAlign: "center",
-  },
-  {
-    field: "startDate",
-    headerName: "Start",
-    description: "This column has a value getter and is not sortable.",
-    width: 100,
-    align: "center",
-    headerAlign: "center",
-  },
-  {
-    field: "nextRace",
-    headerName: "Next Race",
-    description: "This column has a value getter and is not sortable.",
-    width: 100,
-    align: "center",
-    headerAlign: "center",
-  },
-];
+import { FcCheckmark } from "react-icons/fc";
+import { HiX } from "react-icons/hi";
 
 // This will be used to convert a license number to the actual ingame license
 const licenses = {
@@ -125,6 +60,79 @@ export default function Data() {
   useEffect(() => {
     fetchUserOwnedContent();
   }, []);
+
+  /* Column headers for the table */
+  const columns = [
+    { field: "favorite", headerName: "Favorite", width: 90, align: "center", headerAlign: "center", sortable: false, editable: false, renderCell: (params) => <FavoritedSeriesIcon seriesId={params.row.id} /> },
+    { field: "license", headerName: "License", width: 70, align: "center" },
+    { field: "category", headerName: "Category", width: 80, align: "center" },
+    {
+      field: "seriesName",
+      headerName: "Series",
+      width: 250,
+      editable: false,
+      headerAlign: "center",
+    },
+    {
+      field: "cars",
+      headerName: "Cars",
+      width: 250,
+      editable: false,
+      headerAlign: "center",
+    },
+    {
+      field: "track",
+      headerName: "Track",
+      width: 275,
+      editable: false,
+      headerAlign: "center",
+    },
+    {
+      field: "duration",
+      headerName: "Duration",
+      width: 80,
+      sortable: false,
+      editable: false,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "setup",
+      headerName: "Fixed",
+      width: 65,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "official",
+      headerName: "Official",
+      description: "This column has a value getter and is not sortable.",
+      width: 70,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "startDate",
+      headerName: "Start",
+      description: "This column has a value getter and is not sortable.",
+      width: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "nextRace",
+      headerName: "Next Race",
+      description: "This column has a value getter and is not sortable.",
+      width: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+  ];
+
+  const FavoritedSeriesIcon = ({ seriesId }) => {
+    if (favoriteSeries.has(seriesId) && favoriteSeries.get(seriesId)) return <Icon as={FcCheckmark} />;
+    return <Icon as={HiX} />;
+  };
 
   /* Function that will gather all the user owned content from the DB
      Parameters: N/A
@@ -320,7 +328,6 @@ export default function Data() {
       // Return the filtered data entry
       return searchResult;
     });
-    console.log(filteredData);
     return filteredData;
   };
 
