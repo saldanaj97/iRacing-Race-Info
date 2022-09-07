@@ -96,6 +96,7 @@ export default function NavigationBar({ title }) {
 
   useEffect(() => {
     setPageTitle(title);
+    document.title = title;
   }, [pageTitle]);
 
   return (
