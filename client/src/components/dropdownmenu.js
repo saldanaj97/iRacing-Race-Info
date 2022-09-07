@@ -80,16 +80,7 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
       </Button>
       <StyledMenu id='item-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>
         {menuItems.map((dropdownSelection) => {
-          return (
-            <MenuItem
-              onClick={() => {
-                handleClose(dropdownSelection);
-              }}
-              disableRipple
-            >
-              {dropdownSelection}
-            </MenuItem>
-          );
+          return <MenuItem onClick={() => handleClose(dropdownSelection)}>{dropdownSelection}</MenuItem>;
         })}
       </StyledMenu>
     </div>
