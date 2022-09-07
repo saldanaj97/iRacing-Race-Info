@@ -84,10 +84,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 export default function NavigationBar({ title }) {
   const [open, setOpen] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
-  const { user } = useContext(UserContext);
 
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
-  const routes = ["/races", "/cars", "/tracks", "/series"];
+  const routes = ["/races", "/cars", "/series", "/tracks"];
   const navigate = useNavigate();
 
   const handleDrawerOpen = () => setOpen(true);
