@@ -52,7 +52,7 @@ const SearchAndFilterBar = () => {
         </Box>
         <Box className='license-dropdown' sx={{ display: "flex", flexDirection: "column", width: "35%" }}>
           <Box sx={{ margin: "15px 0px", color: "black", fontWeight: "500" }}>Owned</Box>
-          <CustomizedMenu menuItems={["Both", "Yes", "No"]} dropdownID={"ownedContentFilter"} />
+          <CustomizedMenu menuItems={["All", "Yes", "No"]} dropdownID={"ownedContentFilter"} />
         </Box>
       </Box>
     </Paper>
