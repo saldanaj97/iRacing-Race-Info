@@ -49,15 +49,25 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (dropdownSelection) => {
+  const handleClose = (event) => {
+    setAnchorEl(null);
+  };
+
+  /* Function that will handle changing the state of the global filter 
+     Parameters: dropdownSelected - the value that has been selected from the dropdown menu
+     Returns: N/A
+  */
+  const handleSelection = (dropdownSelection) => {
     if (dropdownID === "weekNumber") setWeekNum(dropdownSelection);
     if (dropdownID === "categoryFilter") setCategoryFilter(dropdownSelection);
     if (dropdownID === "licenseFilter") setLicenseFilter(dropdownSelection);
     if (dropdownID === "ownedContentFilter") setOwnedContentFilter(dropdownSelection);
-    setAnchorEl(null);
   };
 
-  // Handle updating the value that is displayed on the dropdown menu when a value has been selected
+  /* Function that will update the value that is displayed when a user selects an item
+     Parameters: N/A
+     Returns: N/A
+  */
   const handleDropdownOptionRender = () => {
     if (dropdownID === "weekNumber") return weekNum;
     if (dropdownID === "categoryFilter") return categoryFilter;
@@ -67,20 +77,21 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
 
   return (
     <div>
-      <Button
-        id='dropdown-button'
-        aria-haspopup='true'
-        variant='outlined'
-        disableElevation
-        onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-        sx={{ display: "flex", justifyContent: "space-between", color: "black", borderColor: "grey.400", width: "80%" }}
-      >
+      <Button id='dropdown-button' aria-haspopup='true' variant='outlined' onClick={handleClick} endIcon={<KeyboardArrowDownIcon />} sx={{ display: "flex", justifyContent: "space-between", color: "black", borderColor: "grey.400", width: "80%" }}>
         {handleDropdownOptionRender()}
       </Button>
       <StyledMenu id='item-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>
         {menuItems.map((dropdownSelection) => {
-          return <MenuItem onClick={() => handleClose(dropdownSelection)}>{dropdownSelection}</MenuItem>;
+          return (
+            <MenuItem
+              onClick={() => {
+                handleClose();
+                handleSelection(dropdownSelection);
+              }}
+            >
+              {dropdownSelection}
+            </MenuItem>
+          );
         })}
       </StyledMenu>
     </div>
