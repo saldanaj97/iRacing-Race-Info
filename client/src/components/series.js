@@ -46,7 +46,7 @@ export default function FavoriteSeries() {
     let seriesList = [];
     Object.values(SeriesData).forEach((series) => {
       // Set the favorite series map to false
-      if (usersFavoriteSeries.size == 0) {
+      if (usersFavoriteSeries.size === 0) {
         usersFavoriteSeries.set(series.series_id, false);
       }
 
@@ -79,7 +79,7 @@ export default function FavoriteSeries() {
     try {
       const body = { user: user, series: Object.fromEntries(usersFavoriteSeries) };
       const response = await Axios.post("http://localhost:3001/users-content/update-favorite-series", body, { withCredentials: true }).then((response) => {
-        if (response.status == 200) alert(response.data.message); // TODO: Make notification look nicer
+        if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
       });
     } catch (error) {
       console.log(error);
