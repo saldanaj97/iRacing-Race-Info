@@ -111,7 +111,6 @@ export default function FavoriteCars() {
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", flexDirection: "column" }}>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={onFilterUpdate}>Update</Button>
       </Box>
       <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
