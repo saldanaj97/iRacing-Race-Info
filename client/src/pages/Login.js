@@ -33,7 +33,10 @@ const Login = () => {
     <div className='login'>
       <div className='login-button'>
         {user ? (
-          <Logout />
+          <Box sx={{ display: "flex", flexDirection: "row" }}>
+            <Box sx={{ margin: "0px 10px" }}>{user._profile.data.email}</Box>
+            <Logout />
+          </Box>
         ) : (
           <Box sx={{ display: "flex", direction: "row", justifyContent: "center", margin: "0px 15px" }}>
             <Box sx={{ margin: "0px 15px" }}>
