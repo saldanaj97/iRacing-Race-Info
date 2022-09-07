@@ -325,7 +325,7 @@ export default function Data() {
       if (searchResult === true && licenseFilter !== "All") searchResult = race.license.toLowerCase().includes(licenseFilter.toLowerCase());
 
       // If the user wants only owned/favorited content
-      if (searchResult === true && ownedContentFilter !== "Both") {
+      if (searchResult === true && ownedContentFilter !== "All") {
         searchResult = race.contentOwned === convertedOwnedContentFilter[ownedContentFilter];
       }
 
@@ -418,7 +418,6 @@ export default function Data() {
 
     // If there is a search query present in the search bar, filter the data before returning, if not just return all the data
     let filteredData = filterSearchQuery(rows);
-
     // Return the data
     return filteredData;
   };
