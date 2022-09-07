@@ -5,6 +5,7 @@
   "main": "index.js",
   "proxy": "http://localhost:3001",
   "scripts": {
+    "deploy": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
