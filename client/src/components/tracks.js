@@ -90,7 +90,7 @@ export default function FavoriteTracks() {
       <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
           return (
-            <Box sx={{ fontWeight: "bold", fontSize: "23px" }}>
+            <Box key={category} sx={{ fontWeight: "bold", fontSize: "23px" }}>
               {typesFormatted[category]}
               <FormGroup sx={{ fontWeight: "normal", fontSize: "18px" }}>{categorizeTracks(category)}</FormGroup>
             </Box>

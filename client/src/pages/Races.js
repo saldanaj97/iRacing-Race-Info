@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { AppBar, Box, Container, Typography, Toolbar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { WeekContext } from "../contexts/WeekContext";
+import { UserContext } from "../contexts/UserContext";
 import { FilterProvider } from "../contexts/FilterContext";
 import SearchAndFilterBar from "../components/searchandfilter";
 import CustomizedMenu from "../components/dropdownmenu";
@@ -9,6 +11,13 @@ import Data from "../components/races";
 
 const Races = () => {
   const { weekNum } = useContext(WeekContext);
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  // If the user is signed in, redirect to the authenticated page
+  useEffect(() => {
+    if (user) navigate("/races");
+  });
 
   return (
     <Box className='page-container' sx={{ display: "flex", justifyContent: "center" }}>
