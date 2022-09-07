@@ -13,7 +13,6 @@ import { FaFlagCheckered } from "react-icons/fa";
 import { BsCardChecklist } from "react-icons/bs";
 
 import Login from "../pages/Login";
-import { UserContext } from "../contexts/UserContext";
 
 const drawerWidth = 250;
 
