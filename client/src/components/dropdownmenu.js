@@ -84,6 +84,7 @@ export default function CustomizedMenu({ menuItems, dropdownID }) {
         {menuItems.map((dropdownSelection) => {
           return (
             <MenuItem
+              key={dropdownSelection}
               onClick={() => {
                 handleClose();
                 handleSelection(dropdownSelection);

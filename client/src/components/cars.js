@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import Axios from "axios";
-import { Box, Button, Checkbox, Paper, Typography, FormGroup, FormControlLabel } from "@mui/material";
+import { Box, Button, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
 import CarData from "../data/cars.json";
 import SeasonData from "../data/schedules.json";
 import { UserContext } from "../contexts/UserContext";
@@ -101,7 +101,7 @@ export default function FavoriteCars() {
     try {
       const body = { user: user, cars: Object.fromEntries(ownedCars) };
       const response = await Axios.post("http://localhost:3001/users-content/update-owned-cars", body, { withCredentials: true }).then((response) => {
-        if (response.status == 200) alert(response.data.message); // TODO: Make notification look nicer
+        if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
       });
     } catch (error) {
       console.log(error);
@@ -111,11 +111,14 @@ export default function FavoriteCars() {
   return (
     <Paper elevation={8} sx={{ borderRadius: "15px", width: "75%", display: "flex", flexDirection: "column" }}>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button variant='contained' sx={{ backgroundColor: "#2b2d42", height: "70%", margin: "15px 0px" }} onClick={onFilterUpdate}>
+          Update
+        </Button>
       </Box>
       <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
           return (
-            <Box sx={{ fontWeight: "bold", fontSize: "23px" }}>
+            <Box key={category} sx={{ fontWeight: "bold", fontSize: "23px" }}>
               {typesFormatted[category]}
               <FormGroup sx={{ fontWeight: "normal", fontSize: "18px" }}>{carsUnderCategories(category)}</FormGroup>
             </Box>

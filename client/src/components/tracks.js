@@ -73,7 +73,7 @@ export default function FavoriteTracks() {
     try {
       const body = { user: user, tracks: Object.fromEntries(ownedTracks) };
       const response = await Axios.post("http://localhost:3001/users-content/update-owned-tracks", body, { withCredentials: true }).then((response) => {
-        if (response.status == 200) alert(response.data.message); // TODO: Make notification look nicer
+        if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
       });
     } catch (error) {
       console.log(error);
@@ -90,7 +90,7 @@ export default function FavoriteTracks() {
       <Box className='cars-owned-container' sx={{ display: "flex", alignContent: "center", width: "100%", justifyContent: "space-evenly", margin: "20px 15px" }}>
         {types.map((category) => {
           return (
-            <Box sx={{ fontWeight: "bold", fontSize: "23px" }}>
+            <Box key={category} sx={{ fontWeight: "bold", fontSize: "23px" }}>
               {typesFormatted[category]}
               <FormGroup sx={{ fontWeight: "normal", fontSize: "18px" }}>{categorizeTracks(category)}</FormGroup>
             </Box>

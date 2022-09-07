@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { styled } from "@mui/material/styles";
@@ -13,7 +13,6 @@ import { FaFlagCheckered } from "react-icons/fa";
 import { BsCardChecklist } from "react-icons/bs";
 
 import Login from "../pages/Login";
-import { UserContext } from "../contexts/UserContext";
 
 const drawerWidth = 250;
 
@@ -84,10 +83,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 export default function NavigationBar({ title }) {
   const [open, setOpen] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
-  const { user } = useContext(UserContext);
 
   const sideBarIcons = [FaFlagCheckered, GiF1Car, BsCardChecklist, GiRoad];
-  const routes = ["/races", "/cars", "/tracks", "/series"];
+  const routes = ["/races", "/cars", "/series", "/tracks"];
   const navigate = useNavigate();
 
   const handleDrawerOpen = () => setOpen(true);
@@ -96,6 +94,7 @@ export default function NavigationBar({ title }) {
 
   useEffect(() => {
     setPageTitle(title);
+    document.title = title;
   }, [pageTitle]);
 
   return (
