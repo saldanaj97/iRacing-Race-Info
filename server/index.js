@@ -10,7 +10,7 @@ const usersRoutes = require("./routes/Users");
 
 // Cors
 const corsOptions = {
-  origin: ["http://localhost:3001", "http://localhost:3000"],
+  origin: ["*"],
   allowedHeaders: ["Origin", "X-Requested-With", "Content", "Accept", "Content-Type", "Authorization"],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
