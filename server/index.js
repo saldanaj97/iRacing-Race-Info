@@ -10,7 +10,7 @@ const usersRoutes = require("./routes/Users");
 
 // Cors
 const corsOptions = {
-  origin: ["http://iracing-race-info-production.up.railway.app", " https://iracingweekly.netlify.app"],
+  origin: ["http://iracing-race-info-production.up.railway.app", "https://iracingweekly.netlify.app"],
   allowedHeaders: ["Origin", "X-Requested-With", "Content", "Accept", "Content-Type", "Authorization"],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
