@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const apiURL = "https://iracing-race-info-production.up.railway.app";
+const apiURL = "https://localhost:3000";
 
 /*  Function to handle the get owned cars api call
     Parameters:user - global user obj containing info needed for reqs; userOwnedCars - map containing all of the cars and if the user owns them or not
