@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import Axios from "axios";
 import { Box, Button, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
 import Tracks from "../data/tracks.json";
 import { UserContext } from "../contexts/UserContext";
-import { getUserOwnedTracks, updateOwnedTracks } from "../services/Services";
+import { getUserOwnedTracks } from "../services/Services";
 
 export default function FavoriteTracks() {
   // Global user data
@@ -69,7 +70,14 @@ export default function FavoriteTracks() {
       Returns: N/A
   */
   const onFilterUpdate = async (event) => {
-    updateOwnedTracks(user, ownedTracks);
+    try {
+      const body = { user: user, tracks: Object.fromEntries(ownedTracks) };
+      const response = await Axios.post("http://localhost:3001/users-content/update-owned-tracks", body, { withCredentials: true }).then((response) => {
+        if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
