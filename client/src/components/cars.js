@@ -1,9 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
+import Axios from "axios";
 import { Box, Button, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
 import CarData from "../data/cars.json";
 import SeasonData from "../data/schedules.json";
 import { UserContext } from "../contexts/UserContext";
-import { getUserOwnedCars, updateCarsFilter } from "../services/Services";
+import { getUserOwnedCars } from "../services/Services";
 
 export default function FavoriteCars() {
   // Global User context
@@ -97,7 +98,14 @@ export default function FavoriteCars() {
       Returns: N/A
   */
   const onFilterUpdate = async (event) => {
-    updateCarsFilter(user, ownedCars);
+    try {
+      const body = { user: user, cars: Object.fromEntries(ownedCars) };
+      const response = await Axios.post("http://localhost:3001/users-content/update-owned-cars", body, { withCredentials: true }).then((response) => {
+        if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
