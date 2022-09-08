@@ -10,16 +10,12 @@ const usersRoutes = require("./routes/Users");
 
 // Cors
 const corsOptions = {
-  origin: ["*"],
+  origin: ["http://localhost:3001", "http://localhost:3000", "http://iracing-race-info-production.up.railway.app"],
   allowedHeaders: ["Origin", "X-Requested-With", "Content", "Accept", "Content-Type", "Authorization"],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
 };
-//app.use(cors(corsOptions));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
