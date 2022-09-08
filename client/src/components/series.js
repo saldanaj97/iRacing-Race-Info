@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import Axios from "axios";
 import { Box, Button, Checkbox, Paper, FormGroup, FormControlLabel } from "@mui/material";
 import SeriesData from "../data/series.json";
 import { UserContext } from "../contexts/UserContext";
-import { getUserFavoritedSeries, updateSeriesFilter } from "../services/Services";
+import { getUserFavoritedSeries } from "../services/Services";
 
 export default function FavoriteSeries() {
   // Global user data
@@ -75,7 +76,14 @@ export default function FavoriteSeries() {
       Returns: N/A
     */
   const onFilterUpdate = async (event) => {
-    updateSeriesFilter(user, usersFavoriteSeries);
+    try {
+      const body = { user: user, series: Object.fromEntries(usersFavoriteSeries) };
+      const response = await Axios.post("http://localhost:3001/users-content/update-favorite-series", body, { withCredentials: true }).then((response) => {
+        if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
