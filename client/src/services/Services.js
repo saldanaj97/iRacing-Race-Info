@@ -1,4 +1,6 @@
+import React, { useContext } from "react";
 import Axios from "axios";
+import { UserContext } from "../contexts/UserContext";
 
 const apiURL = "https://iracing-race-info-production.up.railway.app";
 
@@ -54,51 +56,6 @@ export const getUserFavoritedSeries = async (user) => {
       favorites.set(parseInt(series), favoriteSeries[series]);
     });
     return favorites;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-/*  Function that will send a request to the DB notifying them of car filter updates
-    Parameters: user - the user obj containing info about the current user; ownedCars - list of the cars w/ id and bool 
-    Returns: N/A
-*/
-export const updateCarsFilter = async (user, ownedCars) => {
-  try {
-    const body = { user: user, cars: Object.fromEntries(ownedCars) };
-    const response = await Axios.post(`${apiURL}/users-content/update-owned-cars/`, body, { withCredentials: true }).then((response) => {
-      if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-/*  Function that will send a request to the DB notifying them of series filter updates
-    Parameters: user - user obj containing info about the user logged in; usersFavoriteSeries - list w/ series id and bool 
-    Returns: N/A
-*/
-export const updateSeriesFilter = async (user, usersFavoriteSeries) => {
-  try {
-    const body = { user: user, series: Object.fromEntries(usersFavoriteSeries) };
-    const response = await Axios.post(`${apiURL}/users-content/update-favorite-series/`, body, { withCredentials: true }).then((response) => {
-      if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-/*  Function that will send a request to the DB notifying them of track filter updates
-      Parameters: user - user obj containing info about the user; ownedTracks - list of track ids w/ bool of whether its owned or not
-      Returns: N/A
-  */
-export const updateOwnedTracks = async (user, ownedTracks) => {
-  try {
-    const body = { user: user, tracks: Object.fromEntries(ownedTracks) };
-    const response = await Axios.post(`${apiURL}/users-content/update-owned-tracks/`, body, { withCredentials: true }).then((response) => {
-      if (response.status === 200) alert(response.data.message); // TODO: Make notification look nicer
-    });
   } catch (error) {
     console.log(error);
   }
