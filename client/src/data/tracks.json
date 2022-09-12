@@ -61,7 +61,7 @@
     },
     {
         "id": 26,
-        "name": "[Legacy] Daytona International Speedway - 2008",
+        "name": "Daytona International Speedway",
         "category": "road"
     },
     {
@@ -260,11 +260,6 @@
         "category": "oval"
     },
     {
-        "id": 191,
-        "name": "Daytona International Speedway",
-        "category": "oval"
-    },
-    {
         "id": 195,
         "name": "Twin Ring Motegi",
         "category": "road"
@@ -418,6 +413,11 @@
         "id": 286,
         "name": "Myrtle Beach Speedway",
         "category": "oval"
+    },
+    {
+        "id": 293,
+        "name": "Daytona Rallycross",
+        "category": "dirt_road"
     },
     {
         "id": 297,
@@ -632,6 +632,21 @@
     {
         "id": 446,
         "name": "Port Royal Speedway",
+        "category": "dirt_oval"
+    },
+    {
+        "id": 449,
+        "name": "Motorsport Arena Oschersleben",
+        "category": "road"
+    },
+    {
+        "id": 451,
+        "name": "Rudskogen Motorsenter",
+        "category": "road"
+    },
+    {
+        "id": 452,
+        "name": "Lucas Oil Speedway",
         "category": "dirt_oval"
     }
 ]
