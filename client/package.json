@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "calls": "cd api_calls && node retrievedata.js",
+    "deploy": "react-scripts build && netlify deploy --prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
