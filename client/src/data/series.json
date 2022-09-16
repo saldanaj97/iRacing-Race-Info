@@ -211,6 +211,63 @@
     {
         "allowed_licenses": [
             {
+                "license_group": 1,
+                "min_license_level": 4,
+                "max_license_level": 4,
+                "group_name": "Rookie"
+            },
+            {
+                "license_group": 2,
+                "min_license_level": 5,
+                "max_license_level": 8,
+                "group_name": "Class D"
+            },
+            {
+                "license_group": 3,
+                "min_license_level": 9,
+                "max_license_level": 12,
+                "group_name": "Class C"
+            },
+            {
+                "license_group": 4,
+                "min_license_level": 13,
+                "max_license_level": 16,
+                "group_name": "Class B"
+            },
+            {
+                "license_group": 5,
+                "min_license_level": 17,
+                "max_license_level": 20,
+                "group_name": "Class A"
+            },
+            {
+                "license_group": 6,
+                "min_license_level": 21,
+                "max_license_level": 24,
+                "group_name": "Pro"
+            },
+            {
+                "license_group": 7,
+                "min_license_level": 25,
+                "max_license_level": 28,
+                "group_name": "Pro/WC"
+            }
+        ],
+        "category": "road",
+        "category_id": 2,
+        "eligible": true,
+        "max_starters": 25,
+        "min_starters": 6,
+        "oval_caution_type": 0,
+        "road_caution_type": 2,
+        "search_filters": "sportscars,road",
+        "series_id": 277,
+        "series_name": "Ruf GT3 Challenge",
+        "series_short_name": "Ruf GT3 Challenge"
+    },
+    {
+        "allowed_licenses": [
+            {
                 "license_group": 2,
                 "min_license_level": 8,
                 "max_license_level": 8,
@@ -745,8 +802,8 @@
         "road_caution_type": 0,
         "search_filters": "dirtoval,dirtsprints",
         "series_id": 305,
-        "series_name": "DIRTcar 360 Sprint Car Carquest Series",
-        "series_short_name": "DIRTcar 360 Sprint Car Carquest Series"
+        "series_name": "DIRTcar 360 Sprint Car Series ",
+        "series_short_name": "DIRTcar 360 Sprint Car Series "
     },
     {
         "allowed_licenses": [
@@ -1480,45 +1537,6 @@
     {
         "allowed_licenses": [
             {
-                "license_group": 4,
-                "min_license_level": 16,
-                "max_license_level": 16,
-                "group_name": "Class B"
-            },
-            {
-                "license_group": 5,
-                "min_license_level": 17,
-                "max_license_level": 20,
-                "group_name": "Class A"
-            },
-            {
-                "license_group": 6,
-                "min_license_level": 21,
-                "max_license_level": 24,
-                "group_name": "Pro"
-            },
-            {
-                "license_group": 7,
-                "min_license_level": 25,
-                "max_license_level": 28,
-                "group_name": "Pro/WC"
-            }
-        ],
-        "category": "road",
-        "category_id": 2,
-        "eligible": false,
-        "max_starters": 50,
-        "min_starters": 10,
-        "oval_caution_type": 0,
-        "road_caution_type": 2,
-        "search_filters": "prototype,sportscars,road",
-        "series_id": 331,
-        "series_name": "European Endurance Pure Driving School Series",
-        "series_short_name": "European Endurance Pure Driving School Series"
-    },
-    {
-        "allowed_licenses": [
-            {
                 "license_group": 1,
                 "min_license_level": 4,
                 "max_license_level": 4,
@@ -2170,8 +2188,8 @@
         "road_caution_type": 2,
         "search_filters": "sportscars,road",
         "series_id": 399,
-        "series_name": "Supercars Series - Fixed",
-        "series_short_name": "Supercars Series - Fixed"
+        "series_name": "Supercars Series",
+        "series_short_name": "Supercars Series"
     },
     {
         "allowed_licenses": [
@@ -2572,106 +2590,6 @@
     {
         "allowed_licenses": [
             {
-                "license_group": 2,
-                "min_license_level": 8,
-                "max_license_level": 8,
-                "group_name": "Class D"
-            },
-            {
-                "license_group": 3,
-                "min_license_level": 9,
-                "max_license_level": 12,
-                "group_name": "Class C"
-            },
-            {
-                "license_group": 4,
-                "min_license_level": 13,
-                "max_license_level": 16,
-                "group_name": "Class B"
-            },
-            {
-                "license_group": 5,
-                "min_license_level": 17,
-                "max_license_level": 20,
-                "group_name": "Class A"
-            },
-            {
-                "license_group": 6,
-                "min_license_level": 21,
-                "max_license_level": 24,
-                "group_name": "Pro"
-            },
-            {
-                "license_group": 7,
-                "min_license_level": 25,
-                "max_license_level": 28,
-                "group_name": "Pro/WC"
-            }
-        ],
-        "category": "road",
-        "category_id": 2,
-        "eligible": true,
-        "max_starters": 30,
-        "min_starters": 6,
-        "oval_caution_type": 0,
-        "road_caution_type": 2,
-        "series_id": 422,
-        "series_name": "Bathurst 1000 US",
-        "series_short_name": "Bathurst 1000 US"
-    },
-    {
-        "allowed_licenses": [
-            {
-                "license_group": 2,
-                "min_license_level": 8,
-                "max_license_level": 8,
-                "group_name": "Class D"
-            },
-            {
-                "license_group": 3,
-                "min_license_level": 9,
-                "max_license_level": 12,
-                "group_name": "Class C"
-            },
-            {
-                "license_group": 4,
-                "min_license_level": 13,
-                "max_license_level": 16,
-                "group_name": "Class B"
-            },
-            {
-                "license_group": 5,
-                "min_license_level": 17,
-                "max_license_level": 20,
-                "group_name": "Class A"
-            },
-            {
-                "license_group": 6,
-                "min_license_level": 21,
-                "max_license_level": 24,
-                "group_name": "Pro"
-            },
-            {
-                "license_group": 7,
-                "min_license_level": 25,
-                "max_license_level": 28,
-                "group_name": "Pro/WC"
-            }
-        ],
-        "category": "road",
-        "category_id": 2,
-        "eligible": true,
-        "max_starters": 30,
-        "min_starters": 6,
-        "oval_caution_type": 0,
-        "road_caution_type": 2,
-        "series_id": 423,
-        "series_name": "Bathurst 1000 AU",
-        "series_short_name": "Bathurst 1000 AU"
-    },
-    {
-        "allowed_licenses": [
-            {
                 "license_group": 1,
                 "min_license_level": 4,
                 "max_license_level": 4,
@@ -2780,14 +2698,8 @@
     {
         "allowed_licenses": [
             {
-                "license_group": 2,
-                "min_license_level": 8,
-                "max_license_level": 8,
-                "group_name": "Class D"
-            },
-            {
                 "license_group": 3,
-                "min_license_level": 9,
+                "min_license_level": 12,
                 "max_license_level": 12,
                 "group_name": "Class C"
             },
@@ -2875,7 +2787,7 @@
         "category": "road",
         "category_id": 2,
         "eligible": true,
-        "max_starters": 20,
+        "max_starters": 30,
         "min_starters": 6,
         "oval_caution_type": 0,
         "road_caution_type": 2,
@@ -3645,8 +3557,8 @@
         "oval_caution_type": 0,
         "road_caution_type": 2,
         "series_id": 455,
-        "series_name": "Formula Vee Series",
-        "series_short_name": "Formula Vee Series"
+        "series_name": "Formula Vee Sim Racing Studio Series",
+        "series_short_name": "Formula Vee Sim Racing Studio Series"
     },
     {
         "allowed_licenses": [
@@ -3695,8 +3607,8 @@
         "oval_caution_type": 0,
         "road_caution_type": 2,
         "series_id": 456,
-        "series_name": "F3 MOZA Racing Championship – Fixed",
-        "series_short_name": "F3 MOZA Racing Championship – Fixed"
+        "series_name": "F3 Vertagear Championship - Fixed",
+        "series_short_name": "F3 Vertagear Championship - Fixed"
     },
     {
         "allowed_licenses": [
@@ -3739,8 +3651,8 @@
         "oval_caution_type": 0,
         "road_caution_type": 2,
         "series_id": 457,
-        "series_name": "LMP2 Prototype  Challenge – Fixed",
-        "series_short_name": "LMP2 Prototype  Challenge – Fixed"
+        "series_name": "LMP2 Prototype Ricmotech Challenge - Fixed",
+        "series_short_name": "LMP2 Prototype Ricmotech Challenge - Fixed"
     },
     {
         "allowed_licenses": [
@@ -4330,6 +4242,56 @@
     {
         "allowed_licenses": [
             {
+                "license_group": 2,
+                "min_license_level": 8,
+                "max_license_level": 8,
+                "group_name": "Class D"
+            },
+            {
+                "license_group": 3,
+                "min_license_level": 9,
+                "max_license_level": 12,
+                "group_name": "Class C"
+            },
+            {
+                "license_group": 4,
+                "min_license_level": 13,
+                "max_license_level": 16,
+                "group_name": "Class B"
+            },
+            {
+                "license_group": 5,
+                "min_license_level": 17,
+                "max_license_level": 20,
+                "group_name": "Class A"
+            },
+            {
+                "license_group": 6,
+                "min_license_level": 21,
+                "max_license_level": 24,
+                "group_name": "Pro"
+            },
+            {
+                "license_group": 7,
+                "min_license_level": 25,
+                "max_license_level": 28,
+                "group_name": "Pro/WC"
+            }
+        ],
+        "category": "road",
+        "category_id": 2,
+        "eligible": true,
+        "max_starters": 50,
+        "min_starters": 10,
+        "oval_caution_type": 0,
+        "road_caution_type": 2,
+        "series_id": 469,
+        "series_name": "Global Endurance Pure Driving School Series",
+        "series_short_name": "Global Endurance Pure Driving School Series"
+    },
+    {
+        "allowed_licenses": [
+            {
                 "license_group": 1,
                 "min_license_level": 1,
                 "max_license_level": 4,
@@ -4382,6 +4344,94 @@
         "series_id": 471,
         "series_name": "Dallara Dash Pimax Series",
         "series_short_name": "Dallara Dash Pimax Series"
+    },
+    {
+        "allowed_licenses": [
+            {
+                "license_group": 4,
+                "min_license_level": 16,
+                "max_license_level": 16,
+                "group_name": "Class B"
+            },
+            {
+                "license_group": 5,
+                "min_license_level": 17,
+                "max_license_level": 20,
+                "group_name": "Class A"
+            },
+            {
+                "license_group": 6,
+                "min_license_level": 21,
+                "max_license_level": 24,
+                "group_name": "Pro"
+            },
+            {
+                "license_group": 7,
+                "min_license_level": 25,
+                "max_license_level": 28,
+                "group_name": "Pro/WC"
+            }
+        ],
+        "category": "road",
+        "category_id": 2,
+        "eligible": false,
+        "max_starters": 30,
+        "min_starters": 6,
+        "oval_caution_type": 0,
+        "road_caution_type": 2,
+        "series_id": 472,
+        "series_name": "Porsche TAG Heuer Esports Supercup Qualifying Series",
+        "series_short_name": "Porsche TAG Heuer Esports Supercup Qualifying Series"
+    },
+    {
+        "allowed_licenses": [
+            {
+                "license_group": 2,
+                "min_license_level": 8,
+                "max_license_level": 8,
+                "group_name": "Class D"
+            },
+            {
+                "license_group": 3,
+                "min_license_level": 9,
+                "max_license_level": 12,
+                "group_name": "Class C"
+            },
+            {
+                "license_group": 4,
+                "min_license_level": 13,
+                "max_license_level": 16,
+                "group_name": "Class B"
+            },
+            {
+                "license_group": 5,
+                "min_license_level": 17,
+                "max_license_level": 20,
+                "group_name": "Class A"
+            },
+            {
+                "license_group": 6,
+                "min_license_level": 21,
+                "max_license_level": 24,
+                "group_name": "Pro"
+            },
+            {
+                "license_group": 7,
+                "min_license_level": 25,
+                "max_license_level": 28,
+                "group_name": "Pro/WC"
+            }
+        ],
+        "category": "dirt_oval",
+        "category_id": 3,
+        "eligible": false,
+        "max_starters": 60,
+        "min_starters": 6,
+        "oval_caution_type": 4,
+        "road_caution_type": 0,
+        "series_id": 475,
+        "series_name": "iRacing Knoxville Nationals",
+        "series_short_name": "iRacing Knoxville Nationals"
     },
     {
         "allowed_licenses": [
@@ -4722,8 +4772,8 @@
         "road_caution_type": 2,
         "search_filters": "sportscars,road",
         "series_id": 231,
-        "series_name": "Advanced Mazda MX-5 GarageXYZ Cup Series",
-        "series_short_name": "Advanced Mazda MX-5 GarageXYZ Cup Series"
+        "series_name": "Advanced Mazda MX-5 Cup Series",
+        "series_short_name": "Advanced Mazda MX-5 Cup Series"
     },
     {
         "allowed_licenses": [
@@ -4917,14 +4967,13 @@
         "category": "road",
         "category_id": 2,
         "eligible": true,
-        "max_starters": 60,
+        "max_starters": 28,
         "min_starters": 6,
         "oval_caution_type": 0,
         "road_caution_type": 2,
-        "search_filters": "sportscars,road",
-        "series_id": 237,
-        "series_name": "GT Endurance VRS Series",
-        "series_short_name": "GT Endurance VRS Series"
+        "series_id": 493,
+        "series_name": "Stock Car Brasil",
+        "series_short_name": "Stock Car Brasil"
     },
     {
         "allowed_licenses": [
@@ -4968,13 +5017,14 @@
         "category": "road",
         "category_id": 2,
         "eligible": true,
-        "max_starters": 28,
+        "max_starters": 60,
         "min_starters": 6,
         "oval_caution_type": 0,
         "road_caution_type": 2,
-        "series_id": 493,
-        "series_name": "Stock Car Brasil",
-        "series_short_name": "Stock Car Brasil"
+        "search_filters": "sportscars,road",
+        "series_id": 237,
+        "series_name": "GT Endurance VRS Series",
+        "series_short_name": "GT Endurance VRS Series"
     },
     {
         "allowed_licenses": [
@@ -5129,8 +5179,8 @@
         "oval_caution_type": 0,
         "road_caution_type": 1,
         "series_id": 497,
-        "series_name": "iRacing Formula iR-04 Ricmotech Challenge",
-        "series_short_name": "iRacing Formula iR-04 Ricmotech Challenge"
+        "series_name": "iRacing Formula iR-04 Challenge",
+        "series_short_name": "iRacing Formula iR-04 Challenge"
     },
     {
         "allowed_licenses": [
@@ -5185,8 +5235,8 @@
         "oval_caution_type": 0,
         "road_caution_type": 1,
         "series_id": 498,
-        "series_name": "iRacing Formula iR-04 Ricmotech Challenge - Fixed",
-        "series_short_name": "iRacing Formula iR-04 Ricmotech Challenge - Fixed"
+        "series_name": "iRacing Formula iR-04 Challenge - Fixed",
+        "series_short_name": "iRacing Formula iR-04 Challenge - Fixed"
     },
     {
         "allowed_licenses": [
@@ -5382,68 +5432,12 @@
         "category": "road",
         "category_id": 2,
         "eligible": true,
-        "max_starters": 20,
+        "max_starters": 30,
         "min_starters": 6,
         "oval_caution_type": 0,
         "road_caution_type": 0,
         "series_id": 503,
         "series_name": "Touring Car Turn Racing Challenge",
         "series_short_name": "Touring Car Turn Racing Challenge"
-    },
-    {
-        "allowed_licenses": [
-            {
-                "license_group": 1,
-                "min_license_level": 4,
-                "max_license_level": 4,
-                "group_name": "Rookie"
-            },
-            {
-                "license_group": 2,
-                "min_license_level": 5,
-                "max_license_level": 8,
-                "group_name": "Class D"
-            },
-            {
-                "license_group": 3,
-                "min_license_level": 9,
-                "max_license_level": 12,
-                "group_name": "Class C"
-            },
-            {
-                "license_group": 4,
-                "min_license_level": 13,
-                "max_license_level": 16,
-                "group_name": "Class B"
-            },
-            {
-                "license_group": 5,
-                "min_license_level": 17,
-                "max_license_level": 20,
-                "group_name": "Class A"
-            },
-            {
-                "license_group": 6,
-                "min_license_level": 21,
-                "max_license_level": 24,
-                "group_name": "Pro"
-            },
-            {
-                "license_group": 7,
-                "min_license_level": 25,
-                "max_license_level": 28,
-                "group_name": "Pro/WC"
-            }
-        ],
-        "category": "road",
-        "category_id": 2,
-        "eligible": true,
-        "max_starters": 25,
-        "min_starters": 6,
-        "oval_caution_type": 0,
-        "road_caution_type": 1,
-        "series_id": 505,
-        "series_name": "Mission R Challenge - Fixed",
-        "series_short_name": "Mission R Challenge - Fixed"
     }
 ]
