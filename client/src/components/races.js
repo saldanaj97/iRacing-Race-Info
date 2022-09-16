@@ -251,6 +251,7 @@ export default function Data() {
         }
       });
 
+      console.log(series)
       let remainingRaceSchedule = series.schedule[extendedSeries.race_week_num + weekNum - 2];
       let sessions = [...remainingRaceSchedule.session_start_data[0].session_times];
       // Loop through and find the next available race in the array
