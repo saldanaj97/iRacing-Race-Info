@@ -45,7 +45,7 @@ const timeConvert = (mins) => {
 
 export default function Data() {
   // CHANGE THIS AT THE BEGINNING OF A NEW SEASON
-  const seasonStartDate = new Date("2022-6-14");
+  const seasonStartDate = new Date("2022-9-13");
 
   // Global state for week number, filter bar, and user
   const { weekNum } = useContext(WeekContext);
@@ -266,7 +266,7 @@ export default function Data() {
     }
     return { weekToResumeFrom: extendedSeries.race_week_num + weekNum - 2, startDate: startDate, nextRace: nextRace };
   };
-  
+
   /*  Function that will take in the start time of a series and add the repeat min to it 
       Parameters: time - in hh:mm:ss format, repeat_min - the interval in which the races will repeat
       Returns: the time and date of the next race 
@@ -418,7 +418,7 @@ export default function Data() {
 
     // If there is a search query present in the search bar, filter the data before returning, if not just return all the data
     let filteredData = filterSearchQuery(rows);
-    
+
     // Return the data
     return filteredData;
   };
